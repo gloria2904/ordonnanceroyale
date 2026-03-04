@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ordonnanceroyale.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://ordonnanceroyale.com/boutique.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://ordonnanceroyale.com/ordonnance.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ordonnanceroyale.com/a-propos.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ordonnanceroyale.com/contact.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ordonnanceroyale.com/livraison.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ordonnanceroyale.com/produit.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+</urlset>
+```
+
+---
+
+### 📄 `robots.txt`
+```
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://ordonnanceroyale.com/sitemap.xml

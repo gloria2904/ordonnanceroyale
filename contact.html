@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & FAQ | Ordonnance Royale</title>
+  <meta name="description" content="Contactez l'équipe Ordonnance Royale. Questions sur votre commande, délais de livraison, produits personnalisés ? Nous répondons sous 24–48h.">
+  <link rel="canonical" href="https://votredomaine.com/contact.html">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Ordonnance<span>Royale</span></a>
+      <ul class="nav__menu">
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="ordonnance.html">Ordonnance personnalisée</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="livraison.html">Livraison</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <div class="nav__burger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="boutique.html">Boutique</a>
+  <a href="ordonnance.html">Ordonnance personnalisée</a>
+  <a href="a-propos.html">À propos</a>
+  <a href="livraison.html">Livraison</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<header class="contact-hero">
+  <div class="container">
+    <span class="label">Nous sommes là</span>
+    <h1 style="margin-top:16px;">Contactez-nous</h1>
+    <p style="max-width:440px;margin:16px auto 0;">Une question sur votre commande ou sur nos produits ? Nous répondons sous 24 à 48 heures.</p>
+  </div>
+</header>
+
+<section class="contact-section">
+  <div class="container">
+    <div class="contact__grid">
+
+      <!-- INFOS -->
+      <div>
+        <span class="label" style="margin-bottom:24px;display:block;">Nos coordonnées</span>
+
+        <div class="contact-info__item fade-in">
+          <div>
+            <p class="contact-info__label">Email</p>
+            <p class="contact-info__value"><a href="mailto:contact@ordonnanceroyale.com">contact@ordonnanceroyale.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact-info__item fade-in">
+          <div>
+            <p class="contact-info__label">Délai de réponse</p>
+            <p class="contact-info__value">24 à 48 heures (jours ouvrés)</p>
+          </div>
+        </div>
+
+        <div class="contact-info__item fade-in">
+          <div>
+            <p class="contact-info__label">Livraison</p>
+            <p class="contact-info__value">France, Belgique, Suisse, Canada, Afrique francophone et monde entier</p>
+          </div>
+        </div>
+
+        <div class="contact-info__item fade-in">
+          <div>
+            <p class="contact-info__label">Délai de préparation</p>
+            <p class="contact-info__value">2 à 3 jours ouvrés après validation de commande</p>
+          </div>
+        </div>
+
+        <div class="contact-info__item fade-in">
+          <div>
+            <p class="contact-info__label">Retours</p>
+            <p class="contact-info__value">Remboursement ou réimpression si défaut de qualité à réception</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMULAIRE -->
+      <div class="fade-in">
+        <span class="label" style="margin-bottom:24px;display:block;">Envoyez-nous un message</span>
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="nom">Votre nom</label>
+            <input class="form-control" type="text" id="nom" required placeholder="Jean Dupont">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" id="email" required placeholder="jean@exemple.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sujet">Sujet</label>
+            <select class="form-control form-control--select" id="sujet">
+              <option>Question sur une commande</option>
+              <option>Ordonnance personnalisée</option>
+              <option>Livraison & délais</option>
+              <option>Retour / remboursement</option>
+              <option>Partenariat</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-control form-control--textarea" id="message" required placeholder="Votre message..." rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark" style="width:100%;">Envoyer le message</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section__header fade-in">
+      <span class="label">Questions fréquentes</span>
+      <h2 id="faq-title">FAQ</h2>
+    </div>
+
+    <div class="faq__list">
+
+      <div class="faq__item fade-in">
+        <button class="faq__question">Combien de temps faut-il pour recevoir ma commande ?<span>+</span></button>
+        <div class="faq__answer"><p>Nos ordonnances sont préparées sous 2 à 3 jours ouvrés. Le délai de livraison dépend ensuite de votre pays : France 3–5 jours, Belgique/Suisse 5–7 jours, Canada/Afrique 7–14 jours.</p></div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <button class="faq__question">Puis-je modifier mon verset après commande ?<span>+</span></button>
+        <div class="faq__answer"><p>Oui, dans les 24 heures suivant votre commande. Au-delà, si la préparation a commencé, les modifications peuvent entraîner des frais supplémentaires. Contactez-nous rapidement par email.</p></div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <button class="faq__question">Proposez-vous des réductions pour les commandes en gros ?<span>+</span></button>
+        <div class="faq__answer"><p>Oui ! Pour les commandes de 10 ordonnances ou plus (idéales pour les églises, événements ou cadeaux de groupe), contactez-nous pour un devis personnalisé avec remise.</p></div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <button class="faq__question">Quelle traduction utilisez-vous par défaut ?<span>+</span></button>
+        <div class="faq__answer"><p>Nous utilisons par défaut la traduction Louis Segond (1910). Vous pouvez préciser votre traduction préférée lors de la commande : Segond 21, NEG, BFC, Ostervald, Darby, ou toute autre version.</p></div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <button class="faq__question">Puis-je retourner un produit si je ne suis pas satisfait ?<span>+</span></button>
+        <div class="faq__answer"><p>En cas de défaut d'impression ou de dommage pendant la livraison, nous procédons à une réimpression gratuite ou à un remboursement intégral. Les ordonnances personnalisées ne sont pas remboursables si elles ont été imprimées conformément à votre commande.</p></div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <button class="faq__question">Livrez-vous dans toute l'Afrique ?<span>+</span></button>
+        <div class="faq__answer"><p>Nous livrons dans la plupart des pays africains francophones et anglophones. Sélectionnez votre pays lors de la commande pour voir les tarifs. Pour les pays non listés, contactez-nous directement.</p></div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <button class="faq__question">Proposez-vous des encadrements ?<span>+</span></button>
+        <div class="faq__answer"><p>Oui, pour un supplément de 15 € nous ajoutons un cadre en bois laqué noir, standard, adapté au format choisi. L'option est disponible lors de la commande.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <h3>OrdonnanceRoyale</h3>
+        <p>Des paroles sacrées imprimées avec élégance.</p>
+      </div>
+      <nav class="footer__col">
+        <h4>Boutique</h4>
+        <ul>
+          <li><a href="boutique.html">Tous les produits</a></li>
+          <li><a href="ordonnance.html">Personnalisée</a></li>
+        </ul>
+      </nav>
+      <nav class="footer__col">
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="livraison.html">Livraison</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <nav class="footer__col">
+        <h4>Légal</h4>
+        <ul><li><a href="#">CGV</a></li><li><a href="#">Mentions légales</a></li></ul>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Ordonnance Royale.</p>
+      <p>Fait avec ✦ et Foi</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
