@@ -1,0 +1,110 @@
+<!--
+  ============================================================
+  NAV UNIVERSELLE — À coller sur TOUTES les pages sauf boutique
+  (index.html, produit.html, contact.html, a-propos.html, etc.)
+  ============================================================
+-->
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/LOGO_ORDONANNCE_ROYALE2.png" alt="Ordonnance Royale" class="nav__logo-img">
+      </a>
+      <ul class="nav__menu">
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="boutique.html#collections">Collections</a></li>
+        <li><a href="ordonnance.html">Ordonnance Perso</a></li>
+        <li><a href="a-propos.html">À Propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <!-- BARRE DE RECHERCHE — redirige vers boutique.html -->
+        <form class="nav__search" onsubmit="redirectSearch(event)">
+          <input
+            type="search"
+            id="nav-search-input"
+            placeholder="Rechercher un verset, un thème…"
+            autocomplete="off"
+          >
+          <button class="nav__search__btn" aria-label="Rechercher" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="7"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </button>
+        </form>
+        <button class="nav__icon">♡</button>
+        <button class="nav__cart-btn">Panier (0)</button>
+        <button class="nav__burger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="nav__mobile">
+  <a href="boutique.html">Boutique</a>
+  <a href="boutique.html#collections">Collections</a>
+  <a href="ordonnance.html">Ordonnance Perso</a>
+  <a href="a-propos.html">À Propos</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- SCRIPT DE REDIRECTION — à placer avant </body> sur chaque page -->
+<script>
+function redirectSearch(e) {
+  e.preventDefault();
+  const q = document.getElementById('nav-search-input').value.trim();
+  if (q) {
+    window.location.href = 'boutique.html?search=' + encodeURIComponent(q);
+  }
+}
+// Recherche aussi au Enter dans le champ
+document.getElementById('nav-search-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') redirectSearch(e);
+});
+</script>
+
+<!--
+  CSS À AJOUTER dans style.css (une seule fois) :
+  =================================================
+
+  .nav__search {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    background: var(--white);
+    transition: border-color var(--transition);
+    overflow: hidden;
+  }
+  .nav__search:focus-within { border-color: var(--gold); }
+  .nav__search input {
+    border: none;
+    outline: none;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--dark);
+    background: transparent;
+    padding: 9px 12px;
+    width: 200px;
+  }
+  .nav__search input::placeholder { color: var(--light); }
+  .nav__search__btn {
+    border: none;
+    background: none;
+    padding: 9px 12px;
+    cursor: pointer;
+    color: var(--mid);
+    display: flex;
+    align-items: center;
+    transition: color var(--transition);
+  }
+  .nav__search__btn:hover { color: var(--gold); }
+  .nav__search__btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  @media (max-width: 900px) { .nav__search input { width: 130px; } }
+  @media (max-width: 768px) { .nav__search { display: none; } }
+-->
