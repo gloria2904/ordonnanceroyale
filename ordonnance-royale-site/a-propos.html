@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACM0lEQVR42u2Wv2obQRDGv707JFmVjSKp8KFOOOBCAqdw0COoNi5U+xWCH8JPoKcQMRhVBiEOE6MYRFzEuLAEKiSLSC7ujvVxu1+qbDCJyZ3/YAKa7naOnd8MM/OtIEm8oVl4Y1sBrABWAE8C0FpDKWW+lVJ46joRaReR1hqWZZnAtm0bH0kIIVIBOE8JPh6P0Ov1sLPzAVEUYTQaodlsIpPJmEokBbHSBvc8D41GA/l8Htvb26jVari4+Ir9/T0sl0sIIdJVgQlMa02tNZfLJavVKl3Xpe/7xj8YDFgsvuPh4ScGQcDLy28MwzDJ1UxUAaUUhBDodDq4vr5GuVx+kGU+v4ZisYiTky76/T42N11ks9mXn4KzMw9CCIRhiDiOzXk2m4MQwGLxA0EQYH19PfFUJAL4le18PgdJ3N0tIKU0QRzHgVIKUXSP29sZSL4swO9M1yCEwHQ6w/HxZwPm+z6kjBDHMXK5XKomtBI2KgCgXq+DJFzXxXw+x/n5F0wmE0ynU0gpAVjY2npvpiZRFZJ0qlKKJHlzc8NMJsNSqUSlFKWUjKKIw+GQjuOw0WhQynumMST9MY5jkmS73SYAdrtd4zs6OqLj2PQ8jyQ5m83YarV4dfX9QQJ/s8Sb0LZtaK1xcHCAQqGA09NTVCoV+L6P8XiEfr+P3d2PpmnDMIBS+nW1YLFYQAiBjY2NP3yvJkaPiRBJE5ykgfnXRIjnPMvTCs+z1fCxBbV6kq0AVgD/NcBP3GA3MvtcL5MAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAABAElEQVR42tWTQWuDQBCF32xKegniwXP34l8wpgdpfrK/Q7zpSdCcGptcPFiRRt3XU8WkCqWhhz5YGNiZb9iZt0KSuEMKd+rvAMaY2fhHAJJQSqHv+zFe0sNcsYggDENorXG5fIAkdrtnGGO+wzjRMAwkySzL6Lou27Zlnufc719YFAW7rqMxZlpCNffuKIpwOr1BROA4Do7HV5zPZ6xWK9xu/QogIgAA27bRNA2SJEFd16jrd2w2m/F+EaCUAkkEQQDf38GyLBwOB2y3PrTWiON4zBmb3jrxa4hlWaKqKvR9D62fsF4/Ik1TeJ435swCppBfG0lEQPLqLBlK/v9n+gRHoLUxTYp9xAAAAABJRU5ErkJggg==">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACM0lEQVR42u2Wv2obQRDGv707JFmVjSKp8KFOOOBCAqdw0COoNi5U+xWCH8JPoKcQMRhVBiEOE6MYRFzEuLAEKiSLSC7ujvVxu1+qbDCJyZ3/YAKa7naOnd8MM/OtIEm8oVl4Y1sBrABWAE8C0FpDKWW+lVJ46joRaReR1hqWZZnAtm0bH0kIIVIBOE8JPh6P0Ov1sLPzAVEUYTQaodlsIpPJmEokBbHSBvc8D41GA/l8Htvb26jVari4+Ir9/T0sl0sIIdJVgQlMa02tNZfLJavVKl3Xpe/7xj8YDFgsvuPh4ScGQcDLy28MwzDJ1UxUAaUUhBDodDq4vr5GuVx+kGU+v4ZisYiTky76/T42N11ks9mXn4KzMw9CCIRhiDiOzXk2m4MQwGLxA0EQYH19PfFUJAL4le18PgdJ3N0tIKU0QRzHgVIKUXSP29sZSL4swO9M1yCEwHQ6w/HxZwPm+z6kjBDHMXK5XKomtBI2KgCgXq+DJFzXxXw+x/n5F0wmE0ynU0gpAVjY2npvpiZRFZJ0qlKKJHlzc8NMJsNSqUSlFKWUjKKIw+GQjuOw0WhQynumMST9MY5jkmS73SYAdrtd4zs6OqLj2PQ8jyQ5m83YarV4dfX9QQJ/s8Sb0LZtaK1xcHCAQqGA09NTVCoV+L6P8XiEfr+P3d2PpmnDMIBS+nW1YLFYQAiBjY2NP3yvJkaPiRBJE5ykgfnXRIjnPMvTCs+z1fCxBbV6kq0AVgD/NcBP3GA3MvtcL5MAAAAASUVORK5CYII=">
+<title>À Propos — Ordonnance Royale</title>
+<meta name="description" content="L'histoire d'Ordonnance Royale : une marque de papeterie chrétienne née d'une conviction. Changer et tenir ferme par la Parole.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bk:#1a1a1a;--wh:#ffffff;--gd:#2c2420;
+  --bg:#f5f0e8;--bg2:#ede8de;--br:#ddd8ce;
+  --mi:#4a4440;--li:#8a8078;--dk:#1a1a1a;
+  --sf:'Playfair Display',Georgia,serif;
+  --bo:'Cormorant Garamond',Georgia,serif;
+  --sa:'Montserrat',sans-serif;
+  --ez:0.25s ease
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--bo);font-size:18px;color:var(--dk);background:var(--bg);line-height:1.7}
+a{color:inherit;text-decoration:none}ul{list-style:none}img{max-width:100%;display:block}
+.w{max-width:1100px;margin:0 auto;padding:0 32px}
+.w-narrow{max-width:780px;margin:0 auto;padding:0 32px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--wh);border-bottom:1px solid var(--br)}
+.nr1{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:1280px;margin:0 auto;padding:0 32px}
+.nlog img{height:64px;width:auto;display:block}
+.nact{display:flex;align-items:center;gap:4px}
+.ncart{position:relative;background:none;border:none;cursor:pointer;padding:8px;color:var(--dk);transition:color var(--ez)}
+.ncart svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nbdg{position:absolute;top:2px;right:2px;background:var(--bk);color:var(--wh);font-size:.5rem;font-weight:700;font-family:var(--sa);width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--ez)}
+.nbdg.on{opacity:1}
+.nburg{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.nburg span{display:block;width:22px;height:2px;background:var(--dk)}
+.nr2{border-top:1px solid var(--br)}
+.nmenu{display:flex;align-items:center;justify-content:center;max-width:1280px;margin:0 auto;padding:0 24px}
+.nmenu li a{display:block;padding:11px 18px;font-family:var(--sa);font-size:.73rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dk);transition:color var(--ez)}
+.nmenu li a:hover,.nmenu li a.on{color:var(--bk);text-decoration:underline;text-underline-offset:4px}
+.nr3{border-top:1px solid var(--br);background:var(--bg);padding:8px 32px}
+.sform{max-width:1280px;margin:0 auto;display:flex;align-items:center;border:1px solid var(--br);background:var(--wh)}
+.sform:focus-within{border-color:var(--bk)}
+.sinp{flex:1;border:none;outline:none;padding:10px 16px;font-family:var(--sa);font-size:.83rem;color:var(--dk);background:transparent}
+.sinp::placeholder{color:var(--li)}
+.sbtn{border:none;background:none;padding:10px 14px;cursor:pointer;color:var(--mi)}
+.sbtn:hover{color:var(--bk)}
+.sbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.nmob{display:none;flex-direction:column;background:var(--wh);border-top:1px solid var(--br);position:fixed;top:132px;left:0;right:0;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.nmob.on{display:flex}
+.nmob a{padding:12px 32px;font-family:var(--sa);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--br)}
+.nsp{height:132px}
+
+/* HERO */
+.hero{position:relative;padding:80px 0 100px;background:linear-gradient(180deg,var(--wh) 0%,var(--bg) 100%);text-align:center;overflow:hidden}
+.hero::before,.hero::after{content:'✦';position:absolute;font-size:1.5rem;color:var(--br);opacity:.6}
+.hero::before{top:60px;left:8%}
+.hero::after{bottom:80px;right:8%}
+.hero-lbl{font-family:var(--sa);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mi);margin-bottom:18px;font-weight:600}
+.hero-title{font-family:var(--sf);font-size:clamp(2.4rem,5vw,3.6rem);font-weight:700;color:var(--bk);line-height:1.05;margin-bottom:20px;max-width:760px;margin-left:auto;margin-right:auto}
+.hero-title em{font-style:italic;color:var(--bk);font-weight:400}
+.hero-quote{font-family:var(--bo);font-style:italic;font-size:1.15rem;color:var(--mi);max-width:560px;margin:0 auto 28px;line-height:1.7}
+.hero-cite{display:inline-block;font-family:var(--sa);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bk);font-weight:700;padding:8px 16px;border:1px solid var(--bk);border-radius:20px}
+
+/* MISSION */
+.mission{padding:80px 0;background:var(--wh);border-top:1px solid var(--br);border-bottom:1px solid var(--br)}
+.mission-grid{display:grid;grid-template-columns:1fr 2fr;gap:56px;align-items:center}
+.mission-side h2{font-family:var(--sf);font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:700;color:var(--bk);line-height:1.1}
+.mission-side .lbl{font-family:var(--sa);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mi);margin-bottom:14px}
+.mission-content p{font-family:var(--bo);font-size:1.1rem;color:var(--dk);line-height:1.8;margin-bottom:18px}
+.mission-content p:last-child{margin-bottom:0}
+.mission-content strong{color:var(--bk);font-weight:600}
+
+/* HISTOIRE / STORYTELLING */
+.story{padding:88px 0;background:var(--bg)}
+.story-head{text-align:center;margin-bottom:56px}
+.story-lbl{font-family:var(--sa);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mi);margin-bottom:14px}
+.story-title{font-family:var(--sf);font-size:clamp(1.9rem,3.5vw,2.4rem);font-weight:700;color:var(--bk);line-height:1.15}
+.story-blocks{display:flex;flex-direction:column;gap:48px;max-width:760px;margin:0 auto}
+.story-block{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:36px 40px;position:relative}
+.story-block::before{content:'';position:absolute;top:-1px;left:32px;right:32px;height:3px;background:var(--bk);border-radius:0 0 2px 2px}
+.story-block-num{display:inline-block;font-family:var(--sa);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--li);font-weight:700;margin-bottom:12px}
+.story-block-verse{font-family:var(--sf);font-style:italic;font-size:1.3rem;color:var(--bk);line-height:1.5;margin-bottom:8px;font-weight:400}
+.story-block-ref{font-family:var(--sa);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mi);font-weight:700;margin-bottom:18px}
+.story-block-text p{font-family:var(--bo);font-size:1.02rem;color:var(--dk);line-height:1.8;margin-bottom:14px}
+.story-block-text p:last-child{margin-bottom:0}
+.story-block-text strong{color:var(--bk);font-weight:600}
+
+/* NOM */
+.naming{padding:80px 0;background:var(--bk);color:var(--wh);text-align:center}
+.naming-lbl{font-family:var(--sa);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,240,232,.5);margin-bottom:18px}
+.naming h2{font-family:var(--sf);font-size:clamp(1.9rem,3.5vw,2.4rem);font-weight:700;color:var(--wh);line-height:1.15;margin-bottom:24px}
+.naming p{font-family:var(--bo);font-size:1.1rem;color:rgba(245,240,232,.85);line-height:1.8;max-width:680px;margin:0 auto 18px}
+.naming p:last-of-type{margin-bottom:0}
+.naming strong{color:var(--wh);font-weight:600}
+.naming-verse{margin-top:36px;padding:24px 32px;background:rgba(245,240,232,.06);border-left:3px solid var(--wh);border-radius:0 4px 4px 0;display:inline-block;text-align:left;max-width:560px}
+.naming-verse-text{font-family:var(--sf);font-style:italic;font-size:1.1rem;color:var(--wh);line-height:1.6;margin-bottom:8px}
+.naming-verse-cite{font-family:var(--sa);font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,240,232,.65);font-weight:700}
+
+/* VALEURS */
+.values{padding:88px 0;background:var(--bg2)}
+.values-head{text-align:center;margin-bottom:48px}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:980px;margin:0 auto}
+.value-card{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:32px 28px;text-align:center;transition:all var(--ez)}
+.value-card:hover{border-color:var(--bk);transform:translateY(-2px)}
+.value-icon{width:52px;height:52px;background:var(--bk);color:var(--wh);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.4rem}
+.value-icon svg{width:22px;height:22px;stroke:var(--wh);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.value-card h3{font-family:var(--sf);font-size:1.2rem;font-weight:700;color:var(--bk);margin-bottom:10px}
+.value-card p{font-family:var(--bo);font-size:.96rem;color:var(--mi);line-height:1.6}
+
+/* CE QUE NOUS PROPOSONS */
+.offer{padding:88px 0;background:var(--wh);border-top:1px solid var(--br);border-bottom:1px solid var(--br)}
+.offer-head{text-align:center;margin-bottom:48px}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:880px;margin:0 auto}
+.offer-card{background:var(--bg);border:1px solid var(--br);border-radius:6px;padding:32px 30px;display:flex;gap:18px;align-items:flex-start}
+.offer-card-num{flex-shrink:0;width:36px;height:36px;background:var(--bk);color:var(--wh);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--sa);font-weight:700;font-size:.78rem}
+.offer-card-body h3{font-family:var(--sf);font-size:1.15rem;font-weight:700;color:var(--bk);margin-bottom:8px}
+.offer-card-body p{font-family:var(--bo);font-size:.96rem;color:var(--mi);line-height:1.6}
+.offer-soon{margin-top:36px;padding:24px 32px;background:var(--bg2);border-left:3px solid var(--bk);border-radius:0 4px 4px 0;max-width:880px;margin-left:auto;margin-right:auto}
+.offer-soon-lbl{font-family:var(--sa);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mi);font-weight:700;margin-bottom:8px}
+.offer-soon p{font-family:var(--bo);font-size:1rem;color:var(--dk);line-height:1.6}
+.offer-soon p strong{color:var(--bk);font-weight:600}
+
+/* ENGAGEMENT */
+.engage{padding:88px 0;text-align:center;background:var(--bg)}
+.engage-lbl{font-family:var(--sa);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mi);margin-bottom:14px}
+.engage h2{font-family:var(--sf);font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:700;color:var(--bk);line-height:1.15;margin-bottom:24px;max-width:680px;margin-left:auto;margin-right:auto}
+.engage p{font-family:var(--bo);font-size:1.1rem;color:var(--mi);max-width:600px;margin:0 auto 36px;line-height:1.8}
+.engage-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-p{display:inline-block;padding:14px 32px;background:var(--bk);color:var(--wh);font-family:var(--sa);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:4px;transition:background var(--ez);border:1px solid var(--bk)}
+.btn-p:hover{background:var(--gd);color:var(--wh)}
+.btn-s{display:inline-block;padding:14px 32px;background:transparent;color:var(--bk);font-family:var(--sa);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:4px;transition:all var(--ez);border:1px solid var(--bk)}
+.btn-s:hover{background:var(--bk);color:var(--wh)}
+
+/* FOOTER */
+.ft{background:var(--bk);color:rgba(245,240,232,.45);padding:72px 0 36px}
+.ftg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.ftl img{height:26px;width:auto;margin-bottom:18px}
+.ftb p{font-size:.88rem;line-height:1.7;max-width:280px}
+.fts{display:flex;gap:10px;margin-top:18px}
+.ftsi{width:34px;height:34px;border:1px solid rgba(245,240,232,.12);display:flex;align-items:center;justify-content:center;font-family:var(--sa);font-size:.6rem;color:rgba(245,240,232,.35);text-transform:uppercase}
+.ftsi:hover{border-color:rgba(245,240,232,.5);color:var(--wh)}
+.ftc h4{font-family:var(--sa);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--wh);margin-bottom:18px}
+.ftc ul{display:flex;flex-direction:column;gap:9px}
+.ftc a{font-size:.85rem;color:rgba(245,240,232,.4)}
+.ftc a:hover{color:var(--wh)}
+.ftb2{border-top:1px solid rgba(245,240,232,.07);padding-top:24px;display:flex;justify-content:space-between;font-family:var(--sa);font-size:.7rem;color:rgba(245,240,232,.18)}
+
+@media(max-width:900px){.nmenu{display:none}.nburg{display:flex}.mission-grid{grid-template-columns:1fr;gap:24px}.values-grid{grid-template-columns:1fr;gap:14px}.offer-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.w{padding:0 20px}.w-narrow{padding:0 20px}.ftg{grid-template-columns:1fr 1fr;gap:36px}.nr3{padding:8px 20px}.story-block{padding:28px 24px}.naming{padding:60px 0}}
+@media(max-width:480px){.ftg{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nr1">
+    <a href="index.html" class="nlog"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJDYWxxdWVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNzkwLjUzIDIxNS4zOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwMjAyMDI7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTYyMi4yMiwxNDYuMDZjMC00LjYyLTMuMDQtNy4xNy03LjkzLTcuMTdoLTcuNHYyNC4yNGg0LjI5di0xMC4yMWw3LjMzLDEwLjIxaDUuMjFsLTcuODYtMTAuMzdjMy45Ni0uNTYsNi4zNC0zLjE4LDYuMzQtNi43Wk02MTEuMTgsMTQ5LjUzdi02LjkxaDIuODhjMi4zOCwwLDMuNzYsMS4zMiwzLjc2LDMuNDRzLTEuMzgsMy40Ny0zLjc2LDMuNDdoLTIuODhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM3Ljg0LDEzOC40MmMtNy4wMywwLTEyLjU1LDUuMTktMTIuNTUsMTIuNTlzNS41MiwxMi41OCwxMi41NSwxMi41OCwxMi41NS01LjE5LDEyLjU1LTEyLjU4LTUuNTItMTIuNTktMTIuNTUtMTIuNTlaTTYzNy44NCwxNTkuNDZjLTQuNTUsMC04LjA5LTMuNDMtOC4wOS04LjQ1czMuNTQtOC40OSw4LjA5LTguNDksOC4wOSwzLjQ3LDguMDksOC40OS0zLjU2LDguNDUtOC4wOSw4LjQ1WiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI2NjUuNDEgMTM4Ljg5IDY2MC40OCAxNDguOTkgNjU1LjUzIDEzOC44OSA2NTAuNjcgMTM4Ljg5IDY1OC4zMSAxNTMuNjEgNjU4LjMxIDE2My4xMyA2NjIuNiAxNjMuMTMgNjYyLjYgMTUzLjYxIDY2OS45NCAxMzguODkgNjY1LjQxIDEzOC44OSIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY3Ni42NywxMzguODlsLTguMjMsMjQuMjRoNC40M2wxLjM5LTQuNGg4Ljk4bDEuNDIsNC40aDQuNDlsLTguMjgtMjQuMjRoLTQuMlpNNjc1LjQ0LDE1NWwzLjI3LTEwLjI2LDMuMzMsMTAuMjZoLTYuNloiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNjk2LjU1IDEzOC44OSA2OTIuMjUgMTM4Ljg5IDY5Mi4yNSAxNjMuMTMgNzA1LjM5IDE2My4xMyA3MDUuMzkgMTU5LjEzIDY5Ni41NSAxNTkuMTMgNjk2LjU1IDEzOC44OSIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI3MTIuODkgMTUyLjczIDcyMS42MiAxNTIuNzMgNzIxLjYyIDE0OC43MyA3MTIuODkgMTQ4LjczIDcxMi44OSAxNDIuODggNzIxLjcxIDE0Mi44OCA3MjEuNzEgMTM4Ljg5IDcwOC42IDEzOC44OSA3MDguNiAxNjMuMTMgNzIxLjg4IDE2My4xMyA3MjEuODggMTU5LjEzIDcxMi44OSAxNTkuMTMgNzEyLjg5IDE1Mi43MyIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTgwLjIyLDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTkyLjY4LDcxLjk5Yy0uNzYtOS44Mi0yLjA4LTE5LjE2LTEyLjM3LTE5LjE2LTExLjIzLDAtMTIuMjcsOS4xNi0xMi44NCwxOS44Mi0uNDcsOS42My0uNTcsMTguNS4wOSwyNy44NC42Niw5LjgyLDIuMDgsMTkuMTYsMTIuMjcsMTkuMTYsMTEuMzIsMCwxMi4zNi05LjE2LDEyLjg0LTE5LjgyLjU2LTkuNjMuNjYtMTguNSwwLTI3Ljg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1Ny4zMywxMDguNDJjMC00LjUzLjA5LTguMjEuMDktMTIuNTUtLjE5LTYuODktMi4xNy0xMC43Ni04LjQtMTAuNzZoLTcuNzRjLS42NiwwLS45NS4yOC0uOTUuNTd2MjguODhjMCwzLjAyLjA5LDMuODcuOTUsMy44N2gzLjk2Yy42NiwwLC45NS4xOS45NS41N3MtLjE5LjU3LS45NS41N2gtMjQuMTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gzLjk2Yy45NCwwLDEuMDQtLjg1LDEuMDQtMy44N3YtNTYuNjNjMC0zLjAyLS4wOS0zLjg3LTEuMDQtMy44N2gtMy45NmMtLjc1LDAtLjg1LS4xOS0uODUtLjU3LDAtLjI4LjA5LS41Ny44NS0uNTdoMjkuNDVjOS45MSwwLDIxLjIzLDMuNjgsMjEuMjMsMTYuMzMsMCwxMC05LjcyLDE0LjcyLTE4LjAzLDE1LjI5di4wOWM5LjgyLjg1LDE4LjIyLDYuMzIsMTguMTIsMTguMDN2MTEuN2MwLDIuMDguMzgsNC4zNCwyLjc0LDQuMzQsMS41MSwwLDMuMDItMS4wNCwzLjY4LTIuODMuMTktLjQ3LjI4LS45NC44NS0uODVzLjY2LjU3LjQ3LDEuMDRjLTEuMDQsMy4xMS00LjkxLDQuNjMtOC42OCw0LjYzLTguNSwwLTEzLjU5LTQuODItMTMuNTktMTIuMjdaTTE0OS40LDU0LjA2aC04LjEyYy0uNjYsMC0uOTUuMjgtLjk1LjU2djI4Ljg4YzAsLjI4LjE5LjU3Ljg1LjU3aDguMzFjNS41NywwLDguNC0zLjc3LDguNC0xNC44MnMtMy4yMS0xNS4xOS04LjQ5LTE1LjE5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxOC40OSwxMTkuNTZoLTI5LjE2Yy0uNTcsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMy45NmMuOTQsMCwxLjA0LS44NSwxLjA0LTMuODd2LTU2LjYzYzAtMy4wMi0uMDktMy44Ny0xLjA0LTMuODdoLTMuOTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gyOS4xNmMxOC42OSwwLDI5LjgyLDE1LjM4LDI5LjgyLDMzLjAzcy0xMC4xOSwzMy42LTI5LjgyLDMzLjZaTTIzMC45NCw3Mi4yOGMtLjU2LTcuMDgtMS43LTE4LjIxLTEyLjc0LTE4LjIxaC04LjY4Yy0uNjYsMC0uOTUuMjgtLjk1LjU2djYzLjI0YzAsLjI4LjE5LjU3Ljg1LjU3aDguODdjOS43MiwwLDExLjk5LTcuNzQsMTIuNzQtMTguODguNTctOC45Ny41Ny0xOC4zMS0uMDktMjcuMjhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjg5LjQ2LDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTMwMS45MSw3MS45OWMtLjc1LTkuODItMi4wOC0xOS4xNi0xMi4zNi0xOS4xNi0xMS4yMywwLTEyLjI3LDkuMTYtMTIuODQsMTkuODItLjQ3LDkuNjMtLjU3LDE4LjUuMDksMjcuODQuNjYsOS44MiwyLjA4LDE5LjE2LDEyLjI3LDE5LjE2LDExLjMyLDAsMTIuMzYtOS4xNiwxMi44My0xOS44Mi41Ny05LjYzLjY2LTE4LjUsMC0yNy44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zODkuMzEsNTQuMDZoLS4xOWMtNC42MiwwLTUuOTUsNC4yNS01Ljk1LDIxLjIzdjQ0LjQ1YzAsLjI4LS4xOS41Ny0uOTQuNTdoLTguMzFjLS41NywwLS43Ni0uMjgtLjk0LS41N2wtMzUuOTYtNjEuNjNoLS4wOXYzOC40MWMwLDE1Ljg2LDIuOTMsMjEuOSwxMC4zOCwyMS45aDEuMjNjLjc2LDAsLjk0LjE5Ljk0LjU3LDAsLjI4LS4xOS41Ny0uOTQuNTdoLTE4Ljk3Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoLjE5YzQuNjMsMCw1Ljk1LTQuMjUsNS45NS0yMS4yNHYtMzkuMjZjMC0zLjAyLS4wOS0zLjg3LS45NS0zLjg3aC00LjQ0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTkuNTRjLjM4LDAsLjY2LjE5Ljk0LjU3bDMwLjk2LDUzLjQyaC4xOXYtMzAuOTZjMC0xNS44Ni0yLjkyLTIxLjktMTAuMjktMjEuOWgtLjk0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTguNTljLjc1LDAsLjk0LjE5Ljk0LjU3cy0uMTkuNTctLjk0LjU3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ1OS40NCw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk0LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzYsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTI4LjA1LDExOS41NmgtMjUuMjljLS42NiwwLS45NC0uMTktLjk0LS41N3MuMTktLjU3Ljk0LS41N2gzLjU5YzEuNjEsMCwyLjI3LS42Ni45NS00LjQ0bC02LjIzLTE4LjY5Yy0uMDktLjM4LS4yOC0uNTctLjg1LS41N2gtMTguMDNjLS40NywwLS42Ni4wOS0uNzUuNTdsLTEuNzksNS42NmMtNC4xNSwxMi45My0uNjYsMTcuNDYsNC4wNiwxNy40NmgxLjg5Yy41NywwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N2gtMTguNTljLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMjhjMi44MywwLDYuMjMtMi42NCwxMC45NS0xNy45M2wxNC44Mi00Ny43NmMuMTktLjQ3LjM4LS41Ny44NS0uNTdoNi45OGMuNDcsMCwuNzYuMTkuODUuNTdsMjEuMTQsNjEuMjVjMS4zMiwzLjg3LDEuODksNC40NCwzLjMsNC40NGgxLjg5Yy42NiwwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N1pNNDkwLjk2LDY0LjE2aC0uMTlsLTguNjgsMjguNzljLS4wOS4zOC4wOS41Ny43NS41N2gxNi41MmMuNjYsMCwuOTQtLjM4Ljg1LS43NWwtOS4yNS0yOC42WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU5Ni4yOSw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk1LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzUsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNzIxLjIxLDk3LjIxYy0uMzgsMC0uNjYuMTgtLjY2Ljg0di45NGMwLDYuMzMtNS4xOSwyMC41OC0yMC42NywyMC41OGgtNy44NGMtLjY2LDAtLjg1LS4yOC0uODUtLjU2di0zMi4wOWMwLS4zOC4yOS0uNTguOTQtLjU4aDQuMzVjNS43NSwwLDEwLjk1LDQuNjMsMTAuOTUsMTAuMjl2LjY3YzAsLjY2LjE4Ljg1LjY2Ljg1LjM4LDAsLjU2LS4yLjU2LS44NXYtMjIuODVjMC0uNjYtLjE4LS45NC0uNTYtLjk0cy0uNjYuMi0uNjYuOTR2LjY3YzAsNS41Ni01LjE5LDEwLjE5LTEwLjk1LDEwLjE5aC00LjQ0Yy0uNjYsMC0uODUtLjE4LS44NS0uNTZ2LTI4Ljk4YzAtLjM3LjM4LS41Ni45NC0uNTZoOC40OWMxMC40OSwwLDE2LjgxLDEwLjIsMTYuODEsMTkuODJ2MS4wNWMwLC42Ni4yLjg0LjU2Ljg0LjQ3LDAsLjc2LS4xOC43Ni0uODR2LTIxLjI1YzAtLjU2LS4zOC0uNzUtLjg1LS43NWgtNDUuOTdjLS42NiwwLS44NC4xOC0uODQuNTZzLjI4LjU2Ljg0LjU2aDMuOTdjLjk0LDAsMS4wNC44NSwxLjA0LDMuODh2NTYuNjNjMCwzLjAxLS4wOSwzLjg3LTEuMDQsMy44N2gtMy45N2MtLjY2LDAtLjg0LjE4LS44NC41NnMuMjguNTguODQuNThoNDkuMDljLjU2LDAsLjg1LS4yLjg1LS42N3YtMjJjMC0uNjYtLjI5LS44NC0uNjctLjg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5MC4xNyw4My44Yy00LjY1LS4xMy05LjEzLjY3LTEzLjUxLDIuMjItOS41MSwzLjM2LTE2LjcyLDExLjQ4LTIwLjUzLDIwLjY0LTMuMTYsNy41Ny05Ljk5LDEzLjAyLTE4LjQ0LDEzLjAyLTExLjE0LDAtMTIuNTYtOS4wNy0xMy4yMS0xOS4xNi0uNjYtOS4zNS0uNDctMTcuMDktLjA5LTI2LjcxLjU2LTEyLjA5LDIuMzYtMTkuODIsMTIuNDUtMTkuODIsOS4yNSwwLDE4LjIyLDguNTksMTguMjIsMjIuOTN2MS4xNGMwLC42Ni4xOC45NC42Ni45NC4zOCwwLC42Ny0uMi42Ny0uOTR2LTIzLjMyYzAtLjc1LS4yLS45NC0uNjctLjk0cy0uNjYuMjktLjY2Ljk0di42N2MwLDIuMDctMi41NC44NC00LjksMC0yLjY1LS45NC04LjEzLTIuNDYtMTMuNDEtMi40Ni0xOS44MiwwLTI5LjY0LDE1LjU5LTI5LjY0LDM0LjkzLDAsMTcuMDgsMTAuMTEsMzIuODUsMjkuNzMsMzIuODUuMiwwLC40MSwwLC42My0uMDEsNi41NC0uMjMsMTIuMjctMy41MSwxNi4zNi04LjUxLDIuMTMtMi42LDMuMzEtNi4xNCw1LjAzLTkuMDUsMS44Ny0zLjE2LDQuMDItNi4xOCw2LjY5LTguNzIsNC4xNC0zLjk1LDkuNDUtNi42NSwxNS4wNy03Ljc3LDIuNjItLjUyLDcuODEtLjU3LDkuNTUtMi44NVoiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjczNS40NyIgY3k9IjExNS44NyIgcj0iNC44NSIvPjwvc3ZnPg==" alt="Ordonnance Royale" style="height:64px;width:auto;display:block"></a>
+    <div class="nact">
+      <a href="panier.html" class="ncart" aria-label="Panier" style="text-decoration:none"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="nbdg" id="nbdg">0</span></a>
+      <button class="nburg" onclick="document.getElementById('nm').classList.toggle('on')"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nr2"><ul class="nmenu">
+    <li><a href="a-propos.html" class="on">À Propos</a></li>
+    <li><a href="boutique.html">Boutique</a></li>
+    <li><a href="ordonnance.html">Ordonnance Perso</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul></div>
+  <div class="nr3"><form class="sform" onsubmit="goSrch(event)"><input type="search" id="sInp" class="sinp" placeholder="Rechercher un verset, un thème…" autocomplete="off"><button type="submit" class="sbtn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button></form></div>
+</nav>
+<div class="nmob" id="nm">
+  <a href="a-propos.html">À Propos</a>
+  <a href="boutique.html">Boutique</a>
+  <a href="ordonnance.html">Ordonnance Perso</a>
+  <a href="contact.html">Contact</a>
+</div>
+<div class="nsp"></div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="w">
+    <p class="hero-lbl">Notre Histoire</p>
+    <h1 class="hero-title">Une marque née d'une <em>conviction</em>,<br>portée par la Parole</h1>
+    <p class="hero-quote">« Ta parole est une lampe à mes pieds, et une lumière sur mon sentier. »</p>
+    <span class="hero-cite">Psaume 119 : 105</span>
+  </div>
+</section>
+
+<!-- ═══════════ MISSION ═══════════ -->
+<section class="mission">
+  <div class="w">
+    <div class="mission-grid">
+      <div class="mission-side">
+        <p class="lbl">Notre Mission</p>
+        <h2>Changer et tenir ferme par la Parole</h2>
+      </div>
+      <div class="mission-content">
+        <p>Ordonnance Royale est premièrement une <strong>marque de papeterie chrétienne et notamment de décoration d'intérieur</strong>, des affiches avec des versets bibliques choisis. Pensées pour être placées dans des endroits stratégiques de la maison, elles permettent de méditer la Parole et de se souvenir des promesses de Dieu pour nous dans notre saison.</p>
+        <p>Nos créations s'adressent aux domaines de vie qui nous challengent chaque jour : <strong>dépression, solitude, maladie, entrepreneuriat, famille, amour, relation, courage, persévérance</strong>.</p>
+        <p>Le but : <strong>lutter contre ce qui retient notre marche</strong>, briser et tailler notre caractère en nous rappelant ces paroles et en s'appuyant dessus pour prier et changer les choses. Parce qu'en tant qu'êtres humains, on a tendance à oublier que notre chair prend un autre chemin que l'esprit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HISTOIRE / STORYTELLING ═══════════ -->
+<section class="story">
+  <div class="w">
+    <div class="story-head">
+      <p class="story-lbl">Pourquoi ce projet ?</p>
+      <h2 class="story-title">Tout a commencé par un verset</h2>
+    </div>
+
+    <div class="story-blocks">
+
+      <div class="story-block">
+        <span class="story-block-num">Acte I — La première fois</span>
+        <p class="story-block-verse">« L'amour est patient. »</p>
+        <p class="story-block-ref">1 Corinthiens 13 : 4</p>
+        <div class="story-block-text">
+          <p>La première fois, c'était une parole que l'Éternel m'avait donnée Lui-même. Une promesse qui m'a permis de <strong>tenir bon lors d'une épreuve</strong> <a href="https://www.instagram.com/ordonnanceroyale/reel/DBec-ogoqqU/" target="_blank" rel="noopener" style="font-size:.88em;color:var(--mi);font-style:italic;text-decoration:underline">(voir la vidéo)</a>.</p>
+          <p>Aujourd'hui, même si cette épreuve est derrière moi, ce verset me rappelle non seulement <strong>l'Amour de Dieu mais sa fidélité</strong> — car ses promesses se sont accomplies.</p>
+        </div>
+      </div>
+
+      <div class="story-block">
+        <span class="story-block-num">Acte II — Pour un proche</span>
+        <p class="story-block-verse">« Fortifie-toi et prends courage… L'Éternel ton Dieu est avec toi. »</p>
+        <p class="story-block-ref">Josué 1 : 9</p>
+        <div class="story-block-text">
+          <p>La seconde fois, j'ai conçu un tableau pour un membre de ma famille qui traversait une période difficile, de maladie.</p>
+          <p>L'épreuve est passée depuis maintenant quelques années, mais le tableau, lui, <strong>n'avait pas bougé de place</strong>. Chaque matin, il reste une parole d'encouragement. On sait chacun avec quoi nous luttons en permanence — découragement, dépression, timidité — et jusqu'à ce que cette oppression soit terrassée, <strong>se le rappeler chaque jour nous fortifie</strong>.</p>
+        </div>
+      </div>
+
+      <div class="story-block">
+        <span class="story-block-num">Acte III — Une révélation</span>
+        <p class="story-block-verse">« Je connais les projets que j'ai formés sur vous… des projets de paix et non de malheur. »</p>
+        <p class="story-block-ref">Jérémie 29 : 11</p>
+        <div class="story-block-text">
+          <p>J'ai compris que <strong>parfois, un verset paraît lu et relu</strong> mais un jour il devient une réponse précise, un encouragement, une promesse, un rappel de la fidélité de Dieu. <strong>D'un seul verset, on tire plus d'une lecture.</strong> Et chaque jour, le même verset nous bénit d'une manière différente.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ NAMING ═══════════ -->
+<section class="naming">
+  <div class="w-narrow">
+    <p class="naming-lbl">Pourquoi « Ordonnance Royale » ?</p>
+    <h2>Le nom n'est pas un hasard</h2>
+    <p>Ordonnance Royale tire son nom des <strong>ordonnances que nous donne l'Éternel dans Sa Parole</strong>. Le mot « ordonnance » revient pas moins de <strong>21 fois dans le Psaume 119</strong>.</p>
+    <p>Et pour demeurer éclairés, nous observons Ses ordonnances — les ordonnances du <strong>Roi des rois</strong>.</p>
+    <p>On retrouve notamment ce mot dans le <strong>domaine médical</strong>. Et s'il s'agissait de l'Ordonnance donnée par le <strong>Médecin par excellence</strong>, afin de guérir de nos maux grâce à Sa prescription ? L'Ordonnance est effectivement le document délivré par un médecin et sur lequel figurent ses prescriptions afin de guérir.</p>
+
+    <div class="naming-verse">
+      <p class="naming-verse-text">« Vous observerez mes lois et mes ordonnances : l'homme qui les mettra en pratique vivra par elles. Je suis l'Éternel. »</p>
+      <p class="naming-verse-cite">Lévitique 18 : 5</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ VALEURS ═══════════ -->
+<section class="values">
+  <div class="w">
+    <div class="values-head">
+      <p class="story-lbl">Nos Valeurs</p>
+      <h2 class="story-title">Ce qui nous guide chaque jour</h2>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3>Foi & Parole</h3>
+        <p>Chaque création naît d'une réflexion sur la Parole. Nous sélectionnons les versets avec soin, pour qu'ils parlent au cœur.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <h3>Création artisanale</h3>
+        <p>Chaque affiche est conçue avec attention. Du choix typographique à l'impression sur papier premium 189 g/m².</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Authenticité</h3>
+        <p>Nous limitons les ordonnances personnalisées à 7 par semaine pour préserver le soin et l'attention donnés à chaque création.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CE QUE NOUS PROPOSONS ═══════════ -->
+<section class="offer">
+  <div class="w">
+    <div class="offer-head">
+      <p class="story-lbl">Notre Offre</p>
+      <h2 class="story-title">Ce que vous trouverez chez nous</h2>
+    </div>
+
+    <div class="offer-grid">
+      <div class="offer-card">
+        <span class="offer-card-num">01</span>
+        <div class="offer-card-body">
+          <h3>Affiches en stock</h3>
+          <p>Les formats <strong>13×18 au 30×40</strong> de la boutique sont en stock. Toutefois les formats <strong>50×70 cm</strong> sont à la demande.</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <span class="offer-card-num">02</span>
+        <div class="offer-card-body">
+          <h3>Ordonnances personnalisées</h3>
+          <p>Le verset de votre choix, votre format, vos couleurs, vos souhaits. Création unique sur mesure, livrée sous <strong>10 jours ouvrés</strong>, exceptés les grands formats (50×70, livraison légèrement plus longue).</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <span class="offer-card-num">03</span>
+        <div class="offer-card-body">
+          <h3>Personnalisation des couleurs</h3>
+          <p>Modifiez <strong>la palette de couleurs</strong> d'une affiche existante selon votre intérieur.</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <span class="offer-card-num">04</span>
+        <div class="offer-card-body">
+          <h3>Carte cadeau & emballage soigné</h3>
+          <p>Une carte glissée dans un <strong>emballage cadeau soigné</strong> avec votre mot pour offrir avec attention.</p>
+        </div>
+      </div>
+
+    </div>
+
+    
+</section>
+
+<!-- ═══════════ ENGAGEMENT FINAL ═══════════ -->
+<section class="engage">
+  <div class="w-narrow">
+    <p class="engage-lbl">Notre Engagement</p>
+    <h2>Une affiche, un combat, une promesse</h2>
+    <p>Que ce soit pour vous, pour offrir ou pour traverser une saison particulière — chaque ordonnance est conçue pour vous accompagner. Parce qu'un verset, posé sous nos yeux chaque jour, finit par s'inscrire dans notre cœur.</p>
+    <div class="engage-btns">
+      <a href="boutique.html" class="btn-p">Découvrir la boutique →</a>
+      <a href="ordonnance.html" class="btn-s">Créer mon ordonnance</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ft"><div class="w"><div class="ftg">
+  <div class="ftb">
+    <a href="index.html" class="ftl"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJDYWxxdWVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNzkwLjUzIDIxNS4zOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmZmY7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTYyMi4yMiwxNDYuMDZjMC00LjYyLTMuMDQtNy4xNy03LjkzLTcuMTdoLTcuNHYyNC4yNGg0LjI5di0xMC4yMWw3LjMzLDEwLjIxaDUuMjFsLTcuODYtMTAuMzdjMy45Ni0uNTYsNi4zNC0zLjE4LDYuMzQtNi43Wk02MTEuMTgsMTQ5LjUzdi02LjkxaDIuODhjMi4zOCwwLDMuNzYsMS4zMiwzLjc2LDMuNDRzLTEuMzgsMy40Ny0zLjc2LDMuNDdoLTIuODhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM3Ljg0LDEzOC40MmMtNy4wMywwLTEyLjU1LDUuMTktMTIuNTUsMTIuNTlzNS41MiwxMi41OCwxMi41NSwxMi41OCwxMi41NS01LjE5LDEyLjU1LTEyLjU4LTUuNTItMTIuNTktMTIuNTUtMTIuNTlaTTYzNy44NCwxNTkuNDZjLTQuNTUsMC04LjA5LTMuNDMtOC4wOS04LjQ1czMuNTQtOC40OSw4LjA5LTguNDksOC4wOSwzLjQ3LDguMDksOC40OS0zLjU2LDguNDUtOC4wOSw4LjQ1WiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI2NjUuNDEgMTM4Ljg5IDY2MC40OCAxNDguOTkgNjU1LjUzIDEzOC44OSA2NTAuNjcgMTM4Ljg5IDY1OC4zMSAxNTMuNjEgNjU4LjMxIDE2My4xMyA2NjIuNiAxNjMuMTMgNjYyLjYgMTUzLjYxIDY2OS45NCAxMzguODkgNjY1LjQxIDEzOC44OSIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY3Ni42NywxMzguODlsLTguMjMsMjQuMjRoNC40M2wxLjM5LTQuNGg4Ljk4bDEuNDIsNC40aDQuNDlsLTguMjgtMjQuMjRoLTQuMlpNNjc1LjQ0LDE1NWwzLjI3LTEwLjI2LDMuMzMsMTAuMjZoLTYuNloiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNjk2LjU1IDEzOC44OSA2OTIuMjUgMTM4Ljg5IDY5Mi4yNSAxNjMuMTMgNzA1LjM5IDE2My4xMyA3MDUuMzkgMTU5LjEzIDY5Ni41NSAxNTkuMTMgNjk2LjU1IDEzOC44OSIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI3MTIuODkgMTUyLjczIDcyMS42MiAxNTIuNzMgNzIxLjYyIDE0OC43MyA3MTIuODkgMTQ4LjczIDcxMi44OSAxNDIuODggNzIxLjcxIDE0Mi44OCA3MjEuNzEgMTM4Ljg5IDcwOC42IDEzOC44OSA3MDguNiAxNjMuMTMgNzIxLjg4IDE2My4xMyA3MjEuODggMTU5LjEzIDcxMi44OSAxNTkuMTMgNzEyLjg5IDE1Mi43MyIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTgwLjIyLDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTkyLjY4LDcxLjk5Yy0uNzYtOS44Mi0yLjA4LTE5LjE2LTEyLjM3LTE5LjE2LTExLjIzLDAtMTIuMjcsOS4xNi0xMi44NCwxOS44Mi0uNDcsOS42My0uNTcsMTguNS4wOSwyNy44NC42Niw5LjgyLDIuMDgsMTkuMTYsMTIuMjcsMTkuMTYsMTEuMzIsMCwxMi4zNi05LjE2LDEyLjg0LTE5LjgyLjU2LTkuNjMuNjYtMTguNSwwLTI3Ljg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1Ny4zMywxMDguNDJjMC00LjUzLjA5LTguMjEuMDktMTIuNTUtLjE5LTYuODktMi4xNy0xMC43Ni04LjQtMTAuNzZoLTcuNzRjLS42NiwwLS45NS4yOC0uOTUuNTd2MjguODhjMCwzLjAyLjA5LDMuODcuOTUsMy44N2gzLjk2Yy42NiwwLC45NS4xOS45NS41N3MtLjE5LjU3LS45NS41N2gtMjQuMTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gzLjk2Yy45NCwwLDEuMDQtLjg1LDEuMDQtMy44N3YtNTYuNjNjMC0zLjAyLS4wOS0zLjg3LTEuMDQtMy44N2gtMy45NmMtLjc1LDAtLjg1LS4xOS0uODUtLjU3LDAtLjI4LjA5LS41Ny44NS0uNTdoMjkuNDVjOS45MSwwLDIxLjIzLDMuNjgsMjEuMjMsMTYuMzMsMCwxMC05LjcyLDE0LjcyLTE4LjAzLDE1LjI5di4wOWM5LjgyLjg1LDE4LjIyLDYuMzIsMTguMTIsMTguMDN2MTEuN2MwLDIuMDguMzgsNC4zNCwyLjc0LDQuMzQsMS41MSwwLDMuMDItMS4wNCwzLjY4LTIuODMuMTktLjQ3LjI4LS45NC44NS0uODVzLjY2LjU3LjQ3LDEuMDRjLTEuMDQsMy4xMS00LjkxLDQuNjMtOC42OCw0LjYzLTguNSwwLTEzLjU5LTQuODItMTMuNTktMTIuMjdaTTE0OS40LDU0LjA2aC04LjEyYy0uNjYsMC0uOTUuMjgtLjk1LjU2djI4Ljg4YzAsLjI4LjE5LjU3Ljg1LjU3aDguMzFjNS41NywwLDguNC0zLjc3LDguNC0xNC44MnMtMy4yMS0xNS4xOS04LjQ5LTE1LjE5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxOC40OSwxMTkuNTZoLTI5LjE2Yy0uNTcsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMy45NmMuOTQsMCwxLjA0LS44NSwxLjA0LTMuODd2LTU2LjYzYzAtMy4wMi0uMDktMy44Ny0xLjA0LTMuODdoLTMuOTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gyOS4xNmMxOC42OSwwLDI5LjgyLDE1LjM4LDI5LjgyLDMzLjAzcy0xMC4xOSwzMy42LTI5LjgyLDMzLjZaTTIzMC45NCw3Mi4yOGMtLjU2LTcuMDgtMS43LTE4LjIxLTEyLjc0LTE4LjIxaC04LjY4Yy0uNjYsMC0uOTUuMjgtLjk1LjU2djYzLjI0YzAsLjI4LjE5LjU3Ljg1LjU3aDguODdjOS43MiwwLDExLjk5LTcuNzQsMTIuNzQtMTguODguNTctOC45Ny41Ny0xOC4zMS0uMDktMjcuMjhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjg5LjQ2LDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTMwMS45MSw3MS45OWMtLjc1LTkuODItMi4wOC0xOS4xNi0xMi4zNi0xOS4xNi0xMS4yMywwLTEyLjI3LDkuMTYtMTIuODQsMTkuODItLjQ3LDkuNjMtLjU3LDE4LjUuMDksMjcuODQuNjYsOS44MiwyLjA4LDE5LjE2LDEyLjI3LDE5LjE2LDExLjMyLDAsMTIuMzYtOS4xNiwxMi44My0xOS44Mi41Ny05LjYzLjY2LTE4LjUsMC0yNy44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zODkuMzEsNTQuMDZoLS4xOWMtNC42MiwwLTUuOTUsNC4yNS01Ljk1LDIxLjIzdjQ0LjQ1YzAsLjI4LS4xOS41Ny0uOTQuNTdoLTguMzFjLS41NywwLS43Ni0uMjgtLjk0LS41N2wtMzUuOTYtNjEuNjNoLS4wOXYzOC40MWMwLDE1Ljg2LDIuOTMsMjEuOSwxMC4zOCwyMS45aDEuMjNjLjc2LDAsLjk0LjE5Ljk0LjU3LDAsLjI4LS4xOS41Ny0uOTQuNTdoLTE4Ljk3Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoLjE5YzQuNjMsMCw1Ljk1LTQuMjUsNS45NS0yMS4yNHYtMzkuMjZjMC0zLjAyLS4wOS0zLjg3LS45NS0zLjg3aC00LjQ0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTkuNTRjLjM4LDAsLjY2LjE5Ljk0LjU3bDMwLjk2LDUzLjQyaC4xOXYtMzAuOTZjMC0xNS44Ni0yLjkyLTIxLjktMTAuMjktMjEuOWgtLjk0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTguNTljLjc1LDAsLjk0LjE5Ljk0LjU3cy0uMTkuNTctLjk0LjU3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ1OS40NCw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk0LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzYsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTI4LjA1LDExOS41NmgtMjUuMjljLS42NiwwLS45NC0uMTktLjk0LS41N3MuMTktLjU3Ljk0LS41N2gzLjU5YzEuNjEsMCwyLjI3LS42Ni45NS00LjQ0bC02LjIzLTE4LjY5Yy0uMDktLjM4LS4yOC0uNTctLjg1LS41N2gtMTguMDNjLS40NywwLS42Ni4wOS0uNzUuNTdsLTEuNzksNS42NmMtNC4xNSwxMi45My0uNjYsMTcuNDYsNC4wNiwxNy40NmgxLjg5Yy41NywwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N2gtMTguNTljLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMjhjMi44MywwLDYuMjMtMi42NCwxMC45NS0xNy45M2wxNC44Mi00Ny43NmMuMTktLjQ3LjM4LS41Ny44NS0uNTdoNi45OGMuNDcsMCwuNzYuMTkuODUuNTdsMjEuMTQsNjEuMjVjMS4zMiwzLjg3LDEuODksNC40NCwzLjMsNC40NGgxLjg5Yy42NiwwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N1pNNDkwLjk2LDY0LjE2aC0uMTlsLTguNjgsMjguNzljLS4wOS4zOC4wOS41Ny43NS41N2gxNi41MmMuNjYsMCwuOTQtLjM4Ljg1LS43NWwtOS4yNS0yOC42WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU5Ni4yOSw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk1LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzUsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNzIxLjIxLDk3LjIxYy0uMzgsMC0uNjYuMTgtLjY2Ljg0di45NGMwLDYuMzMtNS4xOSwyMC41OC0yMC42NywyMC41OGgtNy44NGMtLjY2LDAtLjg1LS4yOC0uODUtLjU2di0zMi4wOWMwLS4zOC4yOS0uNTguOTQtLjU4aDQuMzVjNS43NSwwLDEwLjk1LDQuNjMsMTAuOTUsMTAuMjl2LjY3YzAsLjY2LjE4Ljg1LjY2Ljg1LjM4LDAsLjU2LS4yLjU2LS44NXYtMjIuODVjMC0uNjYtLjE4LS45NC0uNTYtLjk0cy0uNjYuMi0uNjYuOTR2LjY3YzAsNS41Ni01LjE5LDEwLjE5LTEwLjk1LDEwLjE5aC00LjQ0Yy0uNjYsMC0uODUtLjE4LS44NS0uNTZ2LTI4Ljk4YzAtLjM3LjM4LS41Ni45NC0uNTZoOC40OWMxMC40OSwwLDE2LjgxLDEwLjIsMTYuODEsMTkuODJ2MS4wNWMwLC42Ni4yLjg0LjU2Ljg0LjQ3LDAsLjc2LS4xOC43Ni0uODR2LTIxLjI1YzAtLjU2LS4zOC0uNzUtLjg1LS43NWgtNDUuOTdjLS42NiwwLS44NC4xOC0uODQuNTZzLjI4LjU2Ljg0LjU2aDMuOTdjLjk0LDAsMS4wNC44NSwxLjA0LDMuODh2NTYuNjNjMCwzLjAxLS4wOSwzLjg3LTEuMDQsMy44N2gtMy45N2MtLjY2LDAtLjg0LjE4LS44NC41NnMuMjguNTguODQuNThoNDkuMDljLjU2LDAsLjg1LS4yLjg1LS42N3YtMjJjMC0uNjYtLjI5LS44NC0uNjctLjg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5MC4xNyw4My44Yy00LjY1LS4xMy05LjEzLjY3LTEzLjUxLDIuMjItOS41MSwzLjM2LTE2LjcyLDExLjQ4LTIwLjUzLDIwLjY0LTMuMTYsNy41Ny05Ljk5LDEzLjAyLTE4LjQ0LDEzLjAyLTExLjE0LDAtMTIuNTYtOS4wNy0xMy4yMS0xOS4xNi0uNjYtOS4zNS0uNDctMTcuMDktLjA5LTI2LjcxLjU2LTEyLjA5LDIuMzYtMTkuODIsMTIuNDUtMTkuODIsOS4yNSwwLDE4LjIyLDguNTksMTguMjIsMjIuOTN2MS4xNGMwLC42Ni4xOC45NC42Ni45NC4zOCwwLC42Ny0uMi42Ny0uOTR2LTIzLjMyYzAtLjc1LS4yLS45NC0uNjctLjk0cy0uNjYuMjktLjY2Ljk0di42N2MwLDIuMDctMi41NC44NC00LjksMC0yLjY1LS45NC04LjEzLTIuNDYtMTMuNDEtMi40Ni0xOS44MiwwLTI5LjY0LDE1LjU5LTI5LjY0LDM0LjkzLDAsMTcuMDgsMTAuMTEsMzIuODUsMjkuNzMsMzIuODUuMiwwLC40MSwwLC42My0uMDEsNi41NC0uMjMsMTIuMjctMy41MSwxNi4zNi04LjUxLDIuMTMtMi42LDMuMzEtNi4xNCw1LjAzLTkuMDUsMS44Ny0zLjE2LDQuMDItNi4xOCw2LjY5LTguNzIsNC4xNC0zLjk1LDkuNDUtNi42NSwxNS4wNy03Ljc3LDIuNjItLjUyLDcuODEtLjU3LDkuNTUtMi44NVoiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjczNS40NyIgY3k9IjExNS44NyIgcj0iNC44NSIvPjwvc3ZnPg==" alt="Ordonnance Royale" style="height:26px;width:auto"></a>
+    <p>Changer et tenir ferme par la Parole au quotidien.</p>
+    <div class="fts"><a href="https://www.instagram.com/ordonnanceroyale" class="ftsi" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://www.tiktok.com/@ordonnanceroyale" class="ftsi" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z"/></svg></a></div>
+  </div>
+  <nav class="ftc"><h4>Boutique</h4><ul><li><a href="boutique.html">Toutes les affiches</a></li><li><a href="ordonnance.html">Ordonnance Perso</a></li></ul></nav>
+  <nav class="ftc"><h4>Informations</h4><ul><li><a href="a-propos.html">À Propos</a></li><li><a href="livraisons.html">Livraison</a></li><li><a href="contact.html">Contact</a></li><li><a href="mentions-legales.html">Mentions légales</a></li></ul></nav>
+  <nav class="ftc"><h4>Contact</h4><ul><li><a href="mailto:contact@ordonnanceroyale.com">contact@ordonnanceroyale.com</a></li><li><a href="https://www.instagram.com/ordonnanceroyale" target="_blank">@ordonnanceroyale</a></li></ul></nav>
+</div><div class="ft-pay" style="border-top:1px solid rgba(245,240,232,.07);padding:20px 0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap"><span style="font-family:var(--sa);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,240,232,.4);font-weight:600;margin-right:8px">Paiements sécurisés</span><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#1a1f71"/><text x="24" y="21" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="11" font-weight="900" font-style="italic" fill="#fff" letter-spacing="1">VISA</text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.5"/><circle cx="20" cy="16" r="7" fill="#eb001b"/><circle cx="28" cy="16" r="7" fill="#f79e1b" fill-opacity="0.9"/><path d="M24 11c1.4 1.3 2.3 3 2.3 5s-.9 3.7-2.3 5c-1.4-1.3-2.3-3-2.3-5s.9-3.7 2.3-5z" fill="#ff5f00"/></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#006fcf"/><text x="24" y="14" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" font-weight="700" fill="#fff" letter-spacing="0.3">AMERICAN</text><text x="24" y="22" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" font-weight="700" fill="#fff" letter-spacing="0.3">EXPRESS</text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.5"/><text x="24" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="900" font-style="italic" letter-spacing="-0.5"><tspan fill="#003087">Pay</tspan><tspan fill="#009cde">Pal</tspan></text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#000"/><g transform="translate(11,8)"><path d="M5.5 4.2c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7.1 1.3-.3 1.7-.8zm.6.9c-1-.1-1.8.5-2.2.5-.5 0-1.2-.5-2-.5-1 0-2 .6-2.5 1.5-1.1 1.8-.3 4.5.7 6 .5.7 1.1 1.5 1.9 1.4.7 0 1-.4 1.9-.4s1.2.4 1.9.4c.8 0 1.3-.7 1.8-1.4.6-.8.8-1.6.8-1.6 0 0-1.5-.6-1.5-2.3 0-1.4 1.2-2.1 1.2-2.1-.7-1-1.7-1.1-2-1.1z" fill="#fff"/></g><text x="32" y="21" text-anchor="middle" font-family="-apple-system,Helvetica Neue,Arial,sans-serif" font-size="10" font-weight="500" fill="#fff">Pay</text></svg></div>
+  <div class="ftb2"><p>© 2026 Ordonnance Royale. Tous droits réservés.</p><p>Fait avec ✦ et Foi</p></div></div></footer>
+
+<script>
+function goSrch(e){e.preventDefault();var q=document.getElementById('sInp').value.trim();if(q)window.location.href='boutique.html?search='+encodeURIComponent(q);}
+window.addEventListener('DOMContentLoaded',function(){var p=JSON.parse(localStorage.getItem('or_cart')||'[]');var n=p.reduce(function(s,i){return s+i.qte;},0);var e=document.getElementById('nbdg');if(e){e.textContent=n;e.classList.toggle('on',n>0);}});
+</script>
+</body>
+</html>

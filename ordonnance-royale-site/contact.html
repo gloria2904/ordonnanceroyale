@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACM0lEQVR42u2Wv2obQRDGv707JFmVjSKp8KFOOOBCAqdw0COoNi5U+xWCH8JPoKcQMRhVBiEOE6MYRFzEuLAEKiSLSC7ujvVxu1+qbDCJyZ3/YAKa7naOnd8MM/OtIEm8oVl4Y1sBrABWAE8C0FpDKWW+lVJ46joRaReR1hqWZZnAtm0bH0kIIVIBOE8JPh6P0Ov1sLPzAVEUYTQaodlsIpPJmEokBbHSBvc8D41GA/l8Htvb26jVari4+Ir9/T0sl0sIIdJVgQlMa02tNZfLJavVKl3Xpe/7xj8YDFgsvuPh4ScGQcDLy28MwzDJ1UxUAaUUhBDodDq4vr5GuVx+kGU+v4ZisYiTky76/T42N11ks9mXn4KzMw9CCIRhiDiOzXk2m4MQwGLxA0EQYH19PfFUJAL4le18PgdJ3N0tIKU0QRzHgVIKUXSP29sZSL4swO9M1yCEwHQ6w/HxZwPm+z6kjBDHMXK5XKomtBI2KgCgXq+DJFzXxXw+x/n5F0wmE0ynU0gpAVjY2npvpiZRFZJ0qlKKJHlzc8NMJsNSqUSlFKWUjKKIw+GQjuOw0WhQynumMST9MY5jkmS73SYAdrtd4zs6OqLj2PQ8jyQ5m83YarV4dfX9QQJ/s8Sb0LZtaK1xcHCAQqGA09NTVCoV+L6P8XiEfr+P3d2PpmnDMIBS+nW1YLFYQAiBjY2NP3yvJkaPiRBJE5ykgfnXRIjnPMvTCs+z1fCxBbV6kq0AVgD/NcBP3GA3MvtcL5MAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAABAElEQVR42tWTQWuDQBCF32xKegniwXP34l8wpgdpfrK/Q7zpSdCcGptcPFiRRt3XU8WkCqWhhz5YGNiZb9iZt0KSuEMKd+rvAMaY2fhHAJJQSqHv+zFe0sNcsYggDENorXG5fIAkdrtnGGO+wzjRMAwkySzL6Lou27Zlnufc719YFAW7rqMxZlpCNffuKIpwOr1BROA4Do7HV5zPZ6xWK9xu/QogIgAA27bRNA2SJEFd16jrd2w2m/F+EaCUAkkEQQDf38GyLBwOB2y3PrTWiON4zBmb3jrxa4hlWaKqKvR9D62fsF4/Ik1TeJ435swCppBfG0lEQPLqLBlK/v9n+gRHoLUxTYp9xAAAAABJRU5ErkJggg==">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACM0lEQVR42u2Wv2obQRDGv707JFmVjSKp8KFOOOBCAqdw0COoNi5U+xWCH8JPoKcQMRhVBiEOE6MYRFzEuLAEKiSLSC7ujvVxu1+qbDCJyZ3/YAKa7naOnd8MM/OtIEm8oVl4Y1sBrABWAE8C0FpDKWW+lVJ46joRaReR1hqWZZnAtm0bH0kIIVIBOE8JPh6P0Ov1sLPzAVEUYTQaodlsIpPJmEokBbHSBvc8D41GA/l8Htvb26jVari4+Ir9/T0sl0sIIdJVgQlMa02tNZfLJavVKl3Xpe/7xj8YDFgsvuPh4ScGQcDLy28MwzDJ1UxUAaUUhBDodDq4vr5GuVx+kGU+v4ZisYiTky76/T42N11ks9mXn4KzMw9CCIRhiDiOzXk2m4MQwGLxA0EQYH19PfFUJAL4le18PgdJ3N0tIKU0QRzHgVIKUXSP29sZSL4swO9M1yCEwHQ6w/HxZwPm+z6kjBDHMXK5XKomtBI2KgCgXq+DJFzXxXw+x/n5F0wmE0ynU0gpAVjY2npvpiZRFZJ0qlKKJHlzc8NMJsNSqUSlFKWUjKKIw+GQjuOw0WhQynumMST9MY5jkmS73SYAdrtd4zs6OqLj2PQ8jyQ5m83YarV4dfX9QQJ/s8Sb0LZtaK1xcHCAQqGA09NTVCoV+L6P8XiEfr+P3d2PpmnDMIBS+nW1YLFYQAiBjY2NP3yvJkaPiRBJE5ykgfnXRIjnPMvTCs+z1fCxBbV6kq0AVgD/NcBP3GA3MvtcL5MAAAAASUVORK5CYII=">
+<title>Contact — Ordonnance Royale</title>
+<meta name="description" content="Une question ? Contactez l'équipe Ordonnance Royale par email, Instagram, TikTok ou WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bk:#1a1a1a;--wh:#ffffff;--gd:#2c2420;
+  --bg:#f5f0e8;--bg2:#ede8de;--br:#ddd8ce;
+  --mi:#4a4440;--li:#8a8078;--dk:#1a1a1a;
+  --er:#7a1f1f;--su:#2d5a3d;
+  --sf:'Playfair Display',Georgia,serif;
+  --bo:'Cormorant Garamond',Georgia,serif;
+  --sa:'Montserrat',sans-serif;
+  --ez:0.25s ease
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--bo);font-size:18px;color:var(--dk);background:var(--bg);line-height:1.7}
+a{color:inherit;text-decoration:none}ul{list-style:none}img{max-width:100%;display:block}
+.w{max-width:1100px;margin:0 auto;padding:0 32px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--wh);border-bottom:1px solid var(--br)}
+.nr1{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:1280px;margin:0 auto;padding:0 32px}
+.nlog img{height:64px;width:auto;display:block}
+.nact{display:flex;align-items:center;gap:4px}
+.ncart{position:relative;background:none;border:none;cursor:pointer;padding:8px;color:var(--dk);transition:color var(--ez)}
+.ncart:hover{color:var(--mi)}
+.ncart svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nbdg{position:absolute;top:2px;right:2px;background:var(--bk);color:var(--wh);font-size:.5rem;font-weight:700;font-family:var(--sa);width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--ez)}
+.nbdg.on{opacity:1}
+.nburg{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.nburg span{display:block;width:22px;height:2px;background:var(--dk)}
+.nr2{border-top:1px solid var(--br)}
+.nmenu{display:flex;align-items:center;justify-content:center;max-width:1280px;margin:0 auto;padding:0 24px}
+.nmenu li a{display:block;padding:11px 18px;font-family:var(--sa);font-size:.73rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dk);transition:color var(--ez)}
+.nmenu li a:hover,.nmenu li a.on{color:var(--bk);text-decoration:underline;text-underline-offset:4px}
+.nr3{border-top:1px solid var(--br);background:var(--bg);padding:8px 32px}
+.sform{max-width:1280px;margin:0 auto;display:flex;align-items:center;border:1px solid var(--br);background:var(--wh);transition:border-color var(--ez)}
+.sform:focus-within{border-color:var(--bk)}
+.sinp{flex:1;border:none;outline:none;padding:10px 16px;font-family:var(--sa);font-size:.83rem;color:var(--dk);background:transparent}
+.sinp::placeholder{color:var(--li)}
+.sbtn{border:none;background:none;padding:10px 14px;cursor:pointer;color:var(--mi);display:flex;align-items:center;transition:color var(--ez)}
+.sbtn:hover{color:var(--bk)}
+.sbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.nmob{display:none;flex-direction:column;background:var(--wh);border-top:1px solid var(--br);position:fixed;top:132px;left:0;right:0;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.nmob.on{display:flex}
+.nmob a{padding:12px 32px;font-family:var(--sa);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--br)}
+.nsp{height:132px}
+
+/* HEADER */
+.ch{padding:60px 0 44px;text-align:center;border-bottom:1px solid var(--br)}
+.ch-lbl{font-family:var(--sa);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mi);margin-bottom:16px}
+.ch-title{font-family:var(--sf);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--bk);line-height:1.1;margin-bottom:14px}
+.ch-sub{font-family:var(--bo);font-size:1.1rem;color:var(--mi);max-width:580px;margin:0 auto;line-height:1.7}
+
+/* GRID 2 COLS */
+.contact-wrap{padding:60px 0 80px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+
+/* CHANNELS (gauche) */
+.channels{display:flex;flex-direction:column;gap:14px}
+.channel{display:flex;align-items:center;gap:18px;padding:22px 24px;background:var(--wh);border:1px solid var(--br);border-radius:6px;transition:all var(--ez);cursor:pointer}
+.channel:hover{border-color:var(--bk);transform:translateY(-2px);box-shadow:0 8px 20px rgba(26,26,26,.06)}
+.channel-icon{width:46px;height:46px;background:var(--bk);color:var(--wh);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--sa);font-weight:700;font-size:.7rem;letter-spacing:.04em}
+.channel-icon svg{width:22px;height:22px;stroke:var(--wh);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.channel-icon.fill svg{fill:var(--wh);stroke:none}
+.channel-body{flex:1;min-width:0}
+.channel-tt{font-family:var(--sa);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--li);font-weight:600;margin-bottom:4px}
+.channel-val{font-family:var(--sf);font-size:1.1rem;font-weight:600;color:var(--bk);word-break:break-word}
+.channel-arrow{color:var(--li);font-family:var(--sa);transition:all var(--ez)}
+.channel:hover .channel-arrow{color:var(--bk);transform:translateX(4px)}
+
+/* INFO BOX */
+.info-box{margin-top:24px;padding:22px 24px;background:var(--bg2);border-left:3px solid var(--bk);border-radius:0 4px 4px 0}
+.info-box-tt{font-family:var(--sa);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mi);font-weight:700;margin-bottom:8px}
+.info-box-content{font-family:var(--bo);font-size:.96rem;color:var(--dk);line-height:1.6}
+.info-box-content strong{color:var(--bk);font-weight:600}
+
+/* FORMULAIRE (droite) */
+.form-card{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:32px}
+.form-card h2{font-family:var(--sf);font-size:1.5rem;font-weight:700;color:var(--bk);margin-bottom:6px}
+.form-card .form-sub{font-family:var(--bo);font-size:.96rem;color:var(--mi);font-style:italic;margin-bottom:24px}
+.fgr{margin-bottom:18px}
+.fgr:last-child{margin-bottom:0}
+.flbl{display:block;font-family:var(--sa);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mi);font-weight:600;margin-bottom:9px}
+.flbl span{color:var(--li);font-weight:500;text-transform:none;letter-spacing:.04em;font-size:.78rem;margin-left:6px}
+.finp,.fta{width:100%;padding:13px 16px;border:1px solid var(--br);background:var(--bg);font-family:var(--bo);font-size:1rem;color:var(--dk);outline:none;border-radius:4px;transition:border-color var(--ez)}
+.finp:focus,.fta:focus{border-color:var(--bk);background:var(--wh)}
+.finp::placeholder,.fta::placeholder{color:var(--li);font-style:italic}
+.finp.invalid,.fta.invalid{border-color:var(--er);background:#fef5f5}
+.fta{resize:vertical;min-height:130px;line-height:1.6}
+
+.form-submit{width:100%;padding:15px;background:var(--bk);color:var(--wh);border:none;font-family:var(--sa);font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background var(--ez);margin-top:8px}
+.form-submit:hover{background:var(--gd)}
+.form-submit:disabled{opacity:.5;cursor:not-allowed}
+
+.form-success{display:none;padding:18px 22px;background:var(--bg2);border:1px solid var(--bk);border-radius:4px;font-family:var(--bo);font-size:.96rem;color:var(--bk);line-height:1.5;margin-top:14px;text-align:center}
+.form-success.on{display:block}
+.form-success strong{font-weight:700;display:block;margin-bottom:4px;font-family:var(--sa);font-size:.78rem;letter-spacing:.04em}
+
+.form-note{font-family:var(--sa);font-size:.7rem;color:var(--li);text-align:center;margin-top:14px;letter-spacing:.04em;line-height:1.5}
+
+/* FAQ SECTION */
+.faq-section{background:var(--wh);border-top:1px solid var(--br);padding:80px 0}
+.faq-head{text-align:center;margin-bottom:48px}
+.faq-head .ch-lbl{margin-bottom:14px}
+.faq-head h2{font-family:var(--sf);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:var(--bk);line-height:1.15;margin-bottom:12px}
+.faq-head p{font-family:var(--bo);font-size:1.05rem;color:var(--mi);max-width:560px;margin:0 auto}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.faq-item{background:var(--bg);border:1px solid var(--br);border-radius:6px;overflow:hidden;transition:border-color var(--ez)}
+.faq-item:hover{border-color:var(--mi)}
+.faq-item.open{border-color:var(--bk);background:var(--wh)}
+.faq-q{width:100%;text-align:left;padding:20px 24px;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--sf);font-size:1.08rem;font-weight:600;color:var(--bk);transition:all var(--ez)}
+.faq-q-icon{width:24px;height:24px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--sa);font-size:1rem;font-weight:300;color:var(--mi);transition:transform var(--ez)}
+.faq-item.open .faq-q-icon{transform:rotate(45deg);color:var(--bk)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 24px}
+.faq-item.open .faq-a{max-height:500px;padding:0 24px 22px}
+.faq-a-content{font-family:var(--bo);font-size:1rem;color:var(--mi);line-height:1.7;border-top:1px solid var(--br);padding-top:16px}
+.faq-a-content strong{color:var(--bk);font-weight:600}
+.faq-a-content a{color:var(--bk);text-decoration:underline;text-underline-offset:2px}
+.faq-a-content a:hover{color:var(--gd)}
+
+.faq-bottom{text-align:center;margin-top:48px;padding-top:36px;border-top:1px solid var(--br);max-width:560px;margin-left:auto;margin-right:auto}
+.faq-bottom p{font-family:var(--bo);font-size:1.02rem;color:var(--mi);margin-bottom:18px;line-height:1.6}
+
+/* TOAST */
+.toast{position:fixed;top:148px;right:20px;background:var(--bk);color:var(--wh);padding:14px 22px;border-radius:4px;font-family:var(--sa);font-size:.78rem;font-weight:600;z-index:5000;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(-10px);transition:all var(--ez);box-shadow:0 12px 30px rgba(26,26,26,.2)}
+.toast.on{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.ft{background:var(--bk);color:rgba(245,240,232,.45);padding:72px 0 36px}
+.ftg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.ftl img{height:26px;width:auto;margin-bottom:18px}
+.ftb p{font-size:.88rem;line-height:1.7;max-width:280px}
+.fts{display:flex;gap:10px;margin-top:18px}
+.ftsi{width:34px;height:34px;border:1px solid rgba(245,240,232,.12);display:flex;align-items:center;justify-content:center;font-family:var(--sa);font-size:.6rem;color:rgba(245,240,232,.35);text-transform:uppercase;transition:all var(--ez)}
+.ftsi:hover{border-color:rgba(245,240,232,.5);color:var(--wh)}
+.ftc h4{font-family:var(--sa);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--wh);margin-bottom:18px}
+.ftc ul{display:flex;flex-direction:column;gap:9px}
+.ftc a{font-size:.85rem;color:rgba(245,240,232,.4);transition:color var(--ez)}
+.ftc a:hover{color:var(--wh)}
+.ftb2{border-top:1px solid rgba(245,240,232,.07);padding-top:24px;display:flex;justify-content:space-between;font-family:var(--sa);font-size:.7rem;color:rgba(245,240,232,.18)}
+
+/* RESPONSIVE */
+@media(max-width:900px){.nmenu{display:none}.nburg{display:flex}.contact-grid{grid-template-columns:1fr;gap:36px}}
+@media(max-width:768px){.w{padding:0 20px}.ftg{grid-template-columns:1fr 1fr;gap:36px}.nr3{padding:8px 20px}.form-card{padding:24px}.channel{padding:18px}.faq-section{padding:56px 0}}
+@media(max-width:480px){.ftg{grid-template-columns:1fr}.faq-q{font-size:.98rem;padding:16px 18px}.faq-item.open .faq-a{padding:0 18px 18px}}
+</style>
+</head><body>
+
+<nav class="nav">
+  <div class="nr1">
+    <a href="index.html" class="nlog"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJDYWxxdWVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNzkwLjUzIDIxNS4zOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwMjAyMDI7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTYyMi4yMiwxNDYuMDZjMC00LjYyLTMuMDQtNy4xNy03LjkzLTcuMTdoLTcuNHYyNC4yNGg0LjI5di0xMC4yMWw3LjMzLDEwLjIxaDUuMjFsLTcuODYtMTAuMzdjMy45Ni0uNTYsNi4zNC0zLjE4LDYuMzQtNi43Wk02MTEuMTgsMTQ5LjUzdi02LjkxaDIuODhjMi4zOCwwLDMuNzYsMS4zMiwzLjc2LDMuNDRzLTEuMzgsMy40Ny0zLjc2LDMuNDdoLTIuODhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM3Ljg0LDEzOC40MmMtNy4wMywwLTEyLjU1LDUuMTktMTIuNTUsMTIuNTlzNS41MiwxMi41OCwxMi41NSwxMi41OCwxMi41NS01LjE5LDEyLjU1LTEyLjU4LTUuNTItMTIuNTktMTIuNTUtMTIuNTlaTTYzNy44NCwxNTkuNDZjLTQuNTUsMC04LjA5LTMuNDMtOC4wOS04LjQ1czMuNTQtOC40OSw4LjA5LTguNDksOC4wOSwzLjQ3LDguMDksOC40OS0zLjU2LDguNDUtOC4wOSw4LjQ1WiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI2NjUuNDEgMTM4Ljg5IDY2MC40OCAxNDguOTkgNjU1LjUzIDEzOC44OSA2NTAuNjcgMTM4Ljg5IDY1OC4zMSAxNTMuNjEgNjU4LjMxIDE2My4xMyA2NjIuNiAxNjMuMTMgNjYyLjYgMTUzLjYxIDY2OS45NCAxMzguODkgNjY1LjQxIDEzOC44OSIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY3Ni42NywxMzguODlsLTguMjMsMjQuMjRoNC40M2wxLjM5LTQuNGg4Ljk4bDEuNDIsNC40aDQuNDlsLTguMjgtMjQuMjRoLTQuMlpNNjc1LjQ0LDE1NWwzLjI3LTEwLjI2LDMuMzMsMTAuMjZoLTYuNloiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNjk2LjU1IDEzOC44OSA2OTIuMjUgMTM4Ljg5IDY5Mi4yNSAxNjMuMTMgNzA1LjM5IDE2My4xMyA3MDUuMzkgMTU5LjEzIDY5Ni41NSAxNTkuMTMgNjk2LjU1IDEzOC44OSIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI3MTIuODkgMTUyLjczIDcyMS42MiAxNTIuNzMgNzIxLjYyIDE0OC43MyA3MTIuODkgMTQ4LjczIDcxMi44OSAxNDIuODggNzIxLjcxIDE0Mi44OCA3MjEuNzEgMTM4Ljg5IDcwOC42IDEzOC44OSA3MDguNiAxNjMuMTMgNzIxLjg4IDE2My4xMyA3MjEuODggMTU5LjEzIDcxMi44OSAxNTkuMTMgNzEyLjg5IDE1Mi43MyIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTgwLjIyLDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTkyLjY4LDcxLjk5Yy0uNzYtOS44Mi0yLjA4LTE5LjE2LTEyLjM3LTE5LjE2LTExLjIzLDAtMTIuMjcsOS4xNi0xMi44NCwxOS44Mi0uNDcsOS42My0uNTcsMTguNS4wOSwyNy44NC42Niw5LjgyLDIuMDgsMTkuMTYsMTIuMjcsMTkuMTYsMTEuMzIsMCwxMi4zNi05LjE2LDEyLjg0LTE5LjgyLjU2LTkuNjMuNjYtMTguNSwwLTI3Ljg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1Ny4zMywxMDguNDJjMC00LjUzLjA5LTguMjEuMDktMTIuNTUtLjE5LTYuODktMi4xNy0xMC43Ni04LjQtMTAuNzZoLTcuNzRjLS42NiwwLS45NS4yOC0uOTUuNTd2MjguODhjMCwzLjAyLjA5LDMuODcuOTUsMy44N2gzLjk2Yy42NiwwLC45NS4xOS45NS41N3MtLjE5LjU3LS45NS41N2gtMjQuMTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gzLjk2Yy45NCwwLDEuMDQtLjg1LDEuMDQtMy44N3YtNTYuNjNjMC0zLjAyLS4wOS0zLjg3LTEuMDQtMy44N2gtMy45NmMtLjc1LDAtLjg1LS4xOS0uODUtLjU3LDAtLjI4LjA5LS41Ny44NS0uNTdoMjkuNDVjOS45MSwwLDIxLjIzLDMuNjgsMjEuMjMsMTYuMzMsMCwxMC05LjcyLDE0LjcyLTE4LjAzLDE1LjI5di4wOWM5LjgyLjg1LDE4LjIyLDYuMzIsMTguMTIsMTguMDN2MTEuN2MwLDIuMDguMzgsNC4zNCwyLjc0LDQuMzQsMS41MSwwLDMuMDItMS4wNCwzLjY4LTIuODMuMTktLjQ3LjI4LS45NC44NS0uODVzLjY2LjU3LjQ3LDEuMDRjLTEuMDQsMy4xMS00LjkxLDQuNjMtOC42OCw0LjYzLTguNSwwLTEzLjU5LTQuODItMTMuNTktMTIuMjdaTTE0OS40LDU0LjA2aC04LjEyYy0uNjYsMC0uOTUuMjgtLjk1LjU2djI4Ljg4YzAsLjI4LjE5LjU3Ljg1LjU3aDguMzFjNS41NywwLDguNC0zLjc3LDguNC0xNC44MnMtMy4yMS0xNS4xOS04LjQ5LTE1LjE5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxOC40OSwxMTkuNTZoLTI5LjE2Yy0uNTcsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMy45NmMuOTQsMCwxLjA0LS44NSwxLjA0LTMuODd2LTU2LjYzYzAtMy4wMi0uMDktMy44Ny0xLjA0LTMuODdoLTMuOTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gyOS4xNmMxOC42OSwwLDI5LjgyLDE1LjM4LDI5LjgyLDMzLjAzcy0xMC4xOSwzMy42LTI5LjgyLDMzLjZaTTIzMC45NCw3Mi4yOGMtLjU2LTcuMDgtMS43LTE4LjIxLTEyLjc0LTE4LjIxaC04LjY4Yy0uNjYsMC0uOTUuMjgtLjk1LjU2djYzLjI0YzAsLjI4LjE5LjU3Ljg1LjU3aDguODdjOS43MiwwLDExLjk5LTcuNzQsMTIuNzQtMTguODguNTctOC45Ny41Ny0xOC4zMS0uMDktMjcuMjhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjg5LjQ2LDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTMwMS45MSw3MS45OWMtLjc1LTkuODItMi4wOC0xOS4xNi0xMi4zNi0xOS4xNi0xMS4yMywwLTEyLjI3LDkuMTYtMTIuODQsMTkuODItLjQ3LDkuNjMtLjU3LDE4LjUuMDksMjcuODQuNjYsOS44MiwyLjA4LDE5LjE2LDEyLjI3LDE5LjE2LDExLjMyLDAsMTIuMzYtOS4xNiwxMi44My0xOS44Mi41Ny05LjYzLjY2LTE4LjUsMC0yNy44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zODkuMzEsNTQuMDZoLS4xOWMtNC42MiwwLTUuOTUsNC4yNS01Ljk1LDIxLjIzdjQ0LjQ1YzAsLjI4LS4xOS41Ny0uOTQuNTdoLTguMzFjLS41NywwLS43Ni0uMjgtLjk0LS41N2wtMzUuOTYtNjEuNjNoLS4wOXYzOC40MWMwLDE1Ljg2LDIuOTMsMjEuOSwxMC4zOCwyMS45aDEuMjNjLjc2LDAsLjk0LjE5Ljk0LjU3LDAsLjI4LS4xOS41Ny0uOTQuNTdoLTE4Ljk3Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoLjE5YzQuNjMsMCw1Ljk1LTQuMjUsNS45NS0yMS4yNHYtMzkuMjZjMC0zLjAyLS4wOS0zLjg3LS45NS0zLjg3aC00LjQ0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTkuNTRjLjM4LDAsLjY2LjE5Ljk0LjU3bDMwLjk2LDUzLjQyaC4xOXYtMzAuOTZjMC0xNS44Ni0yLjkyLTIxLjktMTAuMjktMjEuOWgtLjk0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTguNTljLjc1LDAsLjk0LjE5Ljk0LjU3cy0uMTkuNTctLjk0LjU3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ1OS40NCw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk0LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzYsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTI4LjA1LDExOS41NmgtMjUuMjljLS42NiwwLS45NC0uMTktLjk0LS41N3MuMTktLjU3Ljk0LS41N2gzLjU5YzEuNjEsMCwyLjI3LS42Ni45NS00LjQ0bC02LjIzLTE4LjY5Yy0uMDktLjM4LS4yOC0uNTctLjg1LS41N2gtMTguMDNjLS40NywwLS42Ni4wOS0uNzUuNTdsLTEuNzksNS42NmMtNC4xNSwxMi45My0uNjYsMTcuNDYsNC4wNiwxNy40NmgxLjg5Yy41NywwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N2gtMTguNTljLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMjhjMi44MywwLDYuMjMtMi42NCwxMC45NS0xNy45M2wxNC44Mi00Ny43NmMuMTktLjQ3LjM4LS41Ny44NS0uNTdoNi45OGMuNDcsMCwuNzYuMTkuODUuNTdsMjEuMTQsNjEuMjVjMS4zMiwzLjg3LDEuODksNC40NCwzLjMsNC40NGgxLjg5Yy42NiwwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N1pNNDkwLjk2LDY0LjE2aC0uMTlsLTguNjgsMjguNzljLS4wOS4zOC4wOS41Ny43NS41N2gxNi41MmMuNjYsMCwuOTQtLjM4Ljg1LS43NWwtOS4yNS0yOC42WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU5Ni4yOSw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk1LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzUsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNzIxLjIxLDk3LjIxYy0uMzgsMC0uNjYuMTgtLjY2Ljg0di45NGMwLDYuMzMtNS4xOSwyMC41OC0yMC42NywyMC41OGgtNy44NGMtLjY2LDAtLjg1LS4yOC0uODUtLjU2di0zMi4wOWMwLS4zOC4yOS0uNTguOTQtLjU4aDQuMzVjNS43NSwwLDEwLjk1LDQuNjMsMTAuOTUsMTAuMjl2LjY3YzAsLjY2LjE4Ljg1LjY2Ljg1LjM4LDAsLjU2LS4yLjU2LS44NXYtMjIuODVjMC0uNjYtLjE4LS45NC0uNTYtLjk0cy0uNjYuMi0uNjYuOTR2LjY3YzAsNS41Ni01LjE5LDEwLjE5LTEwLjk1LDEwLjE5aC00LjQ0Yy0uNjYsMC0uODUtLjE4LS44NS0uNTZ2LTI4Ljk4YzAtLjM3LjM4LS41Ni45NC0uNTZoOC40OWMxMC40OSwwLDE2LjgxLDEwLjIsMTYuODEsMTkuODJ2MS4wNWMwLC42Ni4yLjg0LjU2Ljg0LjQ3LDAsLjc2LS4xOC43Ni0uODR2LTIxLjI1YzAtLjU2LS4zOC0uNzUtLjg1LS43NWgtNDUuOTdjLS42NiwwLS44NC4xOC0uODQuNTZzLjI4LjU2Ljg0LjU2aDMuOTdjLjk0LDAsMS4wNC44NSwxLjA0LDMuODh2NTYuNjNjMCwzLjAxLS4wOSwzLjg3LTEuMDQsMy44N2gtMy45N2MtLjY2LDAtLjg0LjE4LS44NC41NnMuMjguNTguODQuNThoNDkuMDljLjU2LDAsLjg1LS4yLjg1LS42N3YtMjJjMC0uNjYtLjI5LS44NC0uNjctLjg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5MC4xNyw4My44Yy00LjY1LS4xMy05LjEzLjY3LTEzLjUxLDIuMjItOS41MSwzLjM2LTE2LjcyLDExLjQ4LTIwLjUzLDIwLjY0LTMuMTYsNy41Ny05Ljk5LDEzLjAyLTE4LjQ0LDEzLjAyLTExLjE0LDAtMTIuNTYtOS4wNy0xMy4yMS0xOS4xNi0uNjYtOS4zNS0uNDctMTcuMDktLjA5LTI2LjcxLjU2LTEyLjA5LDIuMzYtMTkuODIsMTIuNDUtMTkuODIsOS4yNSwwLDE4LjIyLDguNTksMTguMjIsMjIuOTN2MS4xNGMwLC42Ni4xOC45NC42Ni45NC4zOCwwLC42Ny0uMi42Ny0uOTR2LTIzLjMyYzAtLjc1LS4yLS45NC0uNjctLjk0cy0uNjYuMjktLjY2Ljk0di42N2MwLDIuMDctMi41NC44NC00LjksMC0yLjY1LS45NC04LjEzLTIuNDYtMTMuNDEtMi40Ni0xOS44MiwwLTI5LjY0LDE1LjU5LTI5LjY0LDM0LjkzLDAsMTcuMDgsMTAuMTEsMzIuODUsMjkuNzMsMzIuODUuMiwwLC40MSwwLC42My0uMDEsNi41NC0uMjMsMTIuMjctMy41MSwxNi4zNi04LjUxLDIuMTMtMi42LDMuMzEtNi4xNCw1LjAzLTkuMDUsMS44Ny0zLjE2LDQuMDItNi4xOCw2LjY5LTguNzIsNC4xNC0zLjk1LDkuNDUtNi42NSwxNS4wNy03Ljc3LDIuNjItLjUyLDcuODEtLjU3LDkuNTUtMi44NVoiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjczNS40NyIgY3k9IjExNS44NyIgcj0iNC44NSIvPjwvc3ZnPg==" alt="Ordonnance Royale" style="height:64px;width:auto;display:block"></a>
+    <div class="nact">
+      <a href="panier.html" class="ncart" aria-label="Panier" style="text-decoration:none"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="nbdg" id="nbdg">0</span></a>
+      <button class="nburg" onclick="document.getElementById('nm').classList.toggle('on')"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nr2"><ul class="nmenu">
+    <li><a href="a-propos.html">À Propos</a></li>
+    <li><a href="boutique.html">Boutique</a></li>
+    <li><a href="ordonnance.html">Ordonnance Perso</a></li>
+    <li><a href="contact.html" class="on">Contact</a></li>
+  </ul></div>
+  <div class="nr3"><form class="sform" onsubmit="goSrch(event)"><input type="search" id="sInp" class="sinp" placeholder="Rechercher un verset, un thème…" autocomplete="off"><button type="submit" class="sbtn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button></form></div>
+</nav>
+<div class="nmob" id="nm">
+  <a href="a-propos.html">À Propos</a>
+  <a href="boutique.html">Boutique</a>
+  <a href="ordonnance.html">Ordonnance Perso</a>
+  <a href="contact.html">Contact</a>
+</div>
+<div class="nsp"></div>
+
+<div id="toast" class="toast">✓ <span id="toast-msg"></span></div>
+
+<header class="ch">
+  <div class="w">
+    <p class="ch-lbl">Restons en Contact</p>
+    <h1 class="ch-title">Une question ? Écrivez-nous</h1>
+    <p class="ch-sub">Notre équipe vous répond avec attention sous 24 à 48h.</p>
+  </div>
+</header>
+
+<main class="contact-wrap">
+  <div class="w">
+    <div class="contact-grid">
+
+      <div>
+        <div class="channels">
+
+          <a href="mailto:contact@ordonnanceroyale.com" class="channel">
+            <div class="channel-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+            </div>
+            <div class="channel-body">
+              <div class="channel-tt">Email</div>
+              <div class="channel-val">contact@ordonnanceroyale.com</div>
+            </div>
+            <div class="channel-arrow">→</div>
+          </a>
+
+          <a href="https://www.instagram.com/ordonnanceroyale" target="_blank" rel="noopener" class="channel">
+            <div class="channel-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div class="channel-body">
+              <div class="channel-tt">Instagram</div>
+              <div class="channel-val">@ordonnanceroyale</div>
+            </div>
+            <div class="channel-arrow">→</div>
+          </a>
+
+          <a href="https://www.tiktok.com/@ordonnanceroyale" target="_blank" rel="noopener" class="channel">
+            <div class="channel-icon fill">
+              <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.27 8.27 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/></svg>
+            </div>
+            <div class="channel-body">
+              <div class="channel-tt">TikTok</div>
+              <div class="channel-val">@ordonnanceroyale</div>
+            </div>
+            <div class="channel-arrow">→</div>
+          </a>
+
+          <a href="https://wa.me/33600000000" target="_blank" rel="noopener" class="channel">
+            <div class="channel-icon fill">
+              <svg viewBox="0 0 24 24"><path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345m-5.446 7.443h-.016c-1.77 0-3.524-.48-5.055-1.38l-.36-.214-3.75.975 1.005-3.645-.239-.375a9.869 9.869 0 01-1.516-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a11.882 11.882 0 005.71 1.448h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411"/></svg>
+            </div>
+            <div class="channel-body">
+              <div class="channel-tt">WhatsApp</div>
+              <div class="channel-val">Discutez en direct</div>
+            </div>
+            <div class="channel-arrow">→</div>
+          </a>
+
+        </div>
+
+        <div class="info-box">
+          <div class="info-box-tt">Délai de réponse</div>
+          <div class="info-box-content">
+            Notre équipe vous répond en moyenne sous <strong>24 à 48h</strong>, du lundi au vendredi.
+            Pour les commandes en cours, n'oubliez pas de mentionner votre <strong>numéro de commande</strong> (de la forme OR12345678).
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h2>Envoyez-nous un message</h2>
+        <p class="form-sub">Décrivez-nous votre demande, nous vous répondrons rapidement.</p>
+
+        <form id="contact-form" onsubmit="submitContact(event)" novalidate>
+          <div class="fgr">
+            <label class="flbl" for="c-name">Votre nom</label>
+            <input type="text" class="finp" id="c-name" placeholder="Marie Dupont" required>
+          </div>
+
+          <div class="fgr">
+            <label class="flbl" for="c-email">Votre email</label>
+            <input type="email" class="finp" id="c-email" placeholder="vous@exemple.fr" required>
+          </div>
+
+          <div class="fgr">
+            <label class="flbl" for="c-message">Votre message</label>
+            <textarea class="fta" id="c-message" placeholder="Bonjour, j'aimerais en savoir plus sur..." required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" id="submit-btn">Envoyer mon message →</button>
+
+          <div class="form-success" id="form-success">
+            <strong>✓ Message envoyé !</strong>
+            Merci de nous avoir contactés. Nous vous répondrons sous 24 à 48h à l'adresse indiquée.
+          </div>
+
+          <p class="form-note">En envoyant ce message, vous acceptez d'être recontacté·e par email à propos de votre demande.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<section class="faq-section">
+  <div class="w">
+    <div class="faq-head">
+      <p class="ch-lbl">Questions fréquentes</p>
+      <h2>Vous vous posez ces questions ?</h2>
+      <p>Voici les réponses à nos questions les plus courantes.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Quels sont les délais de livraison ?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-content">
+          Pour les <strong>affiches en stock</strong>, comptez 5 à 7 jours ouvrés en France métropolitaine.
+          Pour les <strong>ordonnances personnalisées</strong>, prévoir 10 jours ouvrés (création artisanale + livraison).
+          Les délais varient selon le pays — consultez notre <a href="livraisons.html">page Livraisons</a> pour le détail.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Comment fonctionne l'ordonnance personnalisée ?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-content">
+          Vous choisissez votre verset, votre format (du 13×18 au 50×70 cm), votre dédicace et vos options (cadre, carte cadeau).
+          Nous limitons les ordonnances personnalisées à <strong>7 par semaine</strong> pour préserver la qualité artisanale de chaque création.
+          Rendez-vous sur la page <a href="ordonnance.html">Ordonnance Perso</a> pour commencer.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Puis-je modifier les couleurs d'une affiche existante ?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-content">
+          Oui ! Sur chaque fiche produit, vous pouvez activer l'option <strong>« Personnaliser les couleurs »</strong> (+10€).
+          Décrivez librement les couleurs souhaitées (par exemple : <em>« bleu marine et or »</em>) et notre équipe vous enverra un aperçu avant impression.
+          Cette option ne nécessite pas de passer par l'ordonnance personnalisée.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Quelle est votre politique de retour ?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-content">
+          Vous disposez de <strong>14 jours</strong> à réception pour nous retourner un article qui ne vous convient pas (hors créations personnalisées et ordonnances).
+          L'article doit être renvoyé dans son emballage d'origine, en parfait état.
+          Le remboursement est effectué sous 14 jours après réception du retour. Contactez-nous pour obtenir l'adresse de retour.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Comment ajouter une carte cadeau à ma commande ?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-content">
+          Lors de la création d'une <a href="ordonnance.html">ordonnance personnalisée</a>, activez l'option <strong>« C'est un cadeau ? »</strong>.
+          Vous pourrez alors écrire un message personnalisé sur une carte glissée dans l'emballage cadeau (offert).
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Quels sont les moyens de paiement acceptés ?</span>
+          <span class="faq-q-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-content">
+          Nous acceptons le paiement par <strong>carte bancaire</strong> (Visa, Mastercard, American Express), <strong>PayPal</strong> et <strong>Apple Pay</strong>.
+          Toutes les transactions sont sécurisées par cryptage SSL et vos données bancaires ne sont jamais stockées sur nos serveurs.
+        </div></div>
+      </div>
+    </div>
+
+    <div class="faq-bottom">
+      <p>Vous n'avez pas trouvé la réponse à votre question ?</p>
+      <a href="#contact-form" onclick="document.getElementById('c-message').focus()" style="display:inline-block;padding:13px 28px;background:var(--bk);color:var(--wh);font-family:var(--sa);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:4px;transition:background var(--ez)">Posez-nous votre question →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ft"><div class="w"><div class="ftg">
+  <div class="ftb">
+    <a href="index.html" class="ftl"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJDYWxxdWVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNzkwLjUzIDIxNS4zOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmZmY7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTYyMi4yMiwxNDYuMDZjMC00LjYyLTMuMDQtNy4xNy03LjkzLTcuMTdoLTcuNHYyNC4yNGg0LjI5di0xMC4yMWw3LjMzLDEwLjIxaDUuMjFsLTcuODYtMTAuMzdjMy45Ni0uNTYsNi4zNC0zLjE4LDYuMzQtNi43Wk02MTEuMTgsMTQ5LjUzdi02LjkxaDIuODhjMi4zOCwwLDMuNzYsMS4zMiwzLjc2LDMuNDRzLTEuMzgsMy40Ny0zLjc2LDMuNDdoLTIuODhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM3Ljg0LDEzOC40MmMtNy4wMywwLTEyLjU1LDUuMTktMTIuNTUsMTIuNTlzNS41MiwxMi41OCwxMi41NSwxMi41OCwxMi41NS01LjE5LDEyLjU1LTEyLjU4LTUuNTItMTIuNTktMTIuNTUtMTIuNTlaTTYzNy44NCwxNTkuNDZjLTQuNTUsMC04LjA5LTMuNDMtOC4wOS04LjQ1czMuNTQtOC40OSw4LjA5LTguNDksOC4wOSwzLjQ3LDguMDksOC40OS0zLjU2LDguNDUtOC4wOSw4LjQ1WiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI2NjUuNDEgMTM4Ljg5IDY2MC40OCAxNDguOTkgNjU1LjUzIDEzOC44OSA2NTAuNjcgMTM4Ljg5IDY1OC4zMSAxNTMuNjEgNjU4LjMxIDE2My4xMyA2NjIuNiAxNjMuMTMgNjYyLjYgMTUzLjYxIDY2OS45NCAxMzguODkgNjY1LjQxIDEzOC44OSIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY3Ni42NywxMzguODlsLTguMjMsMjQuMjRoNC40M2wxLjM5LTQuNGg4Ljk4bDEuNDIsNC40aDQuNDlsLTguMjgtMjQuMjRoLTQuMlpNNjc1LjQ0LDE1NWwzLjI3LTEwLjI2LDMuMzMsMTAuMjZoLTYuNloiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNjk2LjU1IDEzOC44OSA2OTIuMjUgMTM4Ljg5IDY5Mi4yNSAxNjMuMTMgNzA1LjM5IDE2My4xMyA3MDUuMzkgMTU5LjEzIDY5Ni41NSAxNTkuMTMgNjk2LjU1IDEzOC44OSIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI3MTIuODkgMTUyLjczIDcyMS42MiAxNTIuNzMgNzIxLjYyIDE0OC43MyA3MTIuODkgMTQ4LjczIDcxMi44OSAxNDIuODggNzIxLjcxIDE0Mi44OCA3MjEuNzEgMTM4Ljg5IDcwOC42IDEzOC44OSA3MDguNiAxNjMuMTMgNzIxLjg4IDE2My4xMyA3MjEuODggMTU5LjEzIDcxMi44OSAxNTkuMTMgNzEyLjg5IDE1Mi43MyIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTgwLjIyLDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTkyLjY4LDcxLjk5Yy0uNzYtOS44Mi0yLjA4LTE5LjE2LTEyLjM3LTE5LjE2LTExLjIzLDAtMTIuMjcsOS4xNi0xMi44NCwxOS44Mi0uNDcsOS42My0uNTcsMTguNS4wOSwyNy44NC42Niw5LjgyLDIuMDgsMTkuMTYsMTIuMjcsMTkuMTYsMTEuMzIsMCwxMi4zNi05LjE2LDEyLjg0LTE5LjgyLjU2LTkuNjMuNjYtMTguNSwwLTI3Ljg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1Ny4zMywxMDguNDJjMC00LjUzLjA5LTguMjEuMDktMTIuNTUtLjE5LTYuODktMi4xNy0xMC43Ni04LjQtMTAuNzZoLTcuNzRjLS42NiwwLS45NS4yOC0uOTUuNTd2MjguODhjMCwzLjAyLjA5LDMuODcuOTUsMy44N2gzLjk2Yy42NiwwLC45NS4xOS45NS41N3MtLjE5LjU3LS45NS41N2gtMjQuMTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gzLjk2Yy45NCwwLDEuMDQtLjg1LDEuMDQtMy44N3YtNTYuNjNjMC0zLjAyLS4wOS0zLjg3LTEuMDQtMy44N2gtMy45NmMtLjc1LDAtLjg1LS4xOS0uODUtLjU3LDAtLjI4LjA5LS41Ny44NS0uNTdoMjkuNDVjOS45MSwwLDIxLjIzLDMuNjgsMjEuMjMsMTYuMzMsMCwxMC05LjcyLDE0LjcyLTE4LjAzLDE1LjI5di4wOWM5LjgyLjg1LDE4LjIyLDYuMzIsMTguMTIsMTguMDN2MTEuN2MwLDIuMDguMzgsNC4zNCwyLjc0LDQuMzQsMS41MSwwLDMuMDItMS4wNCwzLjY4LTIuODMuMTktLjQ3LjI4LS45NC44NS0uODVzLjY2LjU3LjQ3LDEuMDRjLTEuMDQsMy4xMS00LjkxLDQuNjMtOC42OCw0LjYzLTguNSwwLTEzLjU5LTQuODItMTMuNTktMTIuMjdaTTE0OS40LDU0LjA2aC04LjEyYy0uNjYsMC0uOTUuMjgtLjk1LjU2djI4Ljg4YzAsLjI4LjE5LjU3Ljg1LjU3aDguMzFjNS41NywwLDguNC0zLjc3LDguNC0xNC44MnMtMy4yMS0xNS4xOS04LjQ5LTE1LjE5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxOC40OSwxMTkuNTZoLTI5LjE2Yy0uNTcsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMy45NmMuOTQsMCwxLjA0LS44NSwxLjA0LTMuODd2LTU2LjYzYzAtMy4wMi0uMDktMy44Ny0xLjA0LTMuODdoLTMuOTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gyOS4xNmMxOC42OSwwLDI5LjgyLDE1LjM4LDI5LjgyLDMzLjAzcy0xMC4xOSwzMy42LTI5LjgyLDMzLjZaTTIzMC45NCw3Mi4yOGMtLjU2LTcuMDgtMS43LTE4LjIxLTEyLjc0LTE4LjIxaC04LjY4Yy0uNjYsMC0uOTUuMjgtLjk1LjU2djYzLjI0YzAsLjI4LjE5LjU3Ljg1LjU3aDguODdjOS43MiwwLDExLjk5LTcuNzQsMTIuNzQtMTguODguNTctOC45Ny41Ny0xOC4zMS0uMDktMjcuMjhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjg5LjQ2LDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTMwMS45MSw3MS45OWMtLjc1LTkuODItMi4wOC0xOS4xNi0xMi4zNi0xOS4xNi0xMS4yMywwLTEyLjI3LDkuMTYtMTIuODQsMTkuODItLjQ3LDkuNjMtLjU3LDE4LjUuMDksMjcuODQuNjYsOS44MiwyLjA4LDE5LjE2LDEyLjI3LDE5LjE2LDExLjMyLDAsMTIuMzYtOS4xNiwxMi44My0xOS44Mi41Ny05LjYzLjY2LTE4LjUsMC0yNy44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zODkuMzEsNTQuMDZoLS4xOWMtNC42MiwwLTUuOTUsNC4yNS01Ljk1LDIxLjIzdjQ0LjQ1YzAsLjI4LS4xOS41Ny0uOTQuNTdoLTguMzFjLS41NywwLS43Ni0uMjgtLjk0LS41N2wtMzUuOTYtNjEuNjNoLS4wOXYzOC40MWMwLDE1Ljg2LDIuOTMsMjEuOSwxMC4zOCwyMS45aDEuMjNjLjc2LDAsLjk0LjE5Ljk0LjU3LDAsLjI4LS4xOS41Ny0uOTQuNTdoLTE4Ljk3Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoLjE5YzQuNjMsMCw1Ljk1LTQuMjUsNS45NS0yMS4yNHYtMzkuMjZjMC0zLjAyLS4wOS0zLjg3LS45NS0zLjg3aC00LjQ0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTkuNTRjLjM4LDAsLjY2LjE5Ljk0LjU3bDMwLjk2LDUzLjQyaC4xOXYtMzAuOTZjMC0xNS44Ni0yLjkyLTIxLjktMTAuMjktMjEuOWgtLjk0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTguNTljLjc1LDAsLjk0LjE5Ljk0LjU3cy0uMTkuNTctLjk0LjU3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ1OS40NCw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk0LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzYsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTI4LjA1LDExOS41NmgtMjUuMjljLS42NiwwLS45NC0uMTktLjk0LS41N3MuMTktLjU3Ljk0LS41N2gzLjU5YzEuNjEsMCwyLjI3LS42Ni45NS00LjQ0bC02LjIzLTE4LjY5Yy0uMDktLjM4LS4yOC0uNTctLjg1LS41N2gtMTguMDNjLS40NywwLS42Ni4wOS0uNzUuNTdsLTEuNzksNS42NmMtNC4xNSwxMi45My0uNjYsMTcuNDYsNC4wNiwxNy40NmgxLjg5Yy41NywwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N2gtMTguNTljLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMjhjMi44MywwLDYuMjMtMi42NCwxMC45NS0xNy45M2wxNC44Mi00Ny43NmMuMTktLjQ3LjM4LS41Ny44NS0uNTdoNi45OGMuNDcsMCwuNzYuMTkuODUuNTdsMjEuMTQsNjEuMjVjMS4zMiwzLjg3LDEuODksNC40NCwzLjMsNC40NGgxLjg5Yy42NiwwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N1pNNDkwLjk2LDY0LjE2aC0uMTlsLTguNjgsMjguNzljLS4wOS4zOC4wOS41Ny43NS41N2gxNi41MmMuNjYsMCwuOTQtLjM4Ljg1LS43NWwtOS4yNS0yOC42WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU5Ni4yOSw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk1LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzUsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNzIxLjIxLDk3LjIxYy0uMzgsMC0uNjYuMTgtLjY2Ljg0di45NGMwLDYuMzMtNS4xOSwyMC41OC0yMC42NywyMC41OGgtNy44NGMtLjY2LDAtLjg1LS4yOC0uODUtLjU2di0zMi4wOWMwLS4zOC4yOS0uNTguOTQtLjU4aDQuMzVjNS43NSwwLDEwLjk1LDQuNjMsMTAuOTUsMTAuMjl2LjY3YzAsLjY2LjE4Ljg1LjY2Ljg1LjM4LDAsLjU2LS4yLjU2LS44NXYtMjIuODVjMC0uNjYtLjE4LS45NC0uNTYtLjk0cy0uNjYuMi0uNjYuOTR2LjY3YzAsNS41Ni01LjE5LDEwLjE5LTEwLjk1LDEwLjE5aC00LjQ0Yy0uNjYsMC0uODUtLjE4LS44NS0uNTZ2LTI4Ljk4YzAtLjM3LjM4LS41Ni45NC0uNTZoOC40OWMxMC40OSwwLDE2LjgxLDEwLjIsMTYuODEsMTkuODJ2MS4wNWMwLC42Ni4yLjg0LjU2Ljg0LjQ3LDAsLjc2LS4xOC43Ni0uODR2LTIxLjI1YzAtLjU2LS4zOC0uNzUtLjg1LS43NWgtNDUuOTdjLS42NiwwLS44NC4xOC0uODQuNTZzLjI4LjU2Ljg0LjU2aDMuOTdjLjk0LDAsMS4wNC44NSwxLjA0LDMuODh2NTYuNjNjMCwzLjAxLS4wOSwzLjg3LTEuMDQsMy44N2gtMy45N2MtLjY2LDAtLjg0LjE4LS44NC41NnMuMjguNTguODQuNThoNDkuMDljLjU2LDAsLjg1LS4yLjg1LS42N3YtMjJjMC0uNjYtLjI5LS44NC0uNjctLjg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5MC4xNyw4My44Yy00LjY1LS4xMy05LjEzLjY3LTEzLjUxLDIuMjItOS41MSwzLjM2LTE2LjcyLDExLjQ4LTIwLjUzLDIwLjY0LTMuMTYsNy41Ny05Ljk5LDEzLjAyLTE4LjQ0LDEzLjAyLTExLjE0LDAtMTIuNTYtOS4wNy0xMy4yMS0xOS4xNi0uNjYtOS4zNS0uNDctMTcuMDktLjA5LTI2LjcxLjU2LTEyLjA5LDIuMzYtMTkuODIsMTIuNDUtMTkuODIsOS4yNSwwLDE4LjIyLDguNTksMTguMjIsMjIuOTN2MS4xNGMwLC42Ni4xOC45NC42Ni45NC4zOCwwLC42Ny0uMi42Ny0uOTR2LTIzLjMyYzAtLjc1LS4yLS45NC0uNjctLjk0cy0uNjYuMjktLjY2Ljk0di42N2MwLDIuMDctMi41NC44NC00LjksMC0yLjY1LS45NC04LjEzLTIuNDYtMTMuNDEtMi40Ni0xOS44MiwwLTI5LjY0LDE1LjU5LTI5LjY0LDM0LjkzLDAsMTcuMDgsMTAuMTEsMzIuODUsMjkuNzMsMzIuODUuMiwwLC40MSwwLC42My0uMDEsNi41NC0uMjMsMTIuMjctMy41MSwxNi4zNi04LjUxLDIuMTMtMi42LDMuMzEtNi4xNCw1LjAzLTkuMDUsMS44Ny0zLjE2LDQuMDItNi4xOCw2LjY5LTguNzIsNC4xNC0zLjk1LDkuNDUtNi42NSwxNS4wNy03Ljc3LDIuNjItLjUyLDcuODEtLjU3LDkuNTUtMi44NVoiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjczNS40NyIgY3k9IjExNS44NyIgcj0iNC44NSIvPjwvc3ZnPg==" alt="Ordonnance Royale" style="height:26px;width:auto"></a>
+    <p>Changer et tenir ferme par la Parole au quotidien.</p>
+    <div class="fts"><a href="https://www.instagram.com/ordonnanceroyale" class="ftsi" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://www.tiktok.com/@ordonnanceroyale" class="ftsi" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z"/></svg></a></div>
+  </div>
+  <nav class="ftc"><h4>Boutique</h4><ul><li><a href="boutique.html">Toutes les affiches</a></li><li><a href="ordonnance.html">Ordonnance Perso</a></li></ul></nav>
+  <nav class="ftc"><h4>Informations</h4><ul><li><a href="a-propos.html">À Propos</a></li><li><a href="livraisons.html">Livraison</a></li><li><a href="contact.html">Contact</a></li><li><a href="mentions-legales.html">Mentions légales</a></li></ul></nav>
+  <nav class="ftc"><h4>Contact</h4><ul><li><a href="mailto:contact@ordonnanceroyale.com">contact@ordonnanceroyale.com</a></li><li><a href="https://www.instagram.com/ordonnanceroyale" target="_blank">@ordonnanceroyale</a></li></ul></nav>
+</div><div class="ft-pay" style="border-top:1px solid rgba(245,240,232,.07);padding:20px 0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap"><span style="font-family:var(--sa);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,240,232,.4);font-weight:600;margin-right:8px">Paiements sécurisés</span><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#1a1f71"/><text x="24" y="21" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="11" font-weight="900" font-style="italic" fill="#fff" letter-spacing="1">VISA</text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.5"/><circle cx="20" cy="16" r="7" fill="#eb001b"/><circle cx="28" cy="16" r="7" fill="#f79e1b" fill-opacity="0.9"/><path d="M24 11c1.4 1.3 2.3 3 2.3 5s-.9 3.7-2.3 5c-1.4-1.3-2.3-3-2.3-5s.9-3.7 2.3-5z" fill="#ff5f00"/></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#006fcf"/><text x="24" y="14" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" font-weight="700" fill="#fff" letter-spacing="0.3">AMERICAN</text><text x="24" y="22" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" font-weight="700" fill="#fff" letter-spacing="0.3">EXPRESS</text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.5"/><text x="24" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="900" font-style="italic" letter-spacing="-0.5"><tspan fill="#003087">Pay</tspan><tspan fill="#009cde">Pal</tspan></text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#000"/><g transform="translate(11,8)"><path d="M5.5 4.2c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7.1 1.3-.3 1.7-.8zm.6.9c-1-.1-1.8.5-2.2.5-.5 0-1.2-.5-2-.5-1 0-2 .6-2.5 1.5-1.1 1.8-.3 4.5.7 6 .5.7 1.1 1.5 1.9 1.4.7 0 1-.4 1.9-.4s1.2.4 1.9.4c.8 0 1.3-.7 1.8-1.4.6-.8.8-1.6.8-1.6 0 0-1.5-.6-1.5-2.3 0-1.4 1.2-2.1 1.2-2.1-.7-1-1.7-1.1-2-1.1z" fill="#fff"/></g><text x="32" y="21" text-anchor="middle" font-family="-apple-system,Helvetica Neue,Arial,sans-serif" font-size="10" font-weight="500" fill="#fff">Pay</text></svg></div>
+  <div class="ftb2"><p>© 2026 Ordonnance Royale. Tous droits réservés.</p><p>Fait avec ✦ et Foi</p></div></div></footer>
+
+<script>
+function $(id) { return document.getElementById(id); }
+
+function showToast(msg, isError) {
+  const t = $('toast');
+  $('toast-msg').textContent = msg;
+  t.style.background = isError ? '#7a1f1f' : 'var(--bk)';
+  t.classList.add('on');
+  setTimeout(function() { t.classList.remove('on'); }, 2400);
+}
+
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i) {
+    if (i !== item) i.classList.remove('open');
+  });
+  item.classList.toggle('open', !isOpen);
+}
+
+function submitContact(e) {
+  e.preventDefault();
+  const name = $('c-name');
+  const email = $('c-email');
+  const message = $('c-message');
+  
+  let firstError = null;
+  [name, email, message].forEach(function(el) { el.classList.remove('invalid'); });
+  
+  if (!name.value.trim()) {
+    name.classList.add('invalid');
+    if (!firstError) firstError = name;
+  }
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email.value.trim() || !emailRe.test(email.value.trim())) {
+    email.classList.add('invalid');
+    if (!firstError) firstError = email;
+  }
+  if (!message.value.trim() || message.value.trim().length < 10) {
+    message.classList.add('invalid');
+    if (!firstError) firstError = message;
+  }
+  
+  if (firstError) {
+    showToast('Veuillez vérifier les champs en rouge', true);
+    firstError.focus();
+    return;
+  }
+  
+  // Désactiver le bouton pendant l'envoi
+  $('submit-btn').disabled = true;
+  $('submit-btn').textContent = 'Envoi en cours...';
+  
+  // Sauvegarde locale en backup
+  const messages = JSON.parse(localStorage.getItem('or_contact_messages') || '[]');
+  messages.push({
+    date: new Date().toISOString(),
+    name: name.value.trim(),
+    email: email.value.trim(),
+    message: message.value.trim()
+  });
+  localStorage.setItem('or_contact_messages', JSON.stringify(messages));
+  
+  // Envoi à Formspree
+  fetch('https://formspree.io/f/mbdwkazz', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      name: name.value.trim(),
+      email: email.value.trim(),
+      message: message.value.trim(),
+      _replyto: email.value.trim(),
+      _subject: 'Nouveau message Ordonnance Royale - ' + name.value.trim()
+    })
+  })
+  .then(function(response) {
+    if (response.ok) {
+      $('contact-form').style.display = 'none';
+      $('form-success').classList.add('on');
+      showToast('Message envoyé avec succès');
+    } else {
+      throw new Error('Erreur ' + response.status);
+    }
+  })
+  .catch(function(err) {
+    console.error('Erreur envoi:', err);
+    showToast('Erreur lors de l\'envoi. Réessayez ou écrivez à contact@ordonnanceroyale.com', true);
+    $('submit-btn').disabled = false;
+    $('submit-btn').textContent = 'Envoyer le message';
+  });
+}
+
+document.querySelectorAll('.finp, .fta').forEach(function(el) {
+  el.addEventListener('input', function() { el.classList.remove('invalid'); });
+});
+
+function goSrch(e) {
+  e.preventDefault();
+  const q = $('sInp').value.trim();
+  if (q) window.location.href = 'boutique.html?search=' + encodeURIComponent(q);
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  const panier = JSON.parse(localStorage.getItem('or_cart') || '[]');
+  const n = panier.reduce(function(s, i) { return s + i.qte; }, 0);
+  const e = $('nbdg');
+  if (e) { e.textContent = n; e.classList.toggle('on', n > 0); }
+});
+</script>
+</body>
+</html>

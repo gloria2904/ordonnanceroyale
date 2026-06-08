@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACM0lEQVR42u2Wv2obQRDGv707JFmVjSKp8KFOOOBCAqdw0COoNi5U+xWCH8JPoKcQMRhVBiEOE6MYRFzEuLAEKiSLSC7ujvVxu1+qbDCJyZ3/YAKa7naOnd8MM/OtIEm8oVl4Y1sBrABWAE8C0FpDKWW+lVJ46joRaReR1hqWZZnAtm0bH0kIIVIBOE8JPh6P0Ov1sLPzAVEUYTQaodlsIpPJmEokBbHSBvc8D41GA/l8Htvb26jVari4+Ir9/T0sl0sIIdJVgQlMa02tNZfLJavVKl3Xpe/7xj8YDFgsvuPh4ScGQcDLy28MwzDJ1UxUAaUUhBDodDq4vr5GuVx+kGU+v4ZisYiTky76/T42N11ks9mXn4KzMw9CCIRhiDiOzXk2m4MQwGLxA0EQYH19PfFUJAL4le18PgdJ3N0tIKU0QRzHgVIKUXSP29sZSL4swO9M1yCEwHQ6w/HxZwPm+z6kjBDHMXK5XKomtBI2KgCgXq+DJFzXxXw+x/n5F0wmE0ynU0gpAVjY2npvpiZRFZJ0qlKKJHlzc8NMJsNSqUSlFKWUjKKIw+GQjuOw0WhQynumMST9MY5jkmS73SYAdrtd4zs6OqLj2PQ8jyQ5m83YarV4dfX9QQJ/s8Sb0LZtaK1xcHCAQqGA09NTVCoV+L6P8XiEfr+P3d2PpmnDMIBS+nW1YLFYQAiBjY2NP3yvJkaPiRBJE5ykgfnXRIjnPMvTCs+z1fCxBbV6kq0AVgD/NcBP3GA3MvtcL5MAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAABAElEQVR42tWTQWuDQBCF32xKegniwXP34l8wpgdpfrK/Q7zpSdCcGptcPFiRRt3XU8WkCqWhhz5YGNiZb9iZt0KSuEMKd+rvAMaY2fhHAJJQSqHv+zFe0sNcsYggDENorXG5fIAkdrtnGGO+wzjRMAwkySzL6Lou27Zlnufc719YFAW7rqMxZlpCNffuKIpwOr1BROA4Do7HV5zPZ6xWK9xu/QogIgAA27bRNA2SJEFd16jrd2w2m/F+EaCUAkkEQQDf38GyLBwOB2y3PrTWiON4zBmb3jrxa4hlWaKqKvR9D62fsF4/Ik1TeJ435swCppBfG0lEQPLqLBlK/v9n+gRHoLUxTYp9xAAAAABJRU5ErkJggg==">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACM0lEQVR42u2Wv2obQRDGv707JFmVjSKp8KFOOOBCAqdw0COoNi5U+xWCH8JPoKcQMRhVBiEOE6MYRFzEuLAEKiSLSC7ujvVxu1+qbDCJyZ3/YAKa7naOnd8MM/OtIEm8oVl4Y1sBrABWAE8C0FpDKWW+lVJ46joRaReR1hqWZZnAtm0bH0kIIVIBOE8JPh6P0Ov1sLPzAVEUYTQaodlsIpPJmEokBbHSBvc8D41GA/l8Htvb26jVari4+Ir9/T0sl0sIIdJVgQlMa02tNZfLJavVKl3Xpe/7xj8YDFgsvuPh4ScGQcDLy28MwzDJ1UxUAaUUhBDodDq4vr5GuVx+kGU+v4ZisYiTky76/T42N11ks9mXn4KzMw9CCIRhiDiOzXk2m4MQwGLxA0EQYH19PfFUJAL4le18PgdJ3N0tIKU0QRzHgVIKUXSP29sZSL4swO9M1yCEwHQ6w/HxZwPm+z6kjBDHMXK5XKomtBI2KgCgXq+DJFzXxXw+x/n5F0wmE0ynU0gpAVjY2npvpiZRFZJ0qlKKJHlzc8NMJsNSqUSlFKWUjKKIw+GQjuOw0WhQynumMST9MY5jkmS73SYAdrtd4zs6OqLj2PQ8jyQ5m83YarV4dfX9QQJ/s8Sb0LZtaK1xcHCAQqGA09NTVCoV+L6P8XiEfr+P3d2PpmnDMIBS+nW1YLFYQAiBjY2NP3yvJkaPiRBJE5ykgfnXRIjnPMvTCs+z1fCxBbV6kq0AVgD/NcBP3GA3MvtcL5MAAAAASUVORK5CYII=">
+<title>Mon Panier — Ordonnance Royale</title>
+<meta name="description" content="Vérifiez votre panier et finalisez votre commande d'affiches bibliques.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bk:#1a1a1a;--wh:#ffffff;--gd:#2c2420;
+  --bg:#f5f0e8;--bg2:#ede8de;--br:#ddd8ce;
+  --mi:#4a4440;--li:#8a8078;--dk:#1a1a1a;
+  --er:#7a1f1f;--su:#2d5a3d;
+  --sf:'Playfair Display',Georgia,serif;
+  --bo:'Cormorant Garamond',Georgia,serif;
+  --sa:'Montserrat',sans-serif;
+  --ez:0.25s ease
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--bo);font-size:18px;color:var(--dk);background:var(--bg);line-height:1.7}
+a{color:inherit;text-decoration:none}ul{list-style:none}img{max-width:100%;display:block}
+.w{max-width:1280px;margin:0 auto;padding:0 32px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--wh);border-bottom:1px solid var(--br)}
+.nr1{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:1280px;margin:0 auto;padding:0 32px}
+.nlog img{height:64px;width:auto;display:block}
+.nact{display:flex;align-items:center;gap:4px}
+.ncart{position:relative;background:none;border:none;cursor:pointer;padding:8px;color:var(--dk);transition:color var(--ez)}
+.ncart:hover{color:var(--mi)}
+.ncart svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nbdg{position:absolute;top:2px;right:2px;background:var(--bk);color:var(--wh);font-size:.5rem;font-weight:700;font-family:var(--sa);width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--ez)}
+.nbdg.on{opacity:1}
+.nburg{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.nburg span{display:block;width:22px;height:2px;background:var(--dk)}
+.nr2{border-top:1px solid var(--br)}
+.nmenu{display:flex;align-items:center;justify-content:center;max-width:1280px;margin:0 auto;padding:0 24px}
+.nmenu li a{display:block;padding:11px 18px;font-family:var(--sa);font-size:.73rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dk);transition:color var(--ez)}
+.nmenu li a:hover{color:var(--bk);text-decoration:underline;text-underline-offset:4px}
+.nr3{border-top:1px solid var(--br);background:var(--bg);padding:8px 32px}
+.sform{max-width:1280px;margin:0 auto;display:flex;align-items:center;border:1px solid var(--br);background:var(--wh);transition:border-color var(--ez)}
+.sform:focus-within{border-color:var(--bk)}
+.sinp{flex:1;border:none;outline:none;padding:10px 16px;font-family:var(--sa);font-size:.83rem;color:var(--dk);background:transparent}
+.sinp::placeholder{color:var(--li)}
+.sbtn{border:none;background:none;padding:10px 14px;cursor:pointer;color:var(--mi);display:flex;align-items:center;transition:color var(--ez)}
+.sbtn:hover{color:var(--bk)}
+.sbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.nmob{display:none;flex-direction:column;background:var(--wh);border-top:1px solid var(--br);position:fixed;top:132px;left:0;right:0;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.nmob.on{display:flex}
+.nmob a{padding:12px 32px;font-family:var(--sa);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--br)}
+.nsp{height:132px}
+
+/* BREADCRUMB */
+.bc{padding:18px 0;border-bottom:1px solid var(--br);font-family:var(--sa);font-size:.7rem;letter-spacing:.1em;color:var(--li)}
+.bc a{color:var(--mi);transition:color var(--ez)}
+.bc a:hover{color:var(--bk)}
+.bc-sep{margin:0 10px;color:var(--li)}
+
+/* HEADER */
+.ph{padding:48px 0 32px;border-bottom:1px solid var(--br)}
+.ph-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.ph-title{font-family:var(--sf);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--bk);line-height:1.1}
+.ph-count{font-family:var(--sa);font-size:.78rem;color:var(--mi);letter-spacing:.06em}
+.ph-count strong{color:var(--bk);font-weight:700}
+
+/* GRID 2 COLS */
+.cart-wrap{padding:40px 0 80px}
+.cart-grid{display:grid;grid-template-columns:1fr 400px;gap:48px;align-items:start}
+
+/* PANIER VIDE */
+.empty-cart{padding:80px 32px;text-align:center;background:var(--wh);border:1px solid var(--br);border-radius:6px}
+.empty-cart-icon{font-size:3rem;color:var(--li);margin-bottom:18px}
+.empty-cart h2{font-family:var(--sf);font-size:1.6rem;font-weight:700;color:var(--bk);margin-bottom:10px}
+.empty-cart p{font-family:var(--bo);color:var(--mi);max-width:380px;margin:0 auto 28px;line-height:1.6}
+.empty-cart-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ITEMS */
+.items{display:flex;flex-direction:column;gap:14px}
+.item{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:22px;display:grid;grid-template-columns:110px 1fr auto;gap:22px;align-items:center;transition:border-color var(--ez)}
+.item:hover{border-color:var(--mi)}
+
+.item-img{width:110px;aspect-ratio:3/4;background:var(--bg2);border:1px solid var(--br);border-radius:4px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;overflow:hidden}
+.item-img-content{font-family:var(--sf);font-style:italic;font-size:.7rem;color:var(--mi);line-height:1.3}
+
+.item-info{display:flex;flex-direction:column;gap:6px}
+.item-cat{font-family:var(--sa);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--li);font-weight:600}
+.item-name{font-family:var(--sf);font-size:1.15rem;font-weight:600;color:var(--bk);line-height:1.3}
+.item-meta{font-family:var(--sa);font-size:.73rem;color:var(--mi);display:flex;flex-wrap:wrap;gap:14px;margin-top:2px}
+.item-meta span{display:flex;align-items:center;gap:5px}
+.item-meta span::before{content:'';width:3px;height:3px;background:var(--li);border-radius:50%}
+.item-meta span:first-child::before{display:none}
+.item-perso{font-family:var(--bo);font-style:italic;font-size:.85rem;color:var(--mi);background:var(--bg2);padding:6px 10px;border-radius:3px;margin-top:6px;border-left:2px solid var(--bk)}
+.item-actions{display:flex;gap:10px;margin-top:8px}
+.item-link{font-family:var(--sa);font-size:.65rem;letter-spacing:.1em;color:var(--mi);text-decoration:underline;text-underline-offset:2px;background:none;border:none;cursor:pointer;padding:0}
+.item-link:hover{color:var(--bk)}
+.item-link.danger:hover{color:var(--er)}
+
+.item-right{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+.qty-ctrl{display:flex;align-items:center;border:1px solid var(--br);background:var(--wh);border-radius:4px;overflow:hidden}
+.qty-ctrl button{background:none;border:none;width:36px;height:38px;font-size:1rem;cursor:pointer;color:var(--mi);font-family:var(--sa);transition:color var(--ez)}
+.qty-ctrl button:hover{color:var(--bk)}
+.qty-ctrl button:disabled{color:var(--br);cursor:not-allowed}
+.qty-num{width:36px;text-align:center;font-family:var(--sa);font-size:.85rem;font-weight:700;color:var(--bk)}
+.item-price{font-family:var(--sf);font-size:1.2rem;font-weight:700;color:var(--bk)}
+.item-price-unit{font-family:var(--sa);font-size:.68rem;color:var(--li);text-align:right}
+
+.pay-btn svg{display:block;height:28px;width:auto}
+.pay-btn{padding:10px;min-height:48px}
+</style>
+</head><style>
+/* ─── RÉCAPITULATIF (sticky droite) ─── */
+.summary{position:sticky;top:150px;background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:28px}
+.summary h2{font-family:var(--sf);font-size:1.3rem;font-weight:700;color:var(--bk);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--br)}
+
+/* Code promo */
+.promo{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--br)}
+.promo-row{display:flex;gap:0;border:1px solid var(--br);border-radius:4px;overflow:hidden;background:var(--wh);transition:border-color var(--ez)}
+.promo-row:focus-within{border-color:var(--bk)}
+.promo-input{flex:1;border:none;outline:none;padding:11px 14px;font-family:var(--sa);font-size:.78rem;color:var(--dk);background:transparent;letter-spacing:.05em;text-transform:uppercase}
+.promo-input::placeholder{color:var(--li);text-transform:none;letter-spacing:.02em;font-style:italic}
+.promo-btn{background:var(--bk);color:var(--wh);border:none;padding:0 18px;font-family:var(--sa);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background var(--ez)}
+.promo-btn:hover{background:var(--gd)}
+.promo-msg{margin-top:9px;font-family:var(--sa);font-size:.72rem;letter-spacing:.04em;display:none}
+.promo-msg.success{display:block;color:var(--su)}
+.promo-msg.error{display:block;color:var(--er)}
+.promo-applied{margin-top:9px;display:none;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--bg2);border:1px solid var(--bk);border-radius:4px;font-family:var(--sa);font-size:.72rem}
+.promo-applied.on{display:flex}
+.promo-applied-code{font-weight:700;color:var(--bk)}
+.promo-applied-rm{background:none;border:none;cursor:pointer;color:var(--mi);font-size:.95rem;line-height:1}
+.promo-applied-rm:hover{color:var(--er)}
+
+/* Lignes total */
+.sline{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-family:var(--sa);font-size:.85rem}
+.sline-l{color:var(--mi)}
+.sline-v{color:var(--bk);font-weight:600}
+.sline.discount .sline-v{color:var(--su)}
+.sline-livr{flex-direction:column;align-items:flex-start;gap:4px}
+.sline-livr-row{display:flex;justify-content:space-between;width:100%}
+.sline-livr-note{font-family:var(--sa);font-size:.66rem;color:var(--li);letter-spacing:.04em;font-weight:500}
+.livr-pays{margin-top:6px;width:100%}
+.livr-pays select{width:100%;padding:8px 12px;border:1px solid var(--br);background:var(--bg);font-family:var(--sa);font-size:.74rem;color:var(--dk);outline:none;border-radius:4px;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='%234a4440' stroke-width='1.5' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+.livr-pays select:focus{border-color:var(--bk)}
+
+.stot{display:flex;justify-content:space-between;align-items:baseline;padding-top:18px;margin-top:10px;border-top:2px solid var(--bk)}
+.stot-l{font-family:var(--sa);font-size:.82rem;font-weight:700;color:var(--bk);letter-spacing:.06em;text-transform:uppercase}
+.stot-v{font-family:var(--sf);font-size:1.7rem;font-weight:700;color:var(--bk)}
+.stot-tax{font-family:var(--sa);font-size:.66rem;color:var(--li);text-align:right;margin-top:-4px;letter-spacing:.04em}
+
+/* CTA principal */
+.cta-pay{display:block;width:100%;padding:16px;background:var(--bk);color:var(--wh);border:none;font-family:var(--sa);font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background var(--ez);margin-top:22px;text-align:center}
+.cta-pay:hover{background:var(--gd)}
+.cta-pay svg{width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;stroke:currentColor;fill:none;stroke-width:2.5}
+
+/* Séparateur "ou" */
+.pay-sep{display:flex;align-items:center;gap:14px;margin:18px 0;font-family:var(--sa);font-size:.65rem;letter-spacing:.18em;color:var(--li);text-transform:uppercase}
+.pay-sep::before,.pay-sep::after{content:'';flex:1;height:1px;background:var(--br)}
+
+/* Boutons paiement rapide */
+.pay-rapid{display:flex;flex-direction:column;gap:10px}
+.pay-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border:1.5px solid var(--bk);background:var(--wh);font-family:var(--sa);font-size:.75rem;font-weight:700;letter-spacing:.06em;cursor:pointer;border-radius:4px;transition:all var(--ez);color:var(--bk)}
+.pay-btn:hover{background:var(--bk);color:var(--wh)}
+.pay-btn.paypal{color:#003087;border-color:#003087}
+.pay-btn.paypal:hover{background:#003087;color:var(--wh)}
+.pay-btn.apple{color:var(--bk);border-color:var(--bk)}
+.pay-btn.apple:hover{background:var(--bk);color:var(--wh)}
+.pay-icon{font-weight:900;font-style:italic;letter-spacing:-.03em}
+
+/* Garanties */
+.gars{margin-top:24px;padding-top:20px;border-top:1px solid var(--br);display:flex;flex-direction:column;gap:9px}
+.gar{display:flex;align-items:center;gap:9px;font-family:var(--sa);font-size:.72rem;color:var(--mi);letter-spacing:.02em}
+.gar svg{width:14px;height:14px;stroke:var(--bk);fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+
+/* Continuer mes achats */
+.cont-shop{display:inline-flex;align-items:center;gap:6px;margin-top:24px;font-family:var(--sa);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--mi);transition:color var(--ez)}
+.cont-shop:hover{color:var(--bk)}
+
+/* Bouton "Continuer mes achats" en bas du panier */
+.below-cart{margin-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.below-cart .clear-all{font-family:var(--sa);font-size:.68rem;letter-spacing:.06em;color:var(--li);background:none;border:none;cursor:pointer;text-decoration:underline}
+.below-cart .clear-all:hover{color:var(--er)}
+
+/* TOAST */
+.toast{position:fixed;top:148px;right:20px;background:var(--bk);color:var(--wh);padding:14px 22px;border-radius:4px;font-family:var(--sa);font-size:.78rem;font-weight:600;z-index:5000;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(-10px);transition:all var(--ez);box-shadow:0 12px 30px rgba(26,26,26,.2)}
+.toast.on{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+.ft{background:var(--bk);color:rgba(245,240,232,.45);padding:72px 0 36px}
+.ftg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.ftl img{height:26px;width:auto;margin-bottom:18px}
+.ftb p{font-size:.88rem;line-height:1.7;max-width:280px}
+.fts{display:flex;gap:10px;margin-top:18px}
+.ftsi{width:34px;height:34px;border:1px solid rgba(245,240,232,.12);display:flex;align-items:center;justify-content:center;font-family:var(--sa);font-size:.6rem;color:rgba(245,240,232,.35);text-transform:uppercase;transition:all var(--ez)}
+.ftsi:hover{border-color:rgba(245,240,232,.5);color:var(--wh)}
+.ftc h4{font-family:var(--sa);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--wh);margin-bottom:18px}
+.ftc ul{display:flex;flex-direction:column;gap:9px}
+.ftc a{font-size:.85rem;color:rgba(245,240,232,.4);transition:color var(--ez)}
+.ftc a:hover{color:var(--wh)}
+.ftb2{border-top:1px solid rgba(245,240,232,.07);padding-top:24px;display:flex;justify-content:space-between;font-family:var(--sa);font-size:.7rem;color:rgba(245,240,232,.18)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .cart-grid{grid-template-columns:1fr;gap:32px}
+  .summary{position:static;max-width:520px;margin:0 auto}
+}
+@media(max-width:900px){.nmenu{display:none}.nburg{display:flex}}
+@media(max-width:768px){
+  .w{padding:0 20px}
+  .ftg{grid-template-columns:1fr 1fr;gap:36px}
+  .nr3{padding:8px 20px}
+  .item{grid-template-columns:90px 1fr;gap:16px;padding:16px}
+  .item-img{width:90px}
+  .item-right{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center;gap:16px;padding-top:14px;border-top:1px solid var(--br)}
+}
+@media(max-width:480px){
+  .ftg{grid-template-columns:1fr}
+  .below-cart{justify-content:center}
+}
+</style>
+<body>
+
+<nav class="nav">
+  <div class="nr1">
+    <a href="index.html" class="nlog"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJDYWxxdWVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNzkwLjUzIDIxNS4zOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwMjAyMDI7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTYyMi4yMiwxNDYuMDZjMC00LjYyLTMuMDQtNy4xNy03LjkzLTcuMTdoLTcuNHYyNC4yNGg0LjI5di0xMC4yMWw3LjMzLDEwLjIxaDUuMjFsLTcuODYtMTAuMzdjMy45Ni0uNTYsNi4zNC0zLjE4LDYuMzQtNi43Wk02MTEuMTgsMTQ5LjUzdi02LjkxaDIuODhjMi4zOCwwLDMuNzYsMS4zMiwzLjc2LDMuNDRzLTEuMzgsMy40Ny0zLjc2LDMuNDdoLTIuODhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM3Ljg0LDEzOC40MmMtNy4wMywwLTEyLjU1LDUuMTktMTIuNTUsMTIuNTlzNS41MiwxMi41OCwxMi41NSwxMi41OCwxMi41NS01LjE5LDEyLjU1LTEyLjU4LTUuNTItMTIuNTktMTIuNTUtMTIuNTlaTTYzNy44NCwxNTkuNDZjLTQuNTUsMC04LjA5LTMuNDMtOC4wOS04LjQ1czMuNTQtOC40OSw4LjA5LTguNDksOC4wOSwzLjQ3LDguMDksOC40OS0zLjU2LDguNDUtOC4wOSw4LjQ1WiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI2NjUuNDEgMTM4Ljg5IDY2MC40OCAxNDguOTkgNjU1LjUzIDEzOC44OSA2NTAuNjcgMTM4Ljg5IDY1OC4zMSAxNTMuNjEgNjU4LjMxIDE2My4xMyA2NjIuNiAxNjMuMTMgNjYyLjYgMTUzLjYxIDY2OS45NCAxMzguODkgNjY1LjQxIDEzOC44OSIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY3Ni42NywxMzguODlsLTguMjMsMjQuMjRoNC40M2wxLjM5LTQuNGg4Ljk4bDEuNDIsNC40aDQuNDlsLTguMjgtMjQuMjRoLTQuMlpNNjc1LjQ0LDE1NWwzLjI3LTEwLjI2LDMuMzMsMTAuMjZoLTYuNloiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNjk2LjU1IDEzOC44OSA2OTIuMjUgMTM4Ljg5IDY5Mi4yNSAxNjMuMTMgNzA1LjM5IDE2My4xMyA3MDUuMzkgMTU5LjEzIDY5Ni41NSAxNTkuMTMgNjk2LjU1IDEzOC44OSIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI3MTIuODkgMTUyLjczIDcyMS42MiAxNTIuNzMgNzIxLjYyIDE0OC43MyA3MTIuODkgMTQ4LjczIDcxMi44OSAxNDIuODggNzIxLjcxIDE0Mi44OCA3MjEuNzEgMTM4Ljg5IDcwOC42IDEzOC44OSA3MDguNiAxNjMuMTMgNzIxLjg4IDE2My4xMyA3MjEuODggMTU5LjEzIDcxMi44OSAxNTkuMTMgNzEyLjg5IDE1Mi43MyIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTgwLjIyLDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTkyLjY4LDcxLjk5Yy0uNzYtOS44Mi0yLjA4LTE5LjE2LTEyLjM3LTE5LjE2LTExLjIzLDAtMTIuMjcsOS4xNi0xMi44NCwxOS44Mi0uNDcsOS42My0uNTcsMTguNS4wOSwyNy44NC42Niw5LjgyLDIuMDgsMTkuMTYsMTIuMjcsMTkuMTYsMTEuMzIsMCwxMi4zNi05LjE2LDEyLjg0LTE5LjgyLjU2LTkuNjMuNjYtMTguNSwwLTI3Ljg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1Ny4zMywxMDguNDJjMC00LjUzLjA5LTguMjEuMDktMTIuNTUtLjE5LTYuODktMi4xNy0xMC43Ni04LjQtMTAuNzZoLTcuNzRjLS42NiwwLS45NS4yOC0uOTUuNTd2MjguODhjMCwzLjAyLjA5LDMuODcuOTUsMy44N2gzLjk2Yy42NiwwLC45NS4xOS45NS41N3MtLjE5LjU3LS45NS41N2gtMjQuMTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gzLjk2Yy45NCwwLDEuMDQtLjg1LDEuMDQtMy44N3YtNTYuNjNjMC0zLjAyLS4wOS0zLjg3LTEuMDQtMy44N2gtMy45NmMtLjc1LDAtLjg1LS4xOS0uODUtLjU3LDAtLjI4LjA5LS41Ny44NS0uNTdoMjkuNDVjOS45MSwwLDIxLjIzLDMuNjgsMjEuMjMsMTYuMzMsMCwxMC05LjcyLDE0LjcyLTE4LjAzLDE1LjI5di4wOWM5LjgyLjg1LDE4LjIyLDYuMzIsMTguMTIsMTguMDN2MTEuN2MwLDIuMDguMzgsNC4zNCwyLjc0LDQuMzQsMS41MSwwLDMuMDItMS4wNCwzLjY4LTIuODMuMTktLjQ3LjI4LS45NC44NS0uODVzLjY2LjU3LjQ3LDEuMDRjLTEuMDQsMy4xMS00LjkxLDQuNjMtOC42OCw0LjYzLTguNSwwLTEzLjU5LTQuODItMTMuNTktMTIuMjdaTTE0OS40LDU0LjA2aC04LjEyYy0uNjYsMC0uOTUuMjgtLjk1LjU2djI4Ljg4YzAsLjI4LjE5LjU3Ljg1LjU3aDguMzFjNS41NywwLDguNC0zLjc3LDguNC0xNC44MnMtMy4yMS0xNS4xOS04LjQ5LTE1LjE5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxOC40OSwxMTkuNTZoLTI5LjE2Yy0uNTcsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMy45NmMuOTQsMCwxLjA0LS44NSwxLjA0LTMuODd2LTU2LjYzYzAtMy4wMi0uMDktMy44Ny0xLjA0LTMuODdoLTMuOTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gyOS4xNmMxOC42OSwwLDI5LjgyLDE1LjM4LDI5LjgyLDMzLjAzcy0xMC4xOSwzMy42LTI5LjgyLDMzLjZaTTIzMC45NCw3Mi4yOGMtLjU2LTcuMDgtMS43LTE4LjIxLTEyLjc0LTE4LjIxaC04LjY4Yy0uNjYsMC0uOTUuMjgtLjk1LjU2djYzLjI0YzAsLjI4LjE5LjU3Ljg1LjU3aDguODdjOS43MiwwLDExLjk5LTcuNzQsMTIuNzQtMTguODguNTctOC45Ny41Ny0xOC4zMS0uMDktMjcuMjhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjg5LjQ2LDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTMwMS45MSw3MS45OWMtLjc1LTkuODItMi4wOC0xOS4xNi0xMi4zNi0xOS4xNi0xMS4yMywwLTEyLjI3LDkuMTYtMTIuODQsMTkuODItLjQ3LDkuNjMtLjU3LDE4LjUuMDksMjcuODQuNjYsOS44MiwyLjA4LDE5LjE2LDEyLjI3LDE5LjE2LDExLjMyLDAsMTIuMzYtOS4xNiwxMi44My0xOS44Mi41Ny05LjYzLjY2LTE4LjUsMC0yNy44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zODkuMzEsNTQuMDZoLS4xOWMtNC42MiwwLTUuOTUsNC4yNS01Ljk1LDIxLjIzdjQ0LjQ1YzAsLjI4LS4xOS41Ny0uOTQuNTdoLTguMzFjLS41NywwLS43Ni0uMjgtLjk0LS41N2wtMzUuOTYtNjEuNjNoLS4wOXYzOC40MWMwLDE1Ljg2LDIuOTMsMjEuOSwxMC4zOCwyMS45aDEuMjNjLjc2LDAsLjk0LjE5Ljk0LjU3LDAsLjI4LS4xOS41Ny0uOTQuNTdoLTE4Ljk3Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoLjE5YzQuNjMsMCw1Ljk1LTQuMjUsNS45NS0yMS4yNHYtMzkuMjZjMC0zLjAyLS4wOS0zLjg3LS45NS0zLjg3aC00LjQ0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTkuNTRjLjM4LDAsLjY2LjE5Ljk0LjU3bDMwLjk2LDUzLjQyaC4xOXYtMzAuOTZjMC0xNS44Ni0yLjkyLTIxLjktMTAuMjktMjEuOWgtLjk0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTguNTljLjc1LDAsLjk0LjE5Ljk0LjU3cy0uMTkuNTctLjk0LjU3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ1OS40NCw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk0LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzYsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTI4LjA1LDExOS41NmgtMjUuMjljLS42NiwwLS45NC0uMTktLjk0LS41N3MuMTktLjU3Ljk0LS41N2gzLjU5YzEuNjEsMCwyLjI3LS42Ni45NS00LjQ0bC02LjIzLTE4LjY5Yy0uMDktLjM4LS4yOC0uNTctLjg1LS41N2gtMTguMDNjLS40NywwLS42Ni4wOS0uNzUuNTdsLTEuNzksNS42NmMtNC4xNSwxMi45My0uNjYsMTcuNDYsNC4wNiwxNy40NmgxLjg5Yy41NywwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N2gtMTguNTljLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMjhjMi44MywwLDYuMjMtMi42NCwxMC45NS0xNy45M2wxNC44Mi00Ny43NmMuMTktLjQ3LjM4LS41Ny44NS0uNTdoNi45OGMuNDcsMCwuNzYuMTkuODUuNTdsMjEuMTQsNjEuMjVjMS4zMiwzLjg3LDEuODksNC40NCwzLjMsNC40NGgxLjg5Yy42NiwwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N1pNNDkwLjk2LDY0LjE2aC0uMTlsLTguNjgsMjguNzljLS4wOS4zOC4wOS41Ny43NS41N2gxNi41MmMuNjYsMCwuOTQtLjM4Ljg1LS43NWwtOS4yNS0yOC42WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU5Ni4yOSw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk1LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzUsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNzIxLjIxLDk3LjIxYy0uMzgsMC0uNjYuMTgtLjY2Ljg0di45NGMwLDYuMzMtNS4xOSwyMC41OC0yMC42NywyMC41OGgtNy44NGMtLjY2LDAtLjg1LS4yOC0uODUtLjU2di0zMi4wOWMwLS4zOC4yOS0uNTguOTQtLjU4aDQuMzVjNS43NSwwLDEwLjk1LDQuNjMsMTAuOTUsMTAuMjl2LjY3YzAsLjY2LjE4Ljg1LjY2Ljg1LjM4LDAsLjU2LS4yLjU2LS44NXYtMjIuODVjMC0uNjYtLjE4LS45NC0uNTYtLjk0cy0uNjYuMi0uNjYuOTR2LjY3YzAsNS41Ni01LjE5LDEwLjE5LTEwLjk1LDEwLjE5aC00LjQ0Yy0uNjYsMC0uODUtLjE4LS44NS0uNTZ2LTI4Ljk4YzAtLjM3LjM4LS41Ni45NC0uNTZoOC40OWMxMC40OSwwLDE2LjgxLDEwLjIsMTYuODEsMTkuODJ2MS4wNWMwLC42Ni4yLjg0LjU2Ljg0LjQ3LDAsLjc2LS4xOC43Ni0uODR2LTIxLjI1YzAtLjU2LS4zOC0uNzUtLjg1LS43NWgtNDUuOTdjLS42NiwwLS44NC4xOC0uODQuNTZzLjI4LjU2Ljg0LjU2aDMuOTdjLjk0LDAsMS4wNC44NSwxLjA0LDMuODh2NTYuNjNjMCwzLjAxLS4wOSwzLjg3LTEuMDQsMy44N2gtMy45N2MtLjY2LDAtLjg0LjE4LS44NC41NnMuMjguNTguODQuNThoNDkuMDljLjU2LDAsLjg1LS4yLjg1LS42N3YtMjJjMC0uNjYtLjI5LS44NC0uNjctLjg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5MC4xNyw4My44Yy00LjY1LS4xMy05LjEzLjY3LTEzLjUxLDIuMjItOS41MSwzLjM2LTE2LjcyLDExLjQ4LTIwLjUzLDIwLjY0LTMuMTYsNy41Ny05Ljk5LDEzLjAyLTE4LjQ0LDEzLjAyLTExLjE0LDAtMTIuNTYtOS4wNy0xMy4yMS0xOS4xNi0uNjYtOS4zNS0uNDctMTcuMDktLjA5LTI2LjcxLjU2LTEyLjA5LDIuMzYtMTkuODIsMTIuNDUtMTkuODIsOS4yNSwwLDE4LjIyLDguNTksMTguMjIsMjIuOTN2MS4xNGMwLC42Ni4xOC45NC42Ni45NC4zOCwwLC42Ny0uMi42Ny0uOTR2LTIzLjMyYzAtLjc1LS4yLS45NC0uNjctLjk0cy0uNjYuMjktLjY2Ljk0di42N2MwLDIuMDctMi41NC44NC00LjksMC0yLjY1LS45NC04LjEzLTIuNDYtMTMuNDEtMi40Ni0xOS44MiwwLTI5LjY0LDE1LjU5LTI5LjY0LDM0LjkzLDAsMTcuMDgsMTAuMTEsMzIuODUsMjkuNzMsMzIuODUuMiwwLC40MSwwLC42My0uMDEsNi41NC0uMjMsMTIuMjctMy41MSwxNi4zNi04LjUxLDIuMTMtMi42LDMuMzEtNi4xNCw1LjAzLTkuMDUsMS44Ny0zLjE2LDQuMDItNi4xOCw2LjY5LTguNzIsNC4xNC0zLjk1LDkuNDUtNi42NSwxNS4wNy03Ljc3LDIuNjItLjUyLDcuODEtLjU3LDkuNTUtMi44NVoiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjczNS40NyIgY3k9IjExNS44NyIgcj0iNC44NSIvPjwvc3ZnPg==" alt="Ordonnance Royale" style="height:64px;width:auto;display:block"></a>
+    <div class="nact">
+      <button class="ncart" aria-label="Panier"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="nbdg" id="nbdg">0</span></button>
+      <button class="nburg" onclick="document.getElementById('nm').classList.toggle('on')"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nr2"><ul class="nmenu">
+    <li><a href="a-propos.html">À Propos</a></li>
+    <li><a href="boutique.html">Boutique</a></li>
+    <li><a href="ordonnance.html">Ordonnance Perso</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul></div>
+  <div class="nr3"><form class="sform" onsubmit="goSrch(event)"><input type="search" id="sInp" class="sinp" placeholder="Rechercher un verset, un thème…" autocomplete="off"><button type="submit" class="sbtn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button></form></div>
+</nav>
+<div class="nmob" id="nm">
+  <a href="a-propos.html">À Propos</a>
+  <a href="boutique.html">Boutique</a>
+  <a href="ordonnance.html">Ordonnance Perso</a>
+  <a href="contact.html">Contact</a>
+</div>
+<div class="nsp"></div>
+
+<div id="toast" class="toast">✓ <span id="toast-msg">Action confirmée</span></div>
+
+<!-- BREADCRUMB -->
+<div class="bc"><div class="w">
+  <a href="index.html">Accueil</a><span class="bc-sep">›</span><span>Mon Panier</span>
+</div></div>
+
+<!-- HEADER -->
+<header class="ph"><div class="w">
+  <div class="ph-head">
+    <h1 class="ph-title">Mon Panier</h1>
+    <p class="ph-count" id="ph-count"><strong>0</strong> article</p>
+  </div>
+</div></header>
+
+<!-- CONTENU -->
+<main class="cart-wrap"><div class="w">
+
+  <!-- VUE PANIER VIDE -->
+  <div class="empty-cart" id="empty-cart" style="display:none">
+    
+    <h2>Votre panier est vide</h2>
+    <p>Découvrez nos ordonnances ou créez votre ordonnance personnalisée avec le verset de votre choix.</p>
+    <div class="empty-cart-btns">
+      <a href="boutique.html" class="cta-pay" style="margin:0;display:inline-block;width:auto;padding:14px 32px">Voir la boutique</a>
+      <a href="ordonnance.html" style="display:inline-block;padding:14px 32px;border:1px solid var(--bk);color:var(--bk);font-family:var(--sa);font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border-radius:4px;transition:all var(--ez)">Créer mon affiche</a>
+    </div>
+  </div>
+
+  <!-- VUE PANIER REMPLI -->
+  <div class="cart-grid" id="cart-grid">
+
+    <!-- ARTICLES (gauche) -->
+    <div>
+      <div class="items" id="items"></div>
+
+      <div class="below-cart">
+        <a href="boutique.html" class="cont-shop">← Continuer mes achats</a>
+        <button class="clear-all" onclick="clearCart()">Vider le panier</button>
+      </div>
+    </div>
+
+    <!-- RÉCAP (droite) -->
+    <aside class="summary">
+      <h2>Récapitulatif</h2>
+
+      <!-- CODE PROMO -->
+      <div class="promo">
+        <label style="font-family:var(--sa);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mi);font-weight:600;display:block;margin-bottom:8px">Code promo</label>
+        <div class="promo-row">
+          <input type="text" class="promo-input" id="promo-input" placeholder="Entrez votre code">
+          <button class="promo-btn" onclick="applyPromo()">Appliquer</button>
+        </div>
+        <p class="promo-msg" id="promo-msg"></p>
+        <div class="promo-applied" id="promo-applied">
+          <span><span class="promo-applied-code" id="promo-code"></span> appliqué</span>
+          <button class="promo-applied-rm" onclick="removePromo()" aria-label="Retirer">✕</button>
+        </div>
+      </div>
+
+      <!-- LIGNES TOTAL -->
+      <div class="sline"><span class="sline-l">Sous-total</span><span class="sline-v" id="sub-total">0,00 €</span></div>
+      <div class="sline discount" id="line-discount" style="display:none"><span class="sline-l">Remise <span id="disc-code"></span></span><span class="sline-v" id="disc-amount">−0,00 €</span></div>
+
+      <!-- LIVRAISON avec sélecteur pays -->
+      <div class="sline sline-livr">
+        <div class="sline-livr-row"><span class="sline-l">Livraison estimée</span><span class="sline-v" id="livr-amount">—</span></div>
+        <span class="sline-livr-note" id="livr-note">Sélectionnez votre pays</span>
+        <div class="livr-pays">
+          <select id="livr-select" onchange="updateLivraison()">
+            <option value="">— Choisir le pays de livraison —</option>
+            <option value="FR" data-px="4.90" data-jrs="3-5">France métropolitaine</option>
+            <option value="BE" data-px="7.50" data-jrs="4-6">Belgique</option>
+            <option value="CH" data-px="9.90" data-jrs="5-8">Suisse</option>
+            <option value="LU" data-px="7.50" data-jrs="4-6">Luxembourg</option>
+            <option value="DE" data-px="8.90" data-jrs="5-7">Allemagne</option>
+            <option value="IT" data-px="8.90" data-jrs="5-7">Italie</option>
+            <option value="ES" data-px="8.90" data-jrs="5-7">Espagne</option>
+            <option value="DOM" data-px="14.90" data-jrs="8-12">DOM-TOM</option>
+            <option value="other" data-px="19.90" data-jrs="10-15">Autre pays</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- TOTAL -->
+      <div class="stot">
+        <span class="stot-l">Total</span>
+        <span class="stot-v" id="grand-total">0,00 €</span>
+      </div>
+      <p class="stot-tax">TVA incluse · Hors livraison si pays non sélectionné</p>
+
+      <!-- CTA -->
+      <button class="cta-pay" onclick="goCheckout()">
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Passer commande
+      </button>
+
+      <div class="pay-sep">ou paiement rapide</div>
+
+      <div class="pay-rapid">
+        <button class="pay-btn paypal" onclick="payWith('paypal')"><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.5"/><text x="24" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="900" font-style="italic" letter-spacing="-0.5"><tspan fill="#003087">Pay</tspan><tspan fill="#009cde">Pal</tspan></text></svg></button>
+        <button class="pay-btn apple" onclick="payWith('apple')"><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#000"/><g transform="translate(11,8)"><path d="M5.5 4.2c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7.1 1.3-.3 1.7-.8zm.6.9c-1-.1-1.8.5-2.2.5-.5 0-1.2-.5-2-.5-1 0-2 .6-2.5 1.5-1.1 1.8-.3 4.5.7 6 .5.7 1.1 1.5 1.9 1.4.7 0 1-.4 1.9-.4s1.2.4 1.9.4c.8 0 1.3-.7 1.8-1.4.6-.8.8-1.6.8-1.6 0 0-1.5-.6-1.5-2.3 0-1.4 1.2-2.1 1.2-2.1-.7-1-1.7-1.1-2-1.1z" fill="#fff"/></g><text x="32" y="21" text-anchor="middle" font-family="-apple-system,Helvetica Neue,Arial,sans-serif" font-size="10" font-weight="500" fill="#fff">Pay</text></svg></button>
+      </div>
+
+      <!-- GARANTIES -->
+      <div class="gars">
+        <div class="gar"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Paiement 100% sécurisé</div>
+        <div class="gar"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Emballage soigné anti-pli</div>
+        <div class="gar"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Satisfaction garantie</div>
+      </div>
+    </aside>
+
+  </div>
+</div></main>
+
+<footer class="ft"><div class="w"><div class="ftg">
+  <div class="ftb">
+    <a href="index.html" class="ftl"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJDYWxxdWVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNzkwLjUzIDIxNS4zOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmZmY7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTYyMi4yMiwxNDYuMDZjMC00LjYyLTMuMDQtNy4xNy03LjkzLTcuMTdoLTcuNHYyNC4yNGg0LjI5di0xMC4yMWw3LjMzLDEwLjIxaDUuMjFsLTcuODYtMTAuMzdjMy45Ni0uNTYsNi4zNC0zLjE4LDYuMzQtNi43Wk02MTEuMTgsMTQ5LjUzdi02LjkxaDIuODhjMi4zOCwwLDMuNzYsMS4zMiwzLjc2LDMuNDRzLTEuMzgsMy40Ny0zLjc2LDMuNDdoLTIuODhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM3Ljg0LDEzOC40MmMtNy4wMywwLTEyLjU1LDUuMTktMTIuNTUsMTIuNTlzNS41MiwxMi41OCwxMi41NSwxMi41OCwxMi41NS01LjE5LDEyLjU1LTEyLjU4LTUuNTItMTIuNTktMTIuNTUtMTIuNTlaTTYzNy44NCwxNTkuNDZjLTQuNTUsMC04LjA5LTMuNDMtOC4wOS04LjQ1czMuNTQtOC40OSw4LjA5LTguNDksOC4wOSwzLjQ3LDguMDksOC40OS0zLjU2LDguNDUtOC4wOSw4LjQ1WiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI2NjUuNDEgMTM4Ljg5IDY2MC40OCAxNDguOTkgNjU1LjUzIDEzOC44OSA2NTAuNjcgMTM4Ljg5IDY1OC4zMSAxNTMuNjEgNjU4LjMxIDE2My4xMyA2NjIuNiAxNjMuMTMgNjYyLjYgMTUzLjYxIDY2OS45NCAxMzguODkgNjY1LjQxIDEzOC44OSIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY3Ni42NywxMzguODlsLTguMjMsMjQuMjRoNC40M2wxLjM5LTQuNGg4Ljk4bDEuNDIsNC40aDQuNDlsLTguMjgtMjQuMjRoLTQuMlpNNjc1LjQ0LDE1NWwzLjI3LTEwLjI2LDMuMzMsMTAuMjZoLTYuNloiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNjk2LjU1IDEzOC44OSA2OTIuMjUgMTM4Ljg5IDY5Mi4yNSAxNjMuMTMgNzA1LjM5IDE2My4xMyA3MDUuMzkgMTU5LjEzIDY5Ni41NSAxNTkuMTMgNjk2LjU1IDEzOC44OSIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI3MTIuODkgMTUyLjczIDcyMS42MiAxNTIuNzMgNzIxLjYyIDE0OC43MyA3MTIuODkgMTQ4LjczIDcxMi44OSAxNDIuODggNzIxLjcxIDE0Mi44OCA3MjEuNzEgMTM4Ljg5IDcwOC42IDEzOC44OSA3MDguNiAxNjMuMTMgNzIxLjg4IDE2My4xMyA3MjEuODggMTU5LjEzIDcxMi44OSAxNTkuMTMgNzEyLjg5IDE1Mi43MyIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTgwLjIyLDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTkyLjY4LDcxLjk5Yy0uNzYtOS44Mi0yLjA4LTE5LjE2LTEyLjM3LTE5LjE2LTExLjIzLDAtMTIuMjcsOS4xNi0xMi44NCwxOS44Mi0uNDcsOS42My0uNTcsMTguNS4wOSwyNy44NC42Niw5LjgyLDIuMDgsMTkuMTYsMTIuMjcsMTkuMTYsMTEuMzIsMCwxMi4zNi05LjE2LDEyLjg0LTE5LjgyLjU2LTkuNjMuNjYtMTguNSwwLTI3Ljg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1Ny4zMywxMDguNDJjMC00LjUzLjA5LTguMjEuMDktMTIuNTUtLjE5LTYuODktMi4xNy0xMC43Ni04LjQtMTAuNzZoLTcuNzRjLS42NiwwLS45NS4yOC0uOTUuNTd2MjguODhjMCwzLjAyLjA5LDMuODcuOTUsMy44N2gzLjk2Yy42NiwwLC45NS4xOS45NS41N3MtLjE5LjU3LS45NS41N2gtMjQuMTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gzLjk2Yy45NCwwLDEuMDQtLjg1LDEuMDQtMy44N3YtNTYuNjNjMC0zLjAyLS4wOS0zLjg3LTEuMDQtMy44N2gtMy45NmMtLjc1LDAtLjg1LS4xOS0uODUtLjU3LDAtLjI4LjA5LS41Ny44NS0uNTdoMjkuNDVjOS45MSwwLDIxLjIzLDMuNjgsMjEuMjMsMTYuMzMsMCwxMC05LjcyLDE0LjcyLTE4LjAzLDE1LjI5di4wOWM5LjgyLjg1LDE4LjIyLDYuMzIsMTguMTIsMTguMDN2MTEuN2MwLDIuMDguMzgsNC4zNCwyLjc0LDQuMzQsMS41MSwwLDMuMDItMS4wNCwzLjY4LTIuODMuMTktLjQ3LjI4LS45NC44NS0uODVzLjY2LjU3LjQ3LDEuMDRjLTEuMDQsMy4xMS00LjkxLDQuNjMtOC42OCw0LjYzLTguNSwwLTEzLjU5LTQuODItMTMuNTktMTIuMjdaTTE0OS40LDU0LjA2aC04LjEyYy0uNjYsMC0uOTUuMjgtLjk1LjU2djI4Ljg4YzAsLjI4LjE5LjU3Ljg1LjU3aDguMzFjNS41NywwLDguNC0zLjc3LDguNC0xNC44MnMtMy4yMS0xNS4xOS04LjQ5LTE1LjE5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxOC40OSwxMTkuNTZoLTI5LjE2Yy0uNTcsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMy45NmMuOTQsMCwxLjA0LS44NSwxLjA0LTMuODd2LTU2LjYzYzAtMy4wMi0uMDktMy44Ny0xLjA0LTMuODdoLTMuOTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gyOS4xNmMxOC42OSwwLDI5LjgyLDE1LjM4LDI5LjgyLDMzLjAzcy0xMC4xOSwzMy42LTI5LjgyLDMzLjZaTTIzMC45NCw3Mi4yOGMtLjU2LTcuMDgtMS43LTE4LjIxLTEyLjc0LTE4LjIxaC04LjY4Yy0uNjYsMC0uOTUuMjgtLjk1LjU2djYzLjI0YzAsLjI4LjE5LjU3Ljg1LjU3aDguODdjOS43MiwwLDExLjk5LTcuNzQsMTIuNzQtMTguODguNTctOC45Ny41Ny0xOC4zMS0uMDktMjcuMjhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjg5LjQ2LDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTMwMS45MSw3MS45OWMtLjc1LTkuODItMi4wOC0xOS4xNi0xMi4zNi0xOS4xNi0xMS4yMywwLTEyLjI3LDkuMTYtMTIuODQsMTkuODItLjQ3LDkuNjMtLjU3LDE4LjUuMDksMjcuODQuNjYsOS44MiwyLjA4LDE5LjE2LDEyLjI3LDE5LjE2LDExLjMyLDAsMTIuMzYtOS4xNiwxMi44My0xOS44Mi41Ny05LjYzLjY2LTE4LjUsMC0yNy44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zODkuMzEsNTQuMDZoLS4xOWMtNC42MiwwLTUuOTUsNC4yNS01Ljk1LDIxLjIzdjQ0LjQ1YzAsLjI4LS4xOS41Ny0uOTQuNTdoLTguMzFjLS41NywwLS43Ni0uMjgtLjk0LS41N2wtMzUuOTYtNjEuNjNoLS4wOXYzOC40MWMwLDE1Ljg2LDIuOTMsMjEuOSwxMC4zOCwyMS45aDEuMjNjLjc2LDAsLjk0LjE5Ljk0LjU3LDAsLjI4LS4xOS41Ny0uOTQuNTdoLTE4Ljk3Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoLjE5YzQuNjMsMCw1Ljk1LTQuMjUsNS45NS0yMS4yNHYtMzkuMjZjMC0zLjAyLS4wOS0zLjg3LS45NS0zLjg3aC00LjQ0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTkuNTRjLjM4LDAsLjY2LjE5Ljk0LjU3bDMwLjk2LDUzLjQyaC4xOXYtMzAuOTZjMC0xNS44Ni0yLjkyLTIxLjktMTAuMjktMjEuOWgtLjk0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTguNTljLjc1LDAsLjk0LjE5Ljk0LjU3cy0uMTkuNTctLjk0LjU3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ1OS40NCw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk0LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzYsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTI4LjA1LDExOS41NmgtMjUuMjljLS42NiwwLS45NC0uMTktLjk0LS41N3MuMTktLjU3Ljk0LS41N2gzLjU5YzEuNjEsMCwyLjI3LS42Ni45NS00LjQ0bC02LjIzLTE4LjY5Yy0uMDktLjM4LS4yOC0uNTctLjg1LS41N2gtMTguMDNjLS40NywwLS42Ni4wOS0uNzUuNTdsLTEuNzksNS42NmMtNC4xNSwxMi45My0uNjYsMTcuNDYsNC4wNiwxNy40NmgxLjg5Yy41NywwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N2gtMTguNTljLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMjhjMi44MywwLDYuMjMtMi42NCwxMC45NS0xNy45M2wxNC44Mi00Ny43NmMuMTktLjQ3LjM4LS41Ny44NS0uNTdoNi45OGMuNDcsMCwuNzYuMTkuODUuNTdsMjEuMTQsNjEuMjVjMS4zMiwzLjg3LDEuODksNC40NCwzLjMsNC40NGgxLjg5Yy42NiwwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N1pNNDkwLjk2LDY0LjE2aC0uMTlsLTguNjgsMjguNzljLS4wOS4zOC4wOS41Ny43NS41N2gxNi41MmMuNjYsMCwuOTQtLjM4Ljg1LS43NWwtOS4yNS0yOC42WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU5Ni4yOSw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk1LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzUsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNzIxLjIxLDk3LjIxYy0uMzgsMC0uNjYuMTgtLjY2Ljg0di45NGMwLDYuMzMtNS4xOSwyMC41OC0yMC42NywyMC41OGgtNy44NGMtLjY2LDAtLjg1LS4yOC0uODUtLjU2di0zMi4wOWMwLS4zOC4yOS0uNTguOTQtLjU4aDQuMzVjNS43NSwwLDEwLjk1LDQuNjMsMTAuOTUsMTAuMjl2LjY3YzAsLjY2LjE4Ljg1LjY2Ljg1LjM4LDAsLjU2LS4yLjU2LS44NXYtMjIuODVjMC0uNjYtLjE4LS45NC0uNTYtLjk0cy0uNjYuMi0uNjYuOTR2LjY3YzAsNS41Ni01LjE5LDEwLjE5LTEwLjk1LDEwLjE5aC00LjQ0Yy0uNjYsMC0uODUtLjE4LS44NS0uNTZ2LTI4Ljk4YzAtLjM3LjM4LS41Ni45NC0uNTZoOC40OWMxMC40OSwwLDE2LjgxLDEwLjIsMTYuODEsMTkuODJ2MS4wNWMwLC42Ni4yLjg0LjU2Ljg0LjQ3LDAsLjc2LS4xOC43Ni0uODR2LTIxLjI1YzAtLjU2LS4zOC0uNzUtLjg1LS43NWgtNDUuOTdjLS42NiwwLS44NC4xOC0uODQuNTZzLjI4LjU2Ljg0LjU2aDMuOTdjLjk0LDAsMS4wNC44NSwxLjA0LDMuODh2NTYuNjNjMCwzLjAxLS4wOSwzLjg3LTEuMDQsMy44N2gtMy45N2MtLjY2LDAtLjg0LjE4LS44NC41NnMuMjguNTguODQuNThoNDkuMDljLjU2LDAsLjg1LS4yLjg1LS42N3YtMjJjMC0uNjYtLjI5LS44NC0uNjctLjg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5MC4xNyw4My44Yy00LjY1LS4xMy05LjEzLjY3LTEzLjUxLDIuMjItOS41MSwzLjM2LTE2LjcyLDExLjQ4LTIwLjUzLDIwLjY0LTMuMTYsNy41Ny05Ljk5LDEzLjAyLTE4LjQ0LDEzLjAyLTExLjE0LDAtMTIuNTYtOS4wNy0xMy4yMS0xOS4xNi0uNjYtOS4zNS0uNDctMTcuMDktLjA5LTI2LjcxLjU2LTEyLjA5LDIuMzYtMTkuODIsMTIuNDUtMTkuODIsOS4yNSwwLDE4LjIyLDguNTksMTguMjIsMjIuOTN2MS4xNGMwLC42Ni4xOC45NC42Ni45NC4zOCwwLC42Ny0uMi42Ny0uOTR2LTIzLjMyYzAtLjc1LS4yLS45NC0uNjctLjk0cy0uNjYuMjktLjY2Ljk0di42N2MwLDIuMDctMi41NC44NC00LjksMC0yLjY1LS45NC04LjEzLTIuNDYtMTMuNDEtMi40Ni0xOS44MiwwLTI5LjY0LDE1LjU5LTI5LjY0LDM0LjkzLDAsMTcuMDgsMTAuMTEsMzIuODUsMjkuNzMsMzIuODUuMiwwLC40MSwwLC42My0uMDEsNi41NC0uMjMsMTIuMjctMy41MSwxNi4zNi04LjUxLDIuMTMtMi42LDMuMzEtNi4xNCw1LjAzLTkuMDUsMS44Ny0zLjE2LDQuMDItNi4xOCw2LjY5LTguNzIsNC4xNC0zLjk1LDkuNDUtNi42NSwxNS4wNy03Ljc3LDIuNjItLjUyLDcuODEtLjU3LDkuNTUtMi44NVoiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjczNS40NyIgY3k9IjExNS44NyIgcj0iNC44NSIvPjwvc3ZnPg==" alt="Ordonnance Royale" style="height:26px;width:auto"></a>
+    <p>Changer et tenir ferme par la Parole au quotidien.</p>
+    <div class="fts"><a href="https://www.instagram.com/ordonnanceroyale" class="ftsi" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://www.tiktok.com/@ordonnanceroyale" class="ftsi" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z"/></svg></a></div>
+  </div>
+  <nav class="ftc"><h4>Boutique</h4><ul><li><a href="boutique.html">Toutes les affiches</a></li><li><a href="ordonnance.html">Ordonnance Perso</a></li></ul></nav>
+  <nav class="ftc"><h4>Informations</h4><ul><li><a href="a-propos.html">À Propos</a></li><li><a href="livraisons.html">Livraison</a></li><li><a href="contact.html">Contact</a></li><li><a href="mentions-legales.html">Mentions légales</a></li></ul></nav>
+  <nav class="ftc"><h4>Contact</h4><ul><li><a href="mailto:contact@ordonnanceroyale.com">contact@ordonnanceroyale.com</a></li><li><a href="https://www.instagram.com/ordonnanceroyale" target="_blank">@ordonnanceroyale</a></li></ul></nav>
+</div><div class="ft-pay" style="border-top:1px solid rgba(245,240,232,.07);padding:20px 0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap"><span style="font-family:var(--sa);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,240,232,.4);font-weight:600;margin-right:8px">Paiements sécurisés</span><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#1a1f71"/><text x="24" y="21" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="11" font-weight="900" font-style="italic" fill="#fff" letter-spacing="1">VISA</text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.5"/><circle cx="20" cy="16" r="7" fill="#eb001b"/><circle cx="28" cy="16" r="7" fill="#f79e1b" fill-opacity="0.9"/><path d="M24 11c1.4 1.3 2.3 3 2.3 5s-.9 3.7-2.3 5c-1.4-1.3-2.3-3-2.3-5s.9-3.7 2.3-5z" fill="#ff5f00"/></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#006fcf"/><text x="24" y="14" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" font-weight="700" fill="#fff" letter-spacing="0.3">AMERICAN</text><text x="24" y="22" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" font-weight="700" fill="#fff" letter-spacing="0.3">EXPRESS</text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.5"/><text x="24" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="900" font-style="italic" letter-spacing="-0.5"><tspan fill="#003087">Pay</tspan><tspan fill="#009cde">Pal</tspan></text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#000"/><g transform="translate(11,8)"><path d="M5.5 4.2c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7.1 1.3-.3 1.7-.8zm.6.9c-1-.1-1.8.5-2.2.5-.5 0-1.2-.5-2-.5-1 0-2 .6-2.5 1.5-1.1 1.8-.3 4.5.7 6 .5.7 1.1 1.5 1.9 1.4.7 0 1-.4 1.9-.4s1.2.4 1.9.4c.8 0 1.3-.7 1.8-1.4.6-.8.8-1.6.8-1.6 0 0-1.5-.6-1.5-2.3 0-1.4 1.2-2.1 1.2-2.1-.7-1-1.7-1.1-2-1.1z" fill="#fff"/></g><text x="32" y="21" text-anchor="middle" font-family="-apple-system,Helvetica Neue,Arial,sans-serif" font-size="10" font-weight="500" fill="#fff">Pay</text></svg></div>
+  <div class="ftb2"><p>© 2026 Ordonnance Royale. Tous droits réservés.</p><p>Fait avec ✦ et Foi</p></div></div></footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// CODES PROMO DISPONIBLES
+// ═══════════════════════════════════════════════════════════
+const PROMOS = {
+  'BIENVENUE10': { type:'percent', value:10, label:'-10%', minTotal:0 },
+  'PAROLE15':    { type:'percent', value:15, label:'-15%', minTotal:60 },
+  'NOEL2026':    { type:'fixed',   value:5,  label:'-5,00 €', minTotal:30 },
+};
+
+// ═══════════════════════════════════════════════════════════
+// ÉTAT
+// ═══════════════════════════════════════════════════════════
+let panier = JSON.parse(localStorage.getItem('or_cart') || '[]');
+let appliedPromo = JSON.parse(localStorage.getItem('or_promo') || 'null');
+let livraison = { pays: '', amount: 0, jours: '' };
+const livSaved = JSON.parse(localStorage.getItem('or_livraison') || 'null');
+if (livSaved) livraison = livSaved;
+
+// ═══════════════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════════════
+function fmt(n) { return n.toFixed(2).replace('.', ',') + ' €'; }
+function save() { localStorage.setItem('or_cart', JSON.stringify(panier)); }
+function savePromo() { 
+  if (appliedPromo) localStorage.setItem('or_promo', JSON.stringify(appliedPromo));
+  else localStorage.removeItem('or_promo');
+}
+function saveLivraison() { localStorage.setItem('or_livraison', JSON.stringify(livraison)); }
+
+function showToast(msg, isError) {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.style.background = isError ? '#7a1f1f' : 'var(--bk)';
+  t.classList.add('on');
+  setTimeout(() => t.classList.remove('on'), 2400);
+}
+
+function majB() {
+  const n = panier.reduce((s, i) => s + i.qte, 0);
+  const e = document.getElementById('nbdg');
+  if (e) { e.textContent = n; e.classList.toggle('on', n > 0); }
+}
+
+function getSubtotal() {
+  return panier.reduce((s, i) => s + i.prix * i.qte, 0);
+}
+
+function getDiscount() {
+  if (!appliedPromo) return 0;
+  const promo = PROMOS[appliedPromo];
+  if (!promo) return 0;
+  const sub = getSubtotal();
+  if (sub < promo.minTotal) return 0;
+  if (promo.type === 'percent') return sub * (promo.value / 100);
+  if (promo.type === 'fixed') return Math.min(promo.value, sub);
+  return 0;
+}
+
+// ═══════════════════════════════════════════════════════════
+// RENDU DES ARTICLES
+// ═══════════════════════════════════════════════════════════
+function renderItems() {
+  const items = document.getElementById('items');
+  const empty = document.getElementById('empty-cart');
+  const grid = document.getElementById('cart-grid');
+  const phCount = document.getElementById('ph-count');
+
+  if (!panier.length) {
+    grid.style.display = 'none';
+    empty.style.display = 'block';
+    phCount.innerHTML = '<strong>0</strong> article';
+    updateTotals();
+    return;
+  }
+  
+  grid.style.display = 'grid';
+  empty.style.display = 'none';
+  
+  const totalQte = panier.reduce((s, i) => s + i.qte, 0);
+  phCount.innerHTML = '<strong>' + totalQte + '</strong> article' + (totalQte > 1 ? 's' : '');
+
+  items.innerHTML = panier.map((item, idx) => {
+    const meta = [];
+    meta.push('Format ' + (item.taille || 'A4'));
+    if (item.cadre || (item.nom && item.nom.toLowerCase().includes('cadre'))) {
+      // déjà inclus dans le nom probablement
+    }
+    
+    const persoBlock = item.perso 
+      ? '<div class="item-perso">Couleurs : ' + item.perso + '</div>' 
+      : '';
+    
+    return `
+      <article class="item">
+        <div class="item-img">
+          <div class="item-img-content">${item.ref || item.nom}</div>
+        </div>
+        <div class="item-info">
+          <span class="item-cat">${item.cat || 'Affiche biblique'}</span>
+          <h3 class="item-name">${item.nom}</h3>
+          <div class="item-meta">${meta.map(m => '<span>' + m + '</span>').join('')}</div>
+          ${persoBlock}
+          <div class="item-actions">
+            <button class="item-link danger" onclick="removeItem(${idx})">Supprimer</button>
+          </div>
+        </div>
+        <div class="item-right">
+          <div class="qty-ctrl">
+            <button onclick="changeQty(${idx}, -1)" ${item.qte <= 1 ? 'disabled' : ''}>−</button>
+            <span class="qty-num">${item.qte}</span>
+            <button onclick="changeQty(${idx}, 1)" ${item.qte >= 10 ? 'disabled' : ''}>+</button>
+          </div>
+          <div>
+            <div class="item-price">${fmt(item.prix * item.qte)}</div>
+            ${item.qte > 1 ? '<div class="item-price-unit">' + fmt(item.prix) + ' / unité</div>' : ''}
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+  
+  updateTotals();
+}
+
+// ═══════════════════════════════════════════════════════════
+// MODIFICATION DES QUANTITÉS
+// ═══════════════════════════════════════════════════════════
+function changeQty(idx, delta) {
+  if (!panier[idx]) return;
+  const newQte = panier[idx].qte + delta;
+  if (newQte < 1 || newQte > 10) return;
+  panier[idx].qte = newQte;
+  save();
+  majB();
+  renderItems();
+}
+
+function removeItem(idx) {
+  if (!panier[idx]) return;
+  const name = panier[idx].nom;
+  panier.splice(idx, 1);
+  save();
+  majB();
+  renderItems();
+  showToast(name + ' retiré du panier');
+}
+
+function clearCart() {
+  if (!panier.length) return;
+  if (!confirm('Voulez-vous vraiment vider votre panier ?')) return;
+  panier = [];
+  appliedPromo = null;
+  save();
+  savePromo();
+  majB();
+  renderItems();
+  document.getElementById('promo-applied').classList.remove('on');
+  showToast('Panier vidé');
+}
+
+// ═══════════════════════════════════════════════════════════
+// CODES PROMO
+// ═══════════════════════════════════════════════════════════
+function applyPromo() {
+  const code = document.getElementById('promo-input').value.trim().toUpperCase();
+  const msgEl = document.getElementById('promo-msg');
+  msgEl.classList.remove('success', 'error');
+  
+  if (!code) {
+    msgEl.textContent = 'Veuillez entrer un code';
+    msgEl.classList.add('error');
+    return;
+  }
+  
+  const promo = PROMOS[code];
+  if (!promo) {
+    msgEl.textContent = '✕ Code invalide';
+    msgEl.classList.add('error');
+    return;
+  }
+  
+  const sub = getSubtotal();
+  if (sub < promo.minTotal) {
+    msgEl.textContent = '✕ Ce code requiert un minimum de ' + fmt(promo.minTotal);
+    msgEl.classList.add('error');
+    return;
+  }
+  
+  appliedPromo = code;
+  savePromo();
+  document.getElementById('promo-input').value = '';
+  msgEl.textContent = '';
+  document.getElementById('promo-applied').classList.add('on');
+  document.getElementById('promo-code').textContent = code + ' (' + promo.label + ')';
+  updateTotals();
+  showToast('Code ' + code + ' appliqué !');
+}
+
+function removePromo() {
+  appliedPromo = null;
+  savePromo();
+  document.getElementById('promo-applied').classList.remove('on');
+  updateTotals();
+}
+
+// ═══════════════════════════════════════════════════════════
+// LIVRAISON
+// ═══════════════════════════════════════════════════════════
+function updateLivraison() {
+  const sel = document.getElementById('livr-select');
+  const opt = sel.options[sel.selectedIndex];
+  if (!opt.value) {
+    livraison = { pays: '', amount: 0, jours: '' };
+  } else {
+    livraison = {
+      pays: opt.value,
+      label: opt.textContent,
+      amount: parseFloat(opt.dataset.px),
+      jours: opt.dataset.jrs
+    };
+  }
+  saveLivraison();
+  updateTotals();
+}
+
+// ═══════════════════════════════════════════════════════════
+// MISE À JOUR DES TOTAUX
+// ═══════════════════════════════════════════════════════════
+function updateTotals() {
+  const sub = getSubtotal();
+  const disc = getDiscount();
+  const livr = livraison.amount || 0;
+  const total = sub - disc + livr;
+  
+  document.getElementById('sub-total').textContent = fmt(sub);
+  
+  // Discount
+  if (disc > 0) {
+    document.getElementById('line-discount').style.display = 'flex';
+    document.getElementById('disc-amount').textContent = '−' + fmt(disc);
+    document.getElementById('disc-code').textContent = appliedPromo ? '(' + appliedPromo + ')' : '';
+  } else {
+    document.getElementById('line-discount').style.display = 'none';
+  }
+  
+  // Livraison
+  if (livraison.pays) {
+    document.getElementById('livr-amount').textContent = fmt(livr);
+    document.getElementById('livr-note').textContent = 'Sous ' + livraison.jours + ' jours ouvrés';
+  } else {
+    document.getElementById('livr-amount').textContent = '—';
+    document.getElementById('livr-note').textContent = 'Sélectionnez votre pays';
+  }
+  
+  // Total
+  document.getElementById('grand-total').textContent = fmt(total);
+}
+
+// ═══════════════════════════════════════════════════════════
+// PAIEMENT
+// ═══════════════════════════════════════════════════════════
+function goCheckout() {
+  if (!panier.length) {
+    showToast('Votre panier est vide', true);
+    return;
+  }
+  if (!livraison.pays) {
+    showToast('Veuillez sélectionner un pays de livraison', true);
+    document.getElementById('livr-select').focus();
+    document.getElementById('livr-select').scrollIntoView({ behavior:'smooth', block:'center' });
+    return;
+  }
+  // Sauvegarder les détails pour la page checkout
+  localStorage.setItem('or_checkout', JSON.stringify({
+    panier: panier,
+    promo: appliedPromo,
+    livraison: livraison,
+    sub: getSubtotal(),
+    disc: getDiscount(),
+    total: getSubtotal() - getDiscount() + livraison.amount
+  }));
+  window.location.href = 'checkout.html';
+}
+
+function payWith(method) {
+  if (!panier.length) {
+    showToast('Votre panier est vide', true);
+    return;
+  }
+  if (!livraison.pays) {
+    showToast('Veuillez sélectionner un pays de livraison', true);
+    document.getElementById('livr-select').focus();
+    return;
+  }
+  showToast('Redirection vers ' + (method === 'paypal' ? 'PayPal' : 'Apple Pay') + '...');
+  // À connecter au vrai SDK PayPal/Stripe en prod
+  setTimeout(() => {
+    localStorage.setItem('or_pay_method', method);
+    goCheckout();
+  }, 800);
+}
+
+// ═══════════════════════════════════════════════════════════
+// SEARCH
+// ═══════════════════════════════════════════════════════════
+function goSrch(e) {
+  e.preventDefault();
+  const q = document.getElementById('sInp').value.trim();
+  if (q) window.location.href = 'boutique.html?search=' + encodeURIComponent(q);
+}
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', () => {
+  majB();
+  renderItems();
+  
+  // Restaurer code promo
+  if (appliedPromo && PROMOS[appliedPromo]) {
+    const promo = PROMOS[appliedPromo];
+    if (getSubtotal() >= promo.minTotal) {
+      document.getElementById('promo-applied').classList.add('on');
+      document.getElementById('promo-code').textContent = appliedPromo + ' (' + promo.label + ')';
+    } else {
+      appliedPromo = null;
+      savePromo();
+    }
+  }
+  
+  // Restaurer livraison
+  if (livraison.pays) {
+    document.getElementById('livr-select').value = livraison.pays;
+    updateLivraison();
+  }
+  
+  // Permettre Enter pour appliquer le code promo
+  document.getElementById('promo-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); applyPromo(); }
+  });
+  
+  updateTotals();
+});
+</script>
+</body>
+</html>

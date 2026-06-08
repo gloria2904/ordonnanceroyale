@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACM0lEQVR42u2Wv2obQRDGv707JFmVjSKp8KFOOOBCAqdw0COoNi5U+xWCH8JPoKcQMRhVBiEOE6MYRFzEuLAEKiSLSC7ujvVxu1+qbDCJyZ3/YAKa7naOnd8MM/OtIEm8oVl4Y1sBrABWAE8C0FpDKWW+lVJ46joRaReR1hqWZZnAtm0bH0kIIVIBOE8JPh6P0Ov1sLPzAVEUYTQaodlsIpPJmEokBbHSBvc8D41GA/l8Htvb26jVari4+Ir9/T0sl0sIIdJVgQlMa02tNZfLJavVKl3Xpe/7xj8YDFgsvuPh4ScGQcDLy28MwzDJ1UxUAaUUhBDodDq4vr5GuVx+kGU+v4ZisYiTky76/T42N11ks9mXn4KzMw9CCIRhiDiOzXk2m4MQwGLxA0EQYH19PfFUJAL4le18PgdJ3N0tIKU0QRzHgVIKUXSP29sZSL4swO9M1yCEwHQ6w/HxZwPm+z6kjBDHMXK5XKomtBI2KgCgXq+DJFzXxXw+x/n5F0wmE0ynU0gpAVjY2npvpiZRFZJ0qlKKJHlzc8NMJsNSqUSlFKWUjKKIw+GQjuOw0WhQynumMST9MY5jkmS73SYAdrtd4zs6OqLj2PQ8jyQ5m83YarV4dfX9QQJ/s8Sb0LZtaK1xcHCAQqGA09NTVCoV+L6P8XiEfr+P3d2PpmnDMIBS+nW1YLFYQAiBjY2NP3yvJkaPiRBJE5ykgfnXRIjnPMvTCs+z1fCxBbV6kq0AVgD/NcBP3GA3MvtcL5MAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAABAElEQVR42tWTQWuDQBCF32xKegniwXP34l8wpgdpfrK/Q7zpSdCcGptcPFiRRt3XU8WkCqWhhz5YGNiZb9iZt0KSuEMKd+rvAMaY2fhHAJJQSqHv+zFe0sNcsYggDENorXG5fIAkdrtnGGO+wzjRMAwkySzL6Lou27Zlnufc719YFAW7rqMxZlpCNffuKIpwOr1BROA4Do7HV5zPZ6xWK9xu/QogIgAA27bRNA2SJEFd16jrd2w2m/F+EaCUAkkEQQDf38GyLBwOB2y3PrTWiON4zBmb3jrxa4hlWaKqKvR9D62fsF4/Ik1TeJ435swCppBfG0lEQPLqLBlK/v9n+gRHoLUxTYp9xAAAAABJRU5ErkJggg==">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACM0lEQVR42u2Wv2obQRDGv707JFmVjSKp8KFOOOBCAqdw0COoNi5U+xWCH8JPoKcQMRhVBiEOE6MYRFzEuLAEKiSLSC7ujvVxu1+qbDCJyZ3/YAKa7naOnd8MM/OtIEm8oVl4Y1sBrABWAE8C0FpDKWW+lVJ46joRaReR1hqWZZnAtm0bH0kIIVIBOE8JPh6P0Ov1sLPzAVEUYTQaodlsIpPJmEokBbHSBvc8D41GA/l8Htvb26jVari4+Ir9/T0sl0sIIdJVgQlMa02tNZfLJavVKl3Xpe/7xj8YDFgsvuPh4ScGQcDLy28MwzDJ1UxUAaUUhBDodDq4vr5GuVx+kGU+v4ZisYiTky76/T42N11ks9mXn4KzMw9CCIRhiDiOzXk2m4MQwGLxA0EQYH19PfFUJAL4le18PgdJ3N0tIKU0QRzHgVIKUXSP29sZSL4swO9M1yCEwHQ6w/HxZwPm+z6kjBDHMXK5XKomtBI2KgCgXq+DJFzXxXw+x/n5F0wmE0ynU0gpAVjY2npvpiZRFZJ0qlKKJHlzc8NMJsNSqUSlFKWUjKKIw+GQjuOw0WhQynumMST9MY5jkmS73SYAdrtd4zs6OqLj2PQ8jyQ5m83YarV4dfX9QQJ/s8Sb0LZtaK1xcHCAQqGA09NTVCoV+L6P8XiEfr+P3d2PpmnDMIBS+nW1YLFYQAiBjY2NP3yvJkaPiRBJE5ykgfnXRIjnPMvTCs+z1fCxBbV6kq0AVgD/NcBP3GA3MvtcL5MAAAAASUVORK5CYII=">
+<title>Finaliser ma commande — Ordonnance Royale</title>
+<meta name="description" content="Finalisez votre commande en toute sécurité. Paiement sécurisé par carte bancaire, PayPal ou Apple Pay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bk:#1a1a1a;--wh:#ffffff;--gd:#2c2420;
+  --bg:#f5f0e8;--bg2:#ede8de;--br:#ddd8ce;
+  --mi:#4a4440;--li:#8a8078;--dk:#1a1a1a;
+  --er:#7a1f1f;--su:#2d5a3d;
+  --sf:'Playfair Display',Georgia,serif;
+  --bo:'Cormorant Garamond',Georgia,serif;
+  --sa:'Montserrat',sans-serif;
+  --ez:0.25s ease
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--bo);font-size:18px;color:var(--dk);background:var(--bg);line-height:1.7}
+a{color:inherit;text-decoration:none}ul{list-style:none}img{max-width:100%;display:block}
+.w{max-width:1200px;margin:0 auto;padding:0 32px}
+
+/* NAV minimaliste pour checkout */
+.nav-co{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--wh);border-bottom:1px solid var(--br);height:72px;display:flex;align-items:center}
+.nav-co-w{max-width:1280px;margin:0 auto;padding:0 32px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-co-logo img{height:42px;width:auto;display:block}
+.nav-co-secure{display:flex;align-items:center;gap:8px;font-family:var(--sa);font-size:.72rem;letter-spacing:.06em;color:var(--mi);font-weight:500}
+.nav-co-secure svg{width:14px;height:14px;stroke:var(--bk);fill:none;stroke-width:2;stroke-linecap:round}
+.nav-co-back{font-family:var(--sa);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mi);font-weight:600;transition:color var(--ez)}
+.nav-co-back:hover{color:var(--bk)}
+.nsp{height:72px}
+
+/* STEPPER */
+.stepper-bar{background:var(--wh);border-bottom:1px solid var(--br);padding:24px 0}
+.stepper{max-width:680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;position:relative}
+.stepper::before{content:'';position:absolute;top:18px;left:60px;right:60px;height:2px;background:var(--br);z-index:0}
+.stepper-prog{position:absolute;top:18px;left:60px;height:2px;background:var(--bk);z-index:1;transition:width .4s ease}
+.step{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--wh);padding:0 14px}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--wh);border:2px solid var(--br);display:flex;align-items:center;justify-content:center;font-family:var(--sa);font-weight:700;font-size:.85rem;color:var(--li);transition:all var(--ez)}
+.step.active .step-num{background:var(--bk);border-color:var(--bk);color:var(--wh)}
+.step.done .step-num{background:var(--bk);border-color:var(--bk);color:var(--wh)}
+.step.done .step-num::before{content:'✓';font-weight:700}
+.step.done .step-num span{display:none}
+.step-lbl{font-family:var(--sa);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--li);font-weight:600;transition:color var(--ez);text-align:center;white-space:nowrap}
+.step.active .step-lbl{color:var(--bk)}
+.step.done .step-lbl{color:var(--mi)}
+
+/* GRID 2 COLS */
+.co-wrap{padding:36px 0 80px}
+.co-grid{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start}
+.co-main{}
+.co-side{position:sticky;top:96px}
+
+/* PANEL ÉTAPE */
+.panel{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:32px 36px;margin-bottom:18px;display:none}
+.panel.on{display:block}
+.panel-head{margin-bottom:24px}
+.panel-tt{font-family:var(--sf);font-size:1.5rem;font-weight:700;color:var(--bk);margin-bottom:6px}
+.panel-st{font-family:var(--bo);font-size:.98rem;color:var(--mi);font-style:italic}
+
+/* SECTION RÉSUMÉ ÉTAPE PRÉCÉDENTE */
+.recap-prev{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:18px 24px;margin-bottom:18px;display:none;align-items:flex-start;gap:16px}
+.recap-prev.on{display:flex}
+.recap-prev-icon{width:30px;height:30px;border-radius:50%;background:var(--bk);color:var(--wh);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0}
+.recap-prev-body{flex:1}
+.recap-prev-tt{font-family:var(--sa);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--li);font-weight:600;margin-bottom:4px}
+.recap-prev-content{font-family:var(--bo);font-size:.95rem;color:var(--dk);line-height:1.5}
+.recap-prev-edit{background:none;border:none;cursor:pointer;font-family:var(--sa);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mi);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.recap-prev-edit:hover{color:var(--bk)}
+</style>
+</head><style>
+/* INPUTS */
+.fgr{margin-bottom:18px}
+.fgr:last-child{margin-bottom:0}
+.flbl{display:block;font-family:var(--sa);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mi);font-weight:600;margin-bottom:8px}
+.flbl span{color:var(--li);font-weight:500;text-transform:none;letter-spacing:.04em;font-size:.78rem;margin-left:6px}
+.finp,.fsel,.fta{width:100%;padding:13px 16px;border:1px solid var(--br);background:var(--bg);font-family:var(--bo);font-size:1rem;color:var(--dk);outline:none;border-radius:4px;transition:border-color var(--ez)}
+.finp:focus,.fsel:focus,.fta:focus{border-color:var(--bk);background:var(--wh)}
+.finp::placeholder,.fta::placeholder{color:var(--li);font-style:italic}
+.finp.invalid,.fsel.invalid{border-color:var(--er);background:#fef5f5}
+.fta{resize:vertical;min-height:80px;line-height:1.6}
+.fsel{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%234a4440' stroke-width='1.5' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:42px}
+.frow2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.frow3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+
+/* CHECKBOX */
+.chx{display:flex;align-items:flex-start;gap:11px;cursor:pointer;padding:10px 0;font-family:var(--bo);font-size:.96rem;color:var(--mi)}
+.chx-box{width:20px;height:20px;border:1.5px solid var(--mi);border-radius:3px;flex-shrink:0;background:var(--wh);display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all var(--ez)}
+.chx-box svg{width:13px;height:13px;stroke:var(--wh);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity var(--ez)}
+.chx input{display:none}
+.chx input:checked + .chx-box{background:var(--bk);border-color:var(--bk)}
+.chx input:checked + .chx-box svg{opacity:1}
+.chx-tt{font-weight:500;color:var(--dk)}
+
+/* ZONE BILLING (cachée par défaut) */
+.billing-zone{display:none;margin-top:18px;padding:22px;background:var(--bg);border:1px solid var(--br);border-radius:4px}
+.billing-zone.on{display:block}
+
+/* MÉTHODES DE PAIEMENT */
+.pay-methods{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.pay-method{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--bg);border:1.5px solid var(--br);border-radius:5px;cursor:pointer;transition:all var(--ez)}
+.pay-method:hover{border-color:var(--mi)}
+.pay-method.active{border-color:var(--bk);background:var(--wh)}
+.pay-method input{display:none}
+.pay-radio{width:18px;height:18px;border:1.5px solid var(--mi);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--wh);transition:all var(--ez)}
+.pay-method.active .pay-radio{border-color:var(--bk)}
+.pay-radio::after{content:'';width:9px;height:9px;border-radius:50%;background:var(--bk);transform:scale(0);transition:transform var(--ez)}
+.pay-method.active .pay-radio::after{transform:scale(1)}
+.pay-method-info{flex:1;display:flex;align-items:center;gap:14px}
+.pay-method-tt{font-family:var(--sa);font-size:.85rem;font-weight:700;color:var(--bk);letter-spacing:.04em}
+.pay-method-st{font-family:var(--bo);font-size:.9rem;color:var(--mi);font-style:italic;display:block;margin-top:2px}
+.pay-method-icons{display:flex;align-items:center;gap:6px;margin-left:auto}
+.pay-icon-card{display:inline-flex;align-items:center}.pay-icon-card svg{display:block;height:24px;width:auto}
+
+
+
+
+/* CARTE BANCAIRE - Zone formulaire */
+.cb-form{display:none;padding:22px;background:var(--bg);border:1px solid var(--br);border-radius:5px;margin-top:8px}
+.cb-form.on{display:block}
+.cb-num-wrap{position:relative}
+.cb-num-wrap .cb-icons{position:absolute;right:12px;top:50%;transform:translateY(-50%);display:flex;gap:5px;pointer-events:none}
+.cb-num-wrap .cb-icons span{padding:3px 6px;background:var(--wh);border:1px solid var(--br);border-radius:2px;font-family:var(--sa);font-size:.5rem;font-weight:800;letter-spacing:.04em;opacity:.4;transition:opacity var(--ez)}
+.cb-num-wrap .cb-icons span.on{opacity:1}
+.cb-num-wrap input{padding-right:130px;font-family:'Courier New',monospace;letter-spacing:.08em}
+.cb-row-bottom{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cb-row-bottom input{font-family:'Courier New',monospace;letter-spacing:.08em}
+.cb-secure-note{display:flex;align-items:center;gap:8px;margin-top:14px;padding:10px 12px;background:var(--bg2);border-radius:4px;font-family:var(--sa);font-size:.7rem;color:var(--mi);letter-spacing:.04em}
+.cb-secure-note svg{width:14px;height:14px;stroke:var(--bk);fill:none;stroke-width:2;flex-shrink:0}
+
+/* PAYPAL/APPLE PAY ZONES */
+.alt-pay{display:none;padding:22px;background:var(--bg);border:1px solid var(--br);border-radius:5px;margin-top:8px;text-align:center}
+.alt-pay.on{display:block}
+.alt-pay p{font-family:var(--bo);color:var(--mi);font-size:.96rem;line-height:1.5;font-style:italic}
+
+/* BOUTONS NAVIGATION */
+.btns{display:flex;justify-content:space-between;align-items:center;margin-top:28px;flex-wrap:wrap;gap:14px}
+.btn-prev{background:none;border:none;cursor:pointer;font-family:var(--sa);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mi);font-weight:600;padding:14px 0;display:inline-flex;align-items:center;gap:8px;transition:color var(--ez)}
+.btn-prev:hover{color:var(--bk)}
+.btn-next{padding:15px 36px;background:var(--bk);color:var(--wh);border:none;font-family:var(--sa);font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background var(--ez)}
+.btn-next:hover{background:var(--gd)}
+.btn-next:disabled{opacity:.5;cursor:not-allowed;background:var(--mi)}
+.btn-pay{padding:18px 40px;background:var(--bk);color:var(--wh);border:none;font-family:var(--sa);font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background var(--ez);display:inline-flex;align-items:center;gap:10px}
+.btn-pay:hover{background:var(--gd)}
+.btn-pay svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* SIDEBAR RÉCAP */
+.summary{background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:26px}
+.summary h2{font-family:var(--sf);font-size:1.2rem;font-weight:700;color:var(--bk);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--br)}
+.summ-items{margin-bottom:18px;max-height:280px;overflow-y:auto}
+.summ-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--br)}
+.summ-item:last-child{border-bottom:none}
+.summ-item-img{width:50px;aspect-ratio:3/4;background:var(--bg2);border:1px solid var(--br);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--sf);font-style:italic;font-size:.55rem;color:var(--mi);text-align:center;padding:2px;line-height:1.2}
+.summ-item-body{flex:1;min-width:0}
+.summ-item-name{font-family:var(--sf);font-size:.92rem;font-weight:600;color:var(--bk);line-height:1.3;margin-bottom:2px}
+.summ-item-meta{font-family:var(--sa);font-size:.66rem;color:var(--li);letter-spacing:.04em}
+.summ-item-px{font-family:var(--sa);font-size:.85rem;font-weight:700;color:var(--bk);text-align:right;flex-shrink:0;margin-top:auto}
+.summ-line{display:flex;justify-content:space-between;padding:7px 0;font-family:var(--sa);font-size:.82rem}
+.summ-line-l{color:var(--mi)}
+.summ-line-v{color:var(--bk);font-weight:600}
+.summ-line.discount .summ-line-v{color:var(--su)}
+.summ-tot{display:flex;justify-content:space-between;align-items:baseline;padding-top:16px;margin-top:10px;border-top:2px solid var(--bk)}
+.summ-tot-l{font-family:var(--sa);font-size:.78rem;font-weight:700;color:var(--bk);letter-spacing:.06em;text-transform:uppercase}
+.summ-tot-v{font-family:var(--sf);font-size:1.5rem;font-weight:700;color:var(--bk)}
+.summ-secure{margin-top:18px;padding-top:16px;border-top:1px solid var(--br);display:flex;flex-direction:column;gap:7px}
+.summ-secure-i{display:flex;align-items:center;gap:8px;font-family:var(--sa);font-size:.7rem;color:var(--mi);letter-spacing:.02em}
+.summ-secure-i svg{width:13px;height:13px;stroke:var(--bk);fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+
+/* TOAST */
+.toast{position:fixed;top:88px;right:20px;background:var(--bk);color:var(--wh);padding:14px 22px;border-radius:4px;font-family:var(--sa);font-size:.78rem;font-weight:600;z-index:5000;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(-10px);transition:all var(--ez);box-shadow:0 12px 30px rgba(26,26,26,.2)}
+.toast.on{opacity:1;transform:translateY(0)}
+
+/* FOOTER MINIMAL */
+.ft-mini{background:var(--bg2);border-top:1px solid var(--br);padding:24px 0;text-align:center}
+.ft-mini-row{display:flex;justify-content:center;align-items:center;gap:24px;font-family:var(--sa);font-size:.7rem;color:var(--mi);letter-spacing:.04em;flex-wrap:wrap}
+.ft-mini-row a{color:var(--mi);transition:color var(--ez)}
+.ft-mini-row a:hover{color:var(--bk)}
+.ft-mini-row .sep{color:var(--li)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .co-grid{grid-template-columns:1fr;gap:32px}
+  .co-side{position:static;max-width:520px;margin:0 auto;width:100%}
+}
+@media(max-width:768px){
+  .w{padding:0 20px}
+  .nav-co-w{padding:0 20px}
+  .panel{padding:24px}
+  .frow2,.frow3{grid-template-columns:1fr;gap:0}
+  .frow2 .fgr,.frow3 .fgr{margin-bottom:14px}
+  .stepper{padding:0 12px}
+  .step{padding:0 6px}
+  .step-lbl{font-size:.62rem;letter-spacing:.08em}
+  .nav-co-secure{display:none}
+  .stepper::before{left:50px;right:50px}
+  .stepper-prog{left:50px}
+}
+@media(max-width:480px){
+  .step-lbl{display:none}
+  .stepper::before{left:30px;right:30px}
+  .stepper-prog{left:30px}
+}
+</style>
+<body>
+
+<!-- NAV CHECKOUT (minimaliste) -->
+<nav class="nav-co">
+  <div class="nav-co-w">
+    <a href="index.html" class="nav-co-logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJDYWxxdWVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNzkwLjUzIDIxNS4zOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwMjAyMDI7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTYyMi4yMiwxNDYuMDZjMC00LjYyLTMuMDQtNy4xNy03LjkzLTcuMTdoLTcuNHYyNC4yNGg0LjI5di0xMC4yMWw3LjMzLDEwLjIxaDUuMjFsLTcuODYtMTAuMzdjMy45Ni0uNTYsNi4zNC0zLjE4LDYuMzQtNi43Wk02MTEuMTgsMTQ5LjUzdi02LjkxaDIuODhjMi4zOCwwLDMuNzYsMS4zMiwzLjc2LDMuNDRzLTEuMzgsMy40Ny0zLjc2LDMuNDdoLTIuODhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM3Ljg0LDEzOC40MmMtNy4wMywwLTEyLjU1LDUuMTktMTIuNTUsMTIuNTlzNS41MiwxMi41OCwxMi41NSwxMi41OCwxMi41NS01LjE5LDEyLjU1LTEyLjU4LTUuNTItMTIuNTktMTIuNTUtMTIuNTlaTTYzNy44NCwxNTkuNDZjLTQuNTUsMC04LjA5LTMuNDMtOC4wOS04LjQ1czMuNTQtOC40OSw4LjA5LTguNDksOC4wOSwzLjQ3LDguMDksOC40OS0zLjU2LDguNDUtOC4wOSw4LjQ1WiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI2NjUuNDEgMTM4Ljg5IDY2MC40OCAxNDguOTkgNjU1LjUzIDEzOC44OSA2NTAuNjcgMTM4Ljg5IDY1OC4zMSAxNTMuNjEgNjU4LjMxIDE2My4xMyA2NjIuNiAxNjMuMTMgNjYyLjYgMTUzLjYxIDY2OS45NCAxMzguODkgNjY1LjQxIDEzOC44OSIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY3Ni42NywxMzguODlsLTguMjMsMjQuMjRoNC40M2wxLjM5LTQuNGg4Ljk4bDEuNDIsNC40aDQuNDlsLTguMjgtMjQuMjRoLTQuMlpNNjc1LjQ0LDE1NWwzLjI3LTEwLjI2LDMuMzMsMTAuMjZoLTYuNloiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNjk2LjU1IDEzOC44OSA2OTIuMjUgMTM4Ljg5IDY5Mi4yNSAxNjMuMTMgNzA1LjM5IDE2My4xMyA3MDUuMzkgMTU5LjEzIDY5Ni41NSAxNTkuMTMgNjk2LjU1IDEzOC44OSIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI3MTIuODkgMTUyLjczIDcyMS42MiAxNTIuNzMgNzIxLjYyIDE0OC43MyA3MTIuODkgMTQ4LjczIDcxMi44OSAxNDIuODggNzIxLjcxIDE0Mi44OCA3MjEuNzEgMTM4Ljg5IDcwOC42IDEzOC44OSA3MDguNiAxNjMuMTMgNzIxLjg4IDE2My4xMyA3MjEuODggMTU5LjEzIDcxMi44OSAxNTkuMTMgNzEyLjg5IDE1Mi43MyIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTgwLjIyLDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTkyLjY4LDcxLjk5Yy0uNzYtOS44Mi0yLjA4LTE5LjE2LTEyLjM3LTE5LjE2LTExLjIzLDAtMTIuMjcsOS4xNi0xMi44NCwxOS44Mi0uNDcsOS42My0uNTcsMTguNS4wOSwyNy44NC42Niw5LjgyLDIuMDgsMTkuMTYsMTIuMjcsMTkuMTYsMTEuMzIsMCwxMi4zNi05LjE2LDEyLjg0LTE5LjgyLjU2LTkuNjMuNjYtMTguNSwwLTI3Ljg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1Ny4zMywxMDguNDJjMC00LjUzLjA5LTguMjEuMDktMTIuNTUtLjE5LTYuODktMi4xNy0xMC43Ni04LjQtMTAuNzZoLTcuNzRjLS42NiwwLS45NS4yOC0uOTUuNTd2MjguODhjMCwzLjAyLjA5LDMuODcuOTUsMy44N2gzLjk2Yy42NiwwLC45NS4xOS45NS41N3MtLjE5LjU3LS45NS41N2gtMjQuMTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gzLjk2Yy45NCwwLDEuMDQtLjg1LDEuMDQtMy44N3YtNTYuNjNjMC0zLjAyLS4wOS0zLjg3LTEuMDQtMy44N2gtMy45NmMtLjc1LDAtLjg1LS4xOS0uODUtLjU3LDAtLjI4LjA5LS41Ny44NS0uNTdoMjkuNDVjOS45MSwwLDIxLjIzLDMuNjgsMjEuMjMsMTYuMzMsMCwxMC05LjcyLDE0LjcyLTE4LjAzLDE1LjI5di4wOWM5LjgyLjg1LDE4LjIyLDYuMzIsMTguMTIsMTguMDN2MTEuN2MwLDIuMDguMzgsNC4zNCwyLjc0LDQuMzQsMS41MSwwLDMuMDItMS4wNCwzLjY4LTIuODMuMTktLjQ3LjI4LS45NC44NS0uODVzLjY2LjU3LjQ3LDEuMDRjLTEuMDQsMy4xMS00LjkxLDQuNjMtOC42OCw0LjYzLTguNSwwLTEzLjU5LTQuODItMTMuNTktMTIuMjdaTTE0OS40LDU0LjA2aC04LjEyYy0uNjYsMC0uOTUuMjgtLjk1LjU2djI4Ljg4YzAsLjI4LjE5LjU3Ljg1LjU3aDguMzFjNS41NywwLDguNC0zLjc3LDguNC0xNC44MnMtMy4yMS0xNS4xOS04LjQ5LTE1LjE5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxOC40OSwxMTkuNTZoLTI5LjE2Yy0uNTcsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMy45NmMuOTQsMCwxLjA0LS44NSwxLjA0LTMuODd2LTU2LjYzYzAtMy4wMi0uMDktMy44Ny0xLjA0LTMuODdoLTMuOTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gyOS4xNmMxOC42OSwwLDI5LjgyLDE1LjM4LDI5LjgyLDMzLjAzcy0xMC4xOSwzMy42LTI5LjgyLDMzLjZaTTIzMC45NCw3Mi4yOGMtLjU2LTcuMDgtMS43LTE4LjIxLTEyLjc0LTE4LjIxaC04LjY4Yy0uNjYsMC0uOTUuMjgtLjk1LjU2djYzLjI0YzAsLjI4LjE5LjU3Ljg1LjU3aDguODdjOS43MiwwLDExLjk5LTcuNzQsMTIuNzQtMTguODguNTctOC45Ny41Ny0xOC4zMS0uMDktMjcuMjhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjg5LjQ2LDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTMwMS45MSw3MS45OWMtLjc1LTkuODItMi4wOC0xOS4xNi0xMi4zNi0xOS4xNi0xMS4yMywwLTEyLjI3LDkuMTYtMTIuODQsMTkuODItLjQ3LDkuNjMtLjU3LDE4LjUuMDksMjcuODQuNjYsOS44MiwyLjA4LDE5LjE2LDEyLjI3LDE5LjE2LDExLjMyLDAsMTIuMzYtOS4xNiwxMi44My0xOS44Mi41Ny05LjYzLjY2LTE4LjUsMC0yNy44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zODkuMzEsNTQuMDZoLS4xOWMtNC42MiwwLTUuOTUsNC4yNS01Ljk1LDIxLjIzdjQ0LjQ1YzAsLjI4LS4xOS41Ny0uOTQuNTdoLTguMzFjLS41NywwLS43Ni0uMjgtLjk0LS41N2wtMzUuOTYtNjEuNjNoLS4wOXYzOC40MWMwLDE1Ljg2LDIuOTMsMjEuOSwxMC4zOCwyMS45aDEuMjNjLjc2LDAsLjk0LjE5Ljk0LjU3LDAsLjI4LS4xOS41Ny0uOTQuNTdoLTE4Ljk3Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoLjE5YzQuNjMsMCw1Ljk1LTQuMjUsNS45NS0yMS4yNHYtMzkuMjZjMC0zLjAyLS4wOS0zLjg3LS45NS0zLjg3aC00LjQ0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTkuNTRjLjM4LDAsLjY2LjE5Ljk0LjU3bDMwLjk2LDUzLjQyaC4xOXYtMzAuOTZjMC0xNS44Ni0yLjkyLTIxLjktMTAuMjktMjEuOWgtLjk0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTguNTljLjc1LDAsLjk0LjE5Ljk0LjU3cy0uMTkuNTctLjk0LjU3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ1OS40NCw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk0LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzYsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTI4LjA1LDExOS41NmgtMjUuMjljLS42NiwwLS45NC0uMTktLjk0LS41N3MuMTktLjU3Ljk0LS41N2gzLjU5YzEuNjEsMCwyLjI3LS42Ni45NS00LjQ0bC02LjIzLTE4LjY5Yy0uMDktLjM4LS4yOC0uNTctLjg1LS41N2gtMTguMDNjLS40NywwLS42Ni4wOS0uNzUuNTdsLTEuNzksNS42NmMtNC4xNSwxMi45My0uNjYsMTcuNDYsNC4wNiwxNy40NmgxLjg5Yy41NywwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N2gtMTguNTljLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMjhjMi44MywwLDYuMjMtMi42NCwxMC45NS0xNy45M2wxNC44Mi00Ny43NmMuMTktLjQ3LjM4LS41Ny44NS0uNTdoNi45OGMuNDcsMCwuNzYuMTkuODUuNTdsMjEuMTQsNjEuMjVjMS4zMiwzLjg3LDEuODksNC40NCwzLjMsNC40NGgxLjg5Yy42NiwwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N1pNNDkwLjk2LDY0LjE2aC0uMTlsLTguNjgsMjguNzljLS4wOS4zOC4wOS41Ny43NS41N2gxNi41MmMuNjYsMCwuOTQtLjM4Ljg1LS43NWwtOS4yNS0yOC42WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU5Ni4yOSw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk1LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzUsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNzIxLjIxLDk3LjIxYy0uMzgsMC0uNjYuMTgtLjY2Ljg0di45NGMwLDYuMzMtNS4xOSwyMC41OC0yMC42NywyMC41OGgtNy44NGMtLjY2LDAtLjg1LS4yOC0uODUtLjU2di0zMi4wOWMwLS4zOC4yOS0uNTguOTQtLjU4aDQuMzVjNS43NSwwLDEwLjk1LDQuNjMsMTAuOTUsMTAuMjl2LjY3YzAsLjY2LjE4Ljg1LjY2Ljg1LjM4LDAsLjU2LS4yLjU2LS44NXYtMjIuODVjMC0uNjYtLjE4LS45NC0uNTYtLjk0cy0uNjYuMi0uNjYuOTR2LjY3YzAsNS41Ni01LjE5LDEwLjE5LTEwLjk1LDEwLjE5aC00LjQ0Yy0uNjYsMC0uODUtLjE4LS44NS0uNTZ2LTI4Ljk4YzAtLjM3LjM4LS41Ni45NC0uNTZoOC40OWMxMC40OSwwLDE2LjgxLDEwLjIsMTYuODEsMTkuODJ2MS4wNWMwLC42Ni4yLjg0LjU2Ljg0LjQ3LDAsLjc2LS4xOC43Ni0uODR2LTIxLjI1YzAtLjU2LS4zOC0uNzUtLjg1LS43NWgtNDUuOTdjLS42NiwwLS44NC4xOC0uODQuNTZzLjI4LjU2Ljg0LjU2aDMuOTdjLjk0LDAsMS4wNC44NSwxLjA0LDMuODh2NTYuNjNjMCwzLjAxLS4wOSwzLjg3LTEuMDQsMy44N2gtMy45N2MtLjY2LDAtLjg0LjE4LS44NC41NnMuMjguNTguODQuNThoNDkuMDljLjU2LDAsLjg1LS4yLjg1LS42N3YtMjJjMC0uNjYtLjI5LS44NC0uNjctLjg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5MC4xNyw4My44Yy00LjY1LS4xMy05LjEzLjY3LTEzLjUxLDIuMjItOS41MSwzLjM2LTE2LjcyLDExLjQ4LTIwLjUzLDIwLjY0LTMuMTYsNy41Ny05Ljk5LDEzLjAyLTE4LjQ0LDEzLjAyLTExLjE0LDAtMTIuNTYtOS4wNy0xMy4yMS0xOS4xNi0uNjYtOS4zNS0uNDctMTcuMDktLjA5LTI2LjcxLjU2LTEyLjA5LDIuMzYtMTkuODIsMTIuNDUtMTkuODIsOS4yNSwwLDE4LjIyLDguNTksMTguMjIsMjIuOTN2MS4xNGMwLC42Ni4xOC45NC42Ni45NC4zOCwwLC42Ny0uMi42Ny0uOTR2LTIzLjMyYzAtLjc1LS4yLS45NC0uNjctLjk0cy0uNjYuMjktLjY2Ljk0di42N2MwLDIuMDctMi41NC44NC00LjksMC0yLjY1LS45NC04LjEzLTIuNDYtMTMuNDEtMi40Ni0xOS44MiwwLTI5LjY0LDE1LjU5LTI5LjY0LDM0LjkzLDAsMTcuMDgsMTAuMTEsMzIuODUsMjkuNzMsMzIuODUuMiwwLC40MSwwLC42My0uMDEsNi41NC0uMjMsMTIuMjctMy41MSwxNi4zNi04LjUxLDIuMTMtMi42LDMuMzEtNi4xNCw1LjAzLTkuMDUsMS44Ny0zLjE2LDQuMDItNi4xOCw2LjY5LTguNzIsNC4xNC0zLjk1LDkuNDUtNi42NSwxNS4wNy03Ljc3LDIuNjItLjUyLDcuODEtLjU3LDkuNTUtMi44NVoiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjczNS40NyIgY3k9IjExNS44NyIgcj0iNC44NSIvPjwvc3ZnPg==" alt="Ordonnance Royale" style="height:64px;width:auto;display:block"></a>
+    <div class="nav-co-secure"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Paiement sécurisé</div>
+    <a href="panier.html" class="nav-co-back">← Retour au panier</a>
+  </div>
+</nav>
+<div class="nsp"></div>
+
+<!-- TOAST -->
+<div id="toast" class="toast">✓ <span id="toast-msg"></span></div>
+
+<!-- STEPPER -->
+<div class="stepper-bar">
+  <div class="w">
+    <div class="stepper">
+      <div class="stepper-prog" id="stepper-prog" style="width:0%"></div>
+      <div class="step active" data-step="1"><div class="step-num"><span>1</span></div><div class="step-lbl">Identité</div></div>
+      <div class="step" data-step="2"><div class="step-num"><span>2</span></div><div class="step-lbl">Livraison</div></div>
+      <div class="step" data-step="3"><div class="step-num"><span>3</span></div><div class="step-lbl">Paiement</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENU -->
+<main class="co-wrap"><div class="w">
+  <div class="co-grid">
+
+    <!-- ═══════════════ COLONNE GAUCHE : ÉTAPES ═══════════════ -->
+    <div class="co-main">
+
+      <!-- RÉCAP étapes précédentes -->
+      <div class="recap-prev" id="recap-1">
+        <div class="recap-prev-icon">✓</div>
+        <div class="recap-prev-body">
+          <div class="recap-prev-tt">Identité</div>
+          <div class="recap-prev-content" id="recap-1-content"></div>
+        </div>
+        <button class="recap-prev-edit" onclick="goToStep(1)">Modifier</button>
+      </div>
+
+      <div class="recap-prev" id="recap-2">
+        <div class="recap-prev-icon">✓</div>
+        <div class="recap-prev-body">
+          <div class="recap-prev-tt">Livraison</div>
+          <div class="recap-prev-content" id="recap-2-content"></div>
+        </div>
+        <button class="recap-prev-edit" onclick="goToStep(2)">Modifier</button>
+      </div>
+
+      <!-- ═════ ÉTAPE 1 : IDENTITÉ ═════ -->
+      <section class="panel on" id="panel-1">
+        <div class="panel-head">
+          <h2 class="panel-tt">Vos informations</h2>
+          <p class="panel-st">Pour vous identifier et vous tenir au courant de votre commande.</p>
+        </div>
+
+        <div class="frow2">
+          <div class="fgr">
+            <label class="flbl" for="i-prenom">Prénom</label>
+            <input type="text" class="finp" id="i-prenom" autocomplete="given-name" required>
+          </div>
+          <div class="fgr">
+            <label class="flbl" for="i-nom">Nom</label>
+            <input type="text" class="finp" id="i-nom" autocomplete="family-name" required>
+          </div>
+        </div>
+
+        <div class="fgr">
+          <label class="flbl" for="i-email">Email <span>(pour le suivi de commande)</span></label>
+          <input type="email" class="finp" id="i-email" autocomplete="email" required placeholder="vous@exemple.fr">
+        </div>
+
+        <div class="fgr">
+          <label class="flbl" for="i-tel">Téléphone <span>(pour la livraison)</span></label>
+          <input type="tel" class="finp" id="i-tel" autocomplete="tel" required placeholder="06 12 34 56 78">
+        </div>
+
+        <label class="chx">
+          <input type="checkbox" id="i-newsletter">
+          <span class="chx-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><span class="chx-tt">Recevoir nos nouveautés et inspirations</span><br><span style="font-size:.86rem;color:var(--li)">Nouveautés, offres exclusives et versets inspirants. Vous pouvez vous désinscrire à tout moment.</span></span>
+        </label>
+
+        <div class="btns">
+          <span></span>
+          <button class="btn-next" onclick="nextStep(1)">Continuer →</button>
+        </div>
+      </section>
+
+      <!-- ═════ ÉTAPE 2 : LIVRAISON ═════ -->
+      <section class="panel" id="panel-2">
+        <div class="panel-head">
+          <h2 class="panel-tt">Adresse de livraison</h2>
+          <p class="panel-st">Où souhaitez-vous recevoir votre commande ?</p>
+        </div>
+
+        <div class="fgr">
+          <label class="flbl" for="l-pays">Pays</label>
+          <select class="fsel" id="l-pays" required>
+            <option value="">— Sélectionner —</option>
+            <option value="FR">France métropolitaine</option>
+            <option value="BE">Belgique</option>
+            <option value="CH">Suisse</option>
+            <option value="LU">Luxembourg</option>
+            <option value="DE">Allemagne</option>
+            <option value="IT">Italie</option>
+            <option value="ES">Espagne</option>
+            <option value="DOM">DOM-TOM</option>
+            <option value="other">Autre pays</option>
+          </select>
+        </div>
+
+        <div class="fgr">
+          <label class="flbl" for="l-addr">Adresse <span>(numéro et rue)</span></label>
+          <input type="text" class="finp" id="l-addr" autocomplete="address-line1" required placeholder="12 rue de la Paix">
+        </div>
+
+        <div class="fgr">
+          <label class="flbl" for="l-addr2">Complément d'adresse <span>(facultatif)</span></label>
+          <input type="text" class="finp" id="l-addr2" autocomplete="address-line2" placeholder="Appartement, étage, code interphone…">
+        </div>
+
+        <div class="frow2">
+          <div class="fgr">
+            <label class="flbl" for="l-cp">Code postal</label>
+            <input type="text" class="finp" id="l-cp" autocomplete="postal-code" required>
+          </div>
+          <div class="fgr">
+            <label class="flbl" for="l-ville">Ville</label>
+            <input type="text" class="finp" id="l-ville" autocomplete="address-level2" required>
+          </div>
+        </div>
+
+        <div class="fgr">
+          <label class="flbl" for="l-notes">Notes pour le livreur <span>(facultatif)</span></label>
+          <textarea class="fta" id="l-notes" placeholder="Ex : sonner à l'interphone Dupont, déposer chez la voisine si absent…"></textarea>
+        </div>
+
+        <label class="chx" style="margin-top:18px">
+          <input type="checkbox" id="i-billing-diff" onchange="toggleBilling()">
+          <span class="chx-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><span class="chx-tt">Adresse de facturation différente</span></span>
+        </label>
+
+        <div class="billing-zone" id="billing-zone">
+          <p style="font-family:var(--sa);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mi);font-weight:700;margin-bottom:14px">Adresse de facturation</p>
+          <div class="frow2">
+            <div class="fgr">
+              <label class="flbl" for="b-prenom">Prénom</label>
+              <input type="text" class="finp" id="b-prenom">
+            </div>
+            <div class="fgr">
+              <label class="flbl" for="b-nom">Nom</label>
+              <input type="text" class="finp" id="b-nom">
+            </div>
+          </div>
+          <div class="fgr">
+            <label class="flbl" for="b-addr">Adresse</label>
+            <input type="text" class="finp" id="b-addr">
+          </div>
+          <div class="frow2">
+            <div class="fgr">
+              <label class="flbl" for="b-cp">Code postal</label>
+              <input type="text" class="finp" id="b-cp">
+            </div>
+            <div class="fgr">
+              <label class="flbl" for="b-ville">Ville</label>
+              <input type="text" class="finp" id="b-ville">
+            </div>
+          </div>
+          <div class="fgr">
+            <label class="flbl" for="b-pays">Pays</label>
+            <select class="fsel" id="b-pays">
+              <option value="FR">France métropolitaine</option>
+              <option value="BE">Belgique</option>
+              <option value="CH">Suisse</option>
+              <option value="LU">Luxembourg</option>
+              <option value="DE">Allemagne</option>
+              <option value="IT">Italie</option>
+              <option value="ES">Espagne</option>
+              <option value="other">Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="btns">
+          <button class="btn-prev" onclick="prevStep(2)">← Précédent</button>
+          <button class="btn-next" onclick="nextStep(2)">Continuer →</button>
+        </div>
+      </section>
+
+      <!-- ═════ ÉTAPE 3 : PAIEMENT ═════ -->
+      <section class="panel" id="panel-3">
+        <div class="panel-head">
+          <h2 class="panel-tt">Paiement</h2>
+          <p class="panel-st">Choisissez votre méthode de paiement.</p>
+        </div>
+
+        <!-- MÉTHODES -->
+        <div class="pay-methods">
+          <label class="pay-method active" data-method="cb">
+            <input type="radio" name="paymethod" value="cb" checked>
+            <span class="pay-radio"></span>
+            <div class="pay-method-info">
+              <div>
+                <div class="pay-method-tt">Carte bancaire</div>
+                <span class="pay-method-st">Visa, Mastercard, American Express</span>
+              </div>
+              <div class="pay-method-icons">
+                <span class="pay-icon-card"><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#1a1f71"/><text x="24" y="21" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="11" font-weight="900" font-style="italic" fill="#fff" letter-spacing="1">VISA</text></svg></span>
+                <span class="pay-icon-card"><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.5"/><circle cx="20" cy="16" r="7" fill="#eb001b"/><circle cx="28" cy="16" r="7" fill="#f79e1b" fill-opacity="0.9"/><path d="M24 11c1.4 1.3 2.3 3 2.3 5s-.9 3.7-2.3 5c-1.4-1.3-2.3-3-2.3-5s.9-3.7 2.3-5z" fill="#ff5f00"/></svg></span>
+                <span class="pay-icon-card"><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#006fcf"/><text x="24" y="14" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" font-weight="700" fill="#fff" letter-spacing="0.3">AMERICAN</text><text x="24" y="22" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" font-weight="700" fill="#fff" letter-spacing="0.3">EXPRESS</text></svg></span>
+              </div>
+            </div>
+          </label>
+
+          <label class="pay-method" data-method="paypal">
+            <input type="radio" name="paymethod" value="paypal">
+            <span class="pay-radio"></span>
+            <div class="pay-method-info">
+              <div>
+                <div class="pay-method-tt">PayPal</div>
+                <span class="pay-method-st">Vous serez redirigé vers PayPal pour finaliser</span>
+              </div>
+              <div class="pay-method-icons">
+                <span class="pay-icon-card"><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.5"/><text x="24" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="900" font-style="italic" letter-spacing="-0.5"><tspan fill="#003087">Pay</tspan><tspan fill="#009cde">Pal</tspan></text></svg></span>
+              </div>
+            </div>
+          </label>
+
+          <label class="pay-method" data-method="apple">
+            <input type="radio" name="paymethod" value="apple">
+            <span class="pay-radio"></span>
+            <div class="pay-method-info">
+              <div>
+                <div class="pay-method-tt">Apple Pay</div>
+                <span class="pay-method-st">Paiement express avec Touch ID ou Face ID</span>
+              </div>
+              <div class="pay-method-icons">
+                <span class="pay-icon-card"><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#000"/><g transform="translate(11,8)"><path d="M5.5 4.2c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7.1 1.3-.3 1.7-.8zm.6.9c-1-.1-1.8.5-2.2.5-.5 0-1.2-.5-2-.5-1 0-2 .6-2.5 1.5-1.1 1.8-.3 4.5.7 6 .5.7 1.1 1.5 1.9 1.4.7 0 1-.4 1.9-.4s1.2.4 1.9.4c.8 0 1.3-.7 1.8-1.4.6-.8.8-1.6.8-1.6 0 0-1.5-.6-1.5-2.3 0-1.4 1.2-2.1 1.2-2.1-.7-1-1.7-1.1-2-1.1z" fill="#fff"/></g><text x="32" y="21" text-anchor="middle" font-family="-apple-system,Helvetica Neue,Arial,sans-serif" font-size="10" font-weight="500" fill="#fff">Pay</text></svg></span>
+              </div>
+            </div>
+          </label>
+        </div>
+
+        <!-- FORMULAIRE CB -->
+        <div class="cb-form on" id="cb-form">
+          <p style="font-family:var(--sa);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mi);font-weight:700;margin-bottom:14px">Détails de la carte</p>
+
+          <div class="fgr">
+            <label class="flbl" for="cb-num">Numéro de carte</label>
+            <div class="cb-num-wrap">
+              <input type="text" class="finp" id="cb-num" placeholder="1234 5678 9012 3456" maxlength="19" inputmode="numeric" autocomplete="cc-number">
+              <div class="cb-icons">
+                <span id="ic-visa">VISA</span>
+                <span id="ic-mc">MC</span>
+                <span id="ic-amex">AMEX</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fgr">
+            <label class="flbl" for="cb-name">Nom du titulaire</label>
+            <input type="text" class="finp" id="cb-name" placeholder="JEAN DUPONT" autocomplete="cc-name" style="text-transform:uppercase">
+          </div>
+
+          <div class="cb-row-bottom">
+            <div class="fgr">
+              <label class="flbl" for="cb-exp">Date d'expiration <span>(MM/AA)</span></label>
+              <input type="text" class="finp" id="cb-exp" placeholder="MM/AA" maxlength="5" inputmode="numeric" autocomplete="cc-exp">
+            </div>
+            <div class="fgr">
+              <label class="flbl" for="cb-cvc">Cryptogramme <span>(3 chiffres)</span></label>
+              <input type="text" class="finp" id="cb-cvc" placeholder="CVC" maxlength="4" inputmode="numeric" autocomplete="cc-csc">
+            </div>
+          </div>
+
+          <div class="cb-secure-note">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Paiement sécurisé · Cryptage SSL · Vos données ne sont jamais stockées sur nos serveurs
+          </div>
+        </div>
+
+        <!-- ZONE PAYPAL -->
+        <div class="alt-pay" id="paypal-zone">
+          <p>Vous serez redirigé vers <strong style="color:#003087">PayPal</strong> pour confirmer votre paiement en toute sécurité après avoir validé votre commande.</p>
+        </div>
+
+        <!-- ZONE APPLE PAY -->
+        <div class="alt-pay" id="apple-zone">
+          <p>Confirmez votre paiement avec <strong>&#xF8FF; Pay</strong> en utilisant Touch ID ou Face ID après avoir validé votre commande.</p>
+        </div>
+
+        <!-- CGV -->
+        <label class="chx" style="margin-top:24px">
+          <input type="checkbox" id="i-cgv" required>
+          <span class="chx-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><span class="chx-tt">J'ai lu et j'accepte les <a href="mentions-legales.html" target="_blank" style="text-decoration:underline">conditions générales de vente</a></span></span>
+        </label>
+
+        <div class="btns">
+          <button class="btn-prev" onclick="prevStep(3)">← Précédent</button>
+          <button class="btn-pay" onclick="submitOrder()" id="btn-final">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Payer <span id="btn-final-amount">0,00 €</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ═══════════════ COLONNE DROITE : RÉCAP COMMANDE ═══════════════ -->
+    <aside class="co-side">
+      <div class="summary">
+        <h2>Votre commande</h2>
+
+        <div class="summ-items" id="summ-items"></div>
+
+        <div class="summ-line"><span class="summ-line-l">Sous-total</span><span class="summ-line-v" id="s-sub">0,00 €</span></div>
+        <div class="summ-line discount" id="s-disc-line" style="display:none"><span class="summ-line-l">Remise <span id="s-disc-code"></span></span><span class="summ-line-v" id="s-disc">−0,00 €</span></div>
+        <div class="summ-line"><span class="summ-line-l">Livraison</span><span class="summ-line-v" id="s-livr">—</span></div>
+
+        <div class="summ-tot">
+          <span class="summ-tot-l">Total TTC</span>
+          <span class="summ-tot-v" id="s-total">0,00 €</span>
+        </div>
+
+        <div class="summ-secure">
+          <div class="summ-secure-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Paiement 100% sécurisé</div>
+          <div class="summ-secure-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Cryptage SSL · Données protégées</div>
+          <div class="summ-secure-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Satisfaction garantie</div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div></main>
+
+<!-- FOOTER MINIMAL -->
+<footer class="ft-mini">
+  <div class="ft-mini-row">
+    <span>© 2026 Ordonnance Royale</span>
+    <span class="sep">·</span>
+    <a href="mentions-legales.html">Mentions légales</a>
+    <span class="sep">·</span>
+    <a href="livraisons.html">Livraisons</a>
+    <span class="sep">·</span>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// CHARGEMENT DES DONNÉES DEPUIS LE PANIER
+// ═══════════════════════════════════════════════════════════
+const checkout = JSON.parse(localStorage.getItem('or_checkout') || 'null');
+const payMethod = localStorage.getItem('or_pay_method') || null;
+
+// Si pas de checkout valide, on affichera un message empty (gestion plus bas)
+const isEmpty = !checkout || !checkout.panier || !checkout.panier.length;
+
+// ═══════════════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════════════
+function fmt(n) { return n.toFixed(2).replace('.', ',') + ' €'; }
+function $(id) { return document.getElementById(id); }
+function showToast(msg, isError) {
+  const t = $('toast');
+  $('toast-msg').textContent = msg;
+  t.style.background = isError ? '#7a1f1f' : 'var(--bk)';
+  t.classList.add('on');
+  setTimeout(() => t.classList.remove('on'), 2400);
+}
+
+// ═══════════════════════════════════════════════════════════
+// REMPLIR LE RÉCAPITULATIF SIDEBAR
+// ═══════════════════════════════════════════════════════════
+function showEmptyState() {
+  // Cacher tout le contenu et afficher un message
+  document.querySelector('.stepper-bar').style.display = 'none';
+  const main = document.querySelector('.co-wrap .w');
+  main.innerHTML = `
+    <div style="background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:80px 32px;text-align:center;max-width:600px;margin:0 auto">
+      <div style="font-size:3rem;color:var(--li);margin-bottom:18px">🛒</div>
+      <h2 style="font-family:var(--sf);font-size:1.6rem;font-weight:700;color:var(--bk);margin-bottom:10px">Votre panier est vide</h2>
+      <p style="font-family:var(--bo);color:var(--mi);max-width:380px;margin:0 auto 28px;line-height:1.6">Pour passer commande, ajoutez d'abord des articles à votre panier ou créez une ordonnance personnalisée.</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <a href="boutique.html" style="display:inline-block;padding:14px 32px;background:var(--bk);color:var(--wh);font-family:var(--sa);font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border-radius:4px;transition:background var(--ez)" onmouseover="this.style.background='var(--gd)'" onmouseout="this.style.background='var(--bk)'">Voir la boutique</a>
+        <a href="ordonnance.html" style="display:inline-block;padding:14px 32px;border:1px solid var(--bk);color:var(--bk);font-family:var(--sa);font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border-radius:4px;transition:all var(--ez)" onmouseover="this.style.background='var(--bk)';this.style.color='var(--wh)'" onmouseout="this.style.background='transparent';this.style.color='var(--bk)'">Créer mon affiche</a>
+      </div>
+    </div>
+  `;
+}
+
+function renderSummary() {
+  if (isEmpty) return;
+  const itemsBox = $('summ-items');
+  itemsBox.innerHTML = checkout.panier.map(it => `
+    <div class="summ-item">
+      <div class="summ-item-img">${(it.ref || it.nom || '').substring(0, 20)}</div>
+      <div class="summ-item-body">
+        <div class="summ-item-name">${it.nom}</div>
+        <div class="summ-item-meta">${it.taille || 'A4'} · Qté ${it.qte}</div>
+      </div>
+      <div class="summ-item-px">${fmt(it.prix * it.qte)}</div>
+    </div>
+  `).join('');
+
+  $('s-sub').textContent = fmt(checkout.sub);
+  
+  if (checkout.disc > 0) {
+    $('s-disc-line').style.display = 'flex';
+    $('s-disc').textContent = '−' + fmt(checkout.disc);
+    if (checkout.promo) $('s-disc-code').textContent = '(' + checkout.promo + ')';
+  }
+  
+  if (checkout.livraison && checkout.livraison.amount) {
+    $('s-livr').textContent = fmt(checkout.livraison.amount);
+  } else {
+    $('s-livr').textContent = '—';
+  }
+  
+  $('s-total').textContent = fmt(checkout.total);
+  $('btn-final-amount').textContent = fmt(checkout.total);
+}
+
+// ═══════════════════════════════════════════════════════════
+// PRÉ-REMPLISSAGE LIVRAISON DEPUIS LE PANIER
+// ═══════════════════════════════════════════════════════════
+function prefillLivraison() {
+  if (isEmpty) return;
+  if (checkout.livraison && checkout.livraison.pays) {
+    const sel = $('l-pays');
+    sel.value = checkout.livraison.pays;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// NAVIGATION ENTRE ÉTAPES
+// ═══════════════════════════════════════════════════════════
+let currentStep = 1;
+
+function showPanel(n) {
+  for (let i = 1; i <= 3; i++) {
+    $('panel-' + i).classList.toggle('on', i === n);
+    
+    // Stepper
+    const step = document.querySelector('.step[data-step="' + i + '"]');
+    if (step) {
+      step.classList.remove('active', 'done');
+      if (i < n) step.classList.add('done');
+      else if (i === n) step.classList.add('active');
+    }
+    
+    // Récap des étapes précédentes
+    const recap = $('recap-' + i);
+    if (recap) recap.classList.toggle('on', i < n);
+  }
+  
+  // Barre de progression
+  const prog = ((n - 1) / 2) * 100;
+  $('stepper-prog').style.width = 'calc(' + prog + '% - 0px)';
+  if (n === 1) $('stepper-prog').style.width = '0%';
+  if (n === 2) $('stepper-prog').style.width = 'calc(50% - 30px)';
+  if (n === 3) $('stepper-prog').style.width = 'calc(100% - 120px)';
+  
+  currentStep = n;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToStep(n) {
+  showPanel(n);
+}
+
+function prevStep(from) {
+  showPanel(from - 1);
+}
+
+function nextStep(from) {
+  if (from === 1) {
+    if (!validateStep1()) return;
+    fillRecap1();
+  }
+  if (from === 2) {
+    if (!validateStep2()) return;
+    fillRecap2();
+  }
+  showPanel(from + 1);
+}
+
+// ═══════════════════════════════════════════════════════════
+// VALIDATION ÉTAPE 1 — IDENTITÉ
+// ═══════════════════════════════════════════════════════════
+function validateStep1() {
+  const fields = [
+    { id: 'i-prenom', name: 'Prénom' },
+    { id: 'i-nom', name: 'Nom' },
+    { id: 'i-email', name: 'Email', type: 'email' },
+    { id: 'i-tel', name: 'Téléphone', minLen: 9 }
+  ];
+  
+  let firstError = null;
+  for (const f of fields) {
+    const el = $(f.id);
+    el.classList.remove('invalid');
+    const v = el.value.trim();
+    if (!v) {
+      el.classList.add('invalid');
+      if (!firstError) firstError = { el, msg: f.name + ' requis' };
+      continue;
+    }
+    if (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+      el.classList.add('invalid');
+      if (!firstError) firstError = { el, msg: 'Email invalide' };
+    }
+    if (f.minLen && v.replace(/\D/g,'').length < f.minLen) {
+      el.classList.add('invalid');
+      if (!firstError) firstError = { el, msg: f.name + ' trop court' };
+    }
+  }
+  
+  if (firstError) {
+    showToast(firstError.msg, true);
+    firstError.el.focus();
+    firstError.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return false;
+  }
+  return true;
+}
+
+function fillRecap1() {
+  const txt = $('i-prenom').value.trim() + ' ' + $('i-nom').value.trim() + ' · ' + $('i-email').value.trim();
+  $('recap-1-content').textContent = txt;
+}
+
+// ═══════════════════════════════════════════════════════════
+// VALIDATION ÉTAPE 2 — LIVRAISON
+// ═══════════════════════════════════════════════════════════
+function validateStep2() {
+  const fields = [
+    { id: 'l-pays', name: 'Pays' },
+    { id: 'l-addr', name: 'Adresse' },
+    { id: 'l-cp', name: 'Code postal' },
+    { id: 'l-ville', name: 'Ville' }
+  ];
+  
+  let firstError = null;
+  for (const f of fields) {
+    const el = $(f.id);
+    el.classList.remove('invalid');
+    if (!el.value.trim()) {
+      el.classList.add('invalid');
+      if (!firstError) firstError = { el, msg: f.name + ' requis' };
+    }
+  }
+  
+  // Si billing différent, valider aussi
+  if ($('i-billing-diff').checked) {
+    const bf = ['b-prenom', 'b-nom', 'b-addr', 'b-cp', 'b-ville'];
+    for (const id of bf) {
+      const el = $(id);
+      el.classList.remove('invalid');
+      if (!el.value.trim()) {
+        el.classList.add('invalid');
+        if (!firstError) firstError = { el, msg: 'Adresse de facturation incomplète' };
+      }
+    }
+  }
+  
+  if (firstError) {
+    showToast(firstError.msg, true);
+    firstError.el.focus();
+    firstError.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return false;
+  }
+  return true;
+}
+
+function fillRecap2() {
+  const addr = $('l-addr').value.trim();
+  const cp = $('l-cp').value.trim();
+  const ville = $('l-ville').value.trim();
+  $('recap-2-content').textContent = addr + ', ' + cp + ' ' + ville;
+}
+
+// ═══════════════════════════════════════════════════════════
+// TOGGLE ADRESSE FACTURATION
+// ═══════════════════════════════════════════════════════════
+function toggleBilling() {
+  const checked = $('i-billing-diff').checked;
+  $('billing-zone').classList.toggle('on', checked);
+}
+
+// ═══════════════════════════════════════════════════════════
+// MÉTHODES DE PAIEMENT
+// ═══════════════════════════════════════════════════════════
+document.querySelectorAll('.pay-method').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('active'));
+    el.classList.add('active');
+    el.querySelector('input').checked = true;
+    
+    const method = el.dataset.method;
+    $('cb-form').classList.toggle('on', method === 'cb');
+    $('paypal-zone').classList.toggle('on', method === 'paypal');
+    $('apple-zone').classList.toggle('on', method === 'apple');
+    
+    // Adapter le bouton final
+    const btn = $('btn-final');
+    if (method === 'paypal') btn.innerHTML = 'Continuer avec PayPal →';
+    else if (method === 'apple') btn.innerHTML = 'Continuer avec &#xF8FF; Pay →';
+    else btn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Payer <span id="btn-final-amount">' + fmt(checkout.total) + '</span>';
+  });
+});
+
+// ═══════════════════════════════════════════════════════════
+// FORMATAGE DES CHAMPS CB
+// ═══════════════════════════════════════════════════════════
+$('cb-num').addEventListener('input', e => {
+  let v = e.target.value.replace(/\D/g, '').substring(0, 16);
+  v = v.replace(/(.{4})/g, '$1 ').trim();
+  e.target.value = v;
+  
+  // Détecter le type de carte
+  const num = v.replace(/\s/g, '');
+  $('ic-visa').classList.remove('on');
+  $('ic-mc').classList.remove('on');
+  $('ic-amex').classList.remove('on');
+  if (/^4/.test(num)) $('ic-visa').classList.add('on');
+  else if (/^5[1-5]|^2[2-7]/.test(num)) $('ic-mc').classList.add('on');
+  else if (/^3[47]/.test(num)) $('ic-amex').classList.add('on');
+});
+
+$('cb-exp').addEventListener('input', e => {
+  let v = e.target.value.replace(/\D/g, '').substring(0, 4);
+  if (v.length >= 3) v = v.substring(0, 2) + '/' + v.substring(2);
+  e.target.value = v;
+});
+
+$('cb-cvc').addEventListener('input', e => {
+  e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+});
+
+// ═══════════════════════════════════════════════════════════
+// SOUMISSION FINALE
+// ═══════════════════════════════════════════════════════════
+function submitOrder() {
+  const method = document.querySelector('input[name="paymethod"]:checked').value;
+  
+  // Validation CGV
+  if (!$('i-cgv').checked) {
+    showToast('Vous devez accepter les CGV', true);
+    $('i-cgv').focus();
+    return;
+  }
+  
+  // Préparer les données client
+  const clientData = {
+    prenom: $('i-prenom').value.trim(),
+    nom: $('i-nom').value.trim(),
+    email: $('i-email').value.trim(),
+    tel: $('i-tel').value.trim(),
+  };
+  
+  // Préparer les données de livraison
+  const livraisonData = {
+    pays: $('l-pays').value,
+    paysLabel: $('l-pays').options[$('l-pays').selectedIndex].text,
+    label: $('l-pays').options[$('l-pays').selectedIndex].text,
+    adresse: $('l-addr').value.trim(),
+    adresse2: $('l-addr2').value.trim(),
+    cp: $('l-cp').value.trim(),
+    ville: $('l-ville').value.trim(),
+    notes: $('l-notes').value.trim(),
+    jours: checkout.livraison.jours,
+    amount: checkout.livraison.amount
+  };
+  
+  // Préparer les données de promo
+  const promoData = checkout.promo ? {
+    code: checkout.promo,
+    type: 'percent',  // Sera adapté selon votre code promo
+    value: 10,
+  } : null;
+  
+  // Recalculer le promo si présent
+  if (checkout.promo) {
+    const PROMOS = {
+      'BIENVENUE10': { type: 'percent', value: 10 },
+      'PAROLE15': { type: 'percent', value: 15 },
+      'NOEL2026': { type: 'fixed', value: 5 }
+    };
+    const p = PROMOS[checkout.promo];
+    if (p) {
+      promoData.type = p.type;
+      promoData.value = p.value;
+    }
+  }
+  
+  // Sauvegarder la commande pour la page merci (au cas où Stripe redirige)
+  const order = {
+    id: 'OR' + Date.now().toString().slice(-8),
+    date: new Date().toISOString(),
+    client: { ...clientData, newsletter: $('i-newsletter').checked },
+    livraison: livraisonData,
+    panier: checkout.panier,
+    promo: checkout.promo,
+    sub: checkout.sub,
+    disc: checkout.disc,
+    total: checkout.total,
+    paymethod: method
+  };
+  
+  if ($('i-billing-diff').checked) {
+    order.facturation = {
+      prenom: $('b-prenom').value.trim(),
+      nom: $('b-nom').value.trim(),
+      adresse: $('b-addr').value.trim(),
+      cp: $('b-cp').value.trim(),
+      ville: $('b-ville').value.trim(),
+      pays: $('b-pays').value
+    };
+  }
+  
+  localStorage.setItem('or_last_order', JSON.stringify(order));
+  
+  // Désactiver le bouton et montrer le loading
+  showToast('Redirection vers le paiement sécurisé...');
+  const btn = $('btn-final');
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Redirection en cours...';
+  
+  // Appeler le Worker Cloudflare pour créer la session Stripe
+  fetch('https://ordonnance-royale-stripe.damp-cloud-5f4c.workers.dev/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      panier: checkout.panier,
+      livraison: livraisonData,
+      promo: promoData,
+      client: clientData
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.url) {
+      // Vider le panier avant de rediriger vers Stripe
+      localStorage.removeItem('or_cart');
+      localStorage.removeItem('or_promo');
+      localStorage.removeItem('or_checkout');
+      localStorage.removeItem('or_pay_method');
+      // Rediriger vers Stripe
+      window.location.href = data.url;
+    } else {
+      throw new Error(data.error || 'Erreur lors de la création de la session');
+    }
+  })
+  .catch(err => {
+    console.error('Erreur:', err);
+    showToast('Erreur : ' + err.message, true);
+    btn.disabled = false;
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Payer <span id="btn-final-amount">' + fmt(checkout.total) + '</span>';
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', () => {
+  if (isEmpty) {
+    showEmptyState();
+    return;
+  }
+  renderSummary();
+  prefillLivraison();
+  
+  // Si payMethod a été pré-sélectionné depuis le panier
+  if (payMethod) {
+    const m = document.querySelector('.pay-method[data-method="' + payMethod + '"]');
+    if (m) m.click();
+  }
+  
+  // Effacer "invalid" quand l'utilisateur tape
+  document.querySelectorAll('.finp, .fsel').forEach(el => {
+    el.addEventListener('input', () => el.classList.remove('invalid'));
+    el.addEventListener('change', () => el.classList.remove('invalid'));
+  });
+});
+</script>
+</body>
+</html>

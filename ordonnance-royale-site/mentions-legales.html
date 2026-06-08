@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACM0lEQVR42u2Wv2obQRDGv707JFmVjSKp8KFOOOBCAqdw0COoNi5U+xWCH8JPoKcQMRhVBiEOE6MYRFzEuLAEKiSLSC7ujvVxu1+qbDCJyZ3/YAKa7naOnd8MM/OtIEm8oVl4Y1sBrABWAE8C0FpDKWW+lVJ46joRaReR1hqWZZnAtm0bH0kIIVIBOE8JPh6P0Ov1sLPzAVEUYTQaodlsIpPJmEokBbHSBvc8D41GA/l8Htvb26jVari4+Ir9/T0sl0sIIdJVgQlMa02tNZfLJavVKl3Xpe/7xj8YDFgsvuPh4ScGQcDLy28MwzDJ1UxUAaUUhBDodDq4vr5GuVx+kGU+v4ZisYiTky76/T42N11ks9mXn4KzMw9CCIRhiDiOzXk2m4MQwGLxA0EQYH19PfFUJAL4le18PgdJ3N0tIKU0QRzHgVIKUXSP29sZSL4swO9M1yCEwHQ6w/HxZwPm+z6kjBDHMXK5XKomtBI2KgCgXq+DJFzXxXw+x/n5F0wmE0ynU0gpAVjY2npvpiZRFZJ0qlKKJHlzc8NMJsNSqUSlFKWUjKKIw+GQjuOw0WhQynumMST9MY5jkmS73SYAdrtd4zs6OqLj2PQ8jyQ5m83YarV4dfX9QQJ/s8Sb0LZtaK1xcHCAQqGA09NTVCoV+L6P8XiEfr+P3d2PpmnDMIBS+nW1YLFYQAiBjY2NP3yvJkaPiRBJE5ykgfnXRIjnPMvTCs+z1fCxBbV6kq0AVgD/NcBP3GA3MvtcL5MAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAABAElEQVR42tWTQWuDQBCF32xKegniwXP34l8wpgdpfrK/Q7zpSdCcGptcPFiRRt3XU8WkCqWhhz5YGNiZb9iZt0KSuEMKd+rvAMaY2fhHAJJQSqHv+zFe0sNcsYggDENorXG5fIAkdrtnGGO+wzjRMAwkySzL6Lou27Zlnufc719YFAW7rqMxZlpCNffuKIpwOr1BROA4Do7HV5zPZ6xWK9xu/QogIgAA27bRNA2SJEFd16jrd2w2m/F+EaCUAkkEQQDf38GyLBwOB2y3PrTWiON4zBmb3jrxa4hlWaKqKvR9D62fsF4/Ik1TeJ435swCppBfG0lEQPLqLBlK/v9n+gRHoLUxTYp9xAAAAABJRU5ErkJggg==">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACM0lEQVR42u2Wv2obQRDGv707JFmVjSKp8KFOOOBCAqdw0COoNi5U+xWCH8JPoKcQMRhVBiEOE6MYRFzEuLAEKiSLSC7ujvVxu1+qbDCJyZ3/YAKa7naOnd8MM/OtIEm8oVl4Y1sBrABWAE8C0FpDKWW+lVJ46joRaReR1hqWZZnAtm0bH0kIIVIBOE8JPh6P0Ov1sLPzAVEUYTQaodlsIpPJmEokBbHSBvc8D41GA/l8Htvb26jVari4+Ir9/T0sl0sIIdJVgQlMa02tNZfLJavVKl3Xpe/7xj8YDFgsvuPh4ScGQcDLy28MwzDJ1UxUAaUUhBDodDq4vr5GuVx+kGU+v4ZisYiTky76/T42N11ks9mXn4KzMw9CCIRhiDiOzXk2m4MQwGLxA0EQYH19PfFUJAL4le18PgdJ3N0tIKU0QRzHgVIKUXSP29sZSL4swO9M1yCEwHQ6w/HxZwPm+z6kjBDHMXK5XKomtBI2KgCgXq+DJFzXxXw+x/n5F0wmE0ynU0gpAVjY2npvpiZRFZJ0qlKKJHlzc8NMJsNSqUSlFKWUjKKIw+GQjuOw0WhQynumMST9MY5jkmS73SYAdrtd4zs6OqLj2PQ8jyQ5m83YarV4dfX9QQJ/s8Sb0LZtaK1xcHCAQqGA09NTVCoV+L6P8XiEfr+P3d2PpmnDMIBS+nW1YLFYQAiBjY2NP3yvJkaPiRBJE5ykgfnXRIjnPMvTCs+z1fCxBbV6kq0AVgD/NcBP3GA3MvtcL5MAAAAASUVORK5CYII=">
+<title>Mentions légales & CGV — Ordonnance Royale</title>
+<meta name="description" content="Mentions légales, conditions générales de vente et politique de confidentialité d'Ordonnance Royale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bk:#1a1a1a;--wh:#ffffff;--gd:#2c2420;
+  --bg:#f5f0e8;--bg2:#ede8de;--br:#ddd8ce;
+  --mi:#4a4440;--li:#8a8078;--dk:#1a1a1a;
+  --er:#7a1f1f;--su:#2d5a3d;
+  --sf:'Playfair Display',Georgia,serif;
+  --bo:'Cormorant Garamond',Georgia,serif;
+  --sa:'Montserrat',sans-serif;
+  --ez:0.25s ease
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--bo);font-size:18px;color:var(--dk);background:var(--bg);line-height:1.7}
+a{color:var(--bk);text-decoration:underline;text-underline-offset:2px;transition:color var(--ez)}
+a:hover{color:var(--gd)}
+ul{list-style:none}img{max-width:100%;display:block}
+.w{max-width:1100px;margin:0 auto;padding:0 32px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--wh);border-bottom:1px solid var(--br)}
+.nr1{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:1280px;margin:0 auto;padding:0 32px}
+.nlog img{height:64px;width:auto;display:block}
+.nact{display:flex;align-items:center;gap:4px}
+.ncart{position:relative;background:none;border:none;cursor:pointer;padding:8px;color:var(--dk);transition:color var(--ez)}
+.ncart svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nbdg{position:absolute;top:2px;right:2px;background:var(--bk);color:var(--wh);font-size:.5rem;font-weight:700;font-family:var(--sa);width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--ez)}
+.nbdg.on{opacity:1}
+.nburg{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.nburg span{display:block;width:22px;height:2px;background:var(--dk)}
+.nr2{border-top:1px solid var(--br)}
+.nmenu{display:flex;align-items:center;justify-content:center;max-width:1280px;margin:0 auto;padding:0 24px}
+.nmenu li a{display:block;padding:11px 18px;font-family:var(--sa);font-size:.73rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dk);text-decoration:none}
+.nmenu li a:hover{color:var(--bk);text-decoration:underline;text-underline-offset:4px}
+.nr3{border-top:1px solid var(--br);background:var(--bg);padding:8px 32px}
+.sform{max-width:1280px;margin:0 auto;display:flex;align-items:center;border:1px solid var(--br);background:var(--wh)}
+.sform:focus-within{border-color:var(--bk)}
+.sinp{flex:1;border:none;outline:none;padding:10px 16px;font-family:var(--sa);font-size:.83rem;color:var(--dk);background:transparent}
+.sinp::placeholder{color:var(--li)}
+.sbtn{border:none;background:none;padding:10px 14px;cursor:pointer;color:var(--mi)}
+.sbtn:hover{color:var(--bk)}
+.sbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.nmob{display:none;flex-direction:column;background:var(--wh);border-top:1px solid var(--br);position:fixed;top:132px;left:0;right:0;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.nmob.on{display:flex}
+.nmob a{padding:12px 32px;font-family:var(--sa);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--br);text-decoration:none}
+.nsp{height:132px}
+
+/* HEADER */
+.mh{padding:60px 0 44px;text-align:center;border-bottom:1px solid var(--br)}
+.mh-lbl{font-family:var(--sa);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mi);margin-bottom:16px}
+.mh-title{font-family:var(--sf);font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--bk);line-height:1.1;margin-bottom:14px}
+.mh-sub{font-family:var(--bo);font-size:1.05rem;color:var(--mi);max-width:580px;margin:0 auto;line-height:1.6;font-style:italic}
+.mh-date{display:inline-block;margin-top:18px;padding:7px 14px;background:var(--bg2);border:1px solid var(--br);border-radius:20px;font-family:var(--sa);font-size:.7rem;color:var(--mi);letter-spacing:.06em}
+
+/* LAYOUT */
+.ml-wrap{padding:48px 0 80px}
+.ml-grid{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start}
+
+/* TABLE OF CONTENTS (sticky left) */
+.ml-toc{position:sticky;top:150px;background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:22px 24px}
+.ml-toc-title{font-family:var(--sa);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mi);font-weight:700;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--br)}
+.ml-toc ul{list-style:none;padding:0;margin:0}
+.ml-toc li{margin:0}
+.ml-toc a{display:block;padding:7px 0;font-family:var(--sa);font-size:.74rem;color:var(--mi);text-decoration:none;line-height:1.4;transition:color var(--ez);border-left:2px solid transparent;padding-left:10px;margin-left:-12px}
+.ml-toc a:hover{color:var(--bk);border-left-color:var(--bk)}
+.ml-toc-cat{font-family:var(--sa);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--li);font-weight:700;margin-top:14px;margin-bottom:6px;padding-top:10px;border-top:1px dashed var(--br)}
+.ml-toc-cat:first-child{margin-top:0;padding-top:0;border-top:none}
+
+/* CHAPTERS */
+.ml-chapter{margin-bottom:48px}
+.ml-chapter-head{margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--bk)}
+.ml-chapter-num{font-family:var(--sa);font-size:.65rem;letter-spacing:.22em;color:var(--li);font-weight:700;margin-bottom:6px}
+.ml-chapter-title{font-family:var(--sf);font-size:1.7rem;font-weight:700;color:var(--bk);line-height:1.15}
+
+/* SECTIONS */
+.ml-section{display:flex;gap:18px;padding:24px 0;border-bottom:1px solid var(--br)}
+.ml-section:last-child{border-bottom:none}
+.ml-num{flex-shrink:0;width:36px;height:36px;background:var(--bk);color:var(--wh);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--sa);font-size:.78rem;font-weight:700;letter-spacing:.04em}
+.ml-content{flex:1;min-width:0}
+.ml-content h3{font-family:var(--sf);font-size:1.2rem;font-weight:700;color:var(--bk);margin-bottom:12px;line-height:1.3}
+.ml-content p{font-family:var(--bo);font-size:1rem;color:var(--dk);line-height:1.7;margin-bottom:12px}
+.ml-content p:last-child{margin-bottom:0}
+.ml-content strong{color:var(--bk);font-weight:600}
+.ml-content em{font-style:italic;color:var(--mi)}
+.ml-content ul{padding-left:0;list-style:none;margin:10px 0}
+.ml-content ul li{padding:6px 0 6px 22px;position:relative;font-family:var(--bo);font-size:.98rem;color:var(--dk);line-height:1.6}
+.ml-content ul li::before{content:'✦';position:absolute;left:0;top:6px;color:var(--bk);font-size:.7rem}
+.ml-content a{color:var(--bk);text-decoration:underline;text-underline-offset:2px;font-weight:500}
+.ml-content a:hover{color:var(--gd)}
+.ml-content hr{border:none;border-top:1px solid var(--br);margin:18px 0}
+
+/* CONTACT BAR */
+.contact-bar{margin-top:48px;padding:36px 32px;background:var(--bg2);border-radius:6px;text-align:center}
+.contact-bar h3{font-family:var(--sf);font-size:1.3rem;font-weight:700;color:var(--bk);margin-bottom:8px}
+.contact-bar p{font-family:var(--bo);font-size:.98rem;color:var(--mi);margin-bottom:22px;line-height:1.6}
+.contact-bar a.btn{display:inline-block;padding:13px 28px;background:var(--bk);color:var(--wh);font-family:var(--sa);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:4px;text-decoration:none;transition:background var(--ez)}
+.contact-bar a.btn:hover{background:var(--gd);color:var(--wh)}
+
+/* FOOTER */
+.ft{background:var(--bk);color:rgba(245,240,232,.45);padding:72px 0 36px}
+.ftg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.ftl img{height:26px;width:auto;margin-bottom:18px}
+.ftb p{font-size:.88rem;line-height:1.7;max-width:280px}
+.fts{display:flex;gap:10px;margin-top:18px}
+.ftsi{width:34px;height:34px;border:1px solid rgba(245,240,232,.12);display:flex;align-items:center;justify-content:center;font-family:var(--sa);font-size:.6rem;color:rgba(245,240,232,.35);text-transform:uppercase;text-decoration:none}
+.ftsi:hover{border-color:rgba(245,240,232,.5);color:var(--wh)}
+.ftc h4{font-family:var(--sa);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--wh);margin-bottom:18px}
+.ftc ul{display:flex;flex-direction:column;gap:9px}
+.ftc a{font-size:.85rem;color:rgba(245,240,232,.4);text-decoration:none}
+.ftc a:hover{color:var(--wh)}
+.ftb2{border-top:1px solid rgba(245,240,232,.07);padding-top:24px;display:flex;justify-content:space-between;font-family:var(--sa);font-size:.7rem;color:rgba(245,240,232,.18)}
+
+@media(max-width:980px){.ml-grid{grid-template-columns:1fr;gap:32px}.ml-toc{position:static;max-width:none}}
+@media(max-width:900px){.nmenu{display:none}.nburg{display:flex}}
+@media(max-width:768px){.w{padding:0 20px}.ftg{grid-template-columns:1fr 1fr;gap:36px}.nr3{padding:8px 20px}.ml-section{flex-direction:column;gap:12px;padding:18px 0}.ml-num{margin-bottom:0}}
+@media(max-width:480px){.ftg{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nr1">
+    <a href="index.html" class="nlog"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJDYWxxdWVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNzkwLjUzIDIxNS4zOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMwMjAyMDI7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTYyMi4yMiwxNDYuMDZjMC00LjYyLTMuMDQtNy4xNy03LjkzLTcuMTdoLTcuNHYyNC4yNGg0LjI5di0xMC4yMWw3LjMzLDEwLjIxaDUuMjFsLTcuODYtMTAuMzdjMy45Ni0uNTYsNi4zNC0zLjE4LDYuMzQtNi43Wk02MTEuMTgsMTQ5LjUzdi02LjkxaDIuODhjMi4zOCwwLDMuNzYsMS4zMiwzLjc2LDMuNDRzLTEuMzgsMy40Ny0zLjc2LDMuNDdoLTIuODhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM3Ljg0LDEzOC40MmMtNy4wMywwLTEyLjU1LDUuMTktMTIuNTUsMTIuNTlzNS41MiwxMi41OCwxMi41NSwxMi41OCwxMi41NS01LjE5LDEyLjU1LTEyLjU4LTUuNTItMTIuNTktMTIuNTUtMTIuNTlaTTYzNy44NCwxNTkuNDZjLTQuNTUsMC04LjA5LTMuNDMtOC4wOS04LjQ1czMuNTQtOC40OSw4LjA5LTguNDksOC4wOSwzLjQ3LDguMDksOC40OS0zLjU2LDguNDUtOC4wOSw4LjQ1WiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI2NjUuNDEgMTM4Ljg5IDY2MC40OCAxNDguOTkgNjU1LjUzIDEzOC44OSA2NTAuNjcgMTM4Ljg5IDY1OC4zMSAxNTMuNjEgNjU4LjMxIDE2My4xMyA2NjIuNiAxNjMuMTMgNjYyLjYgMTUzLjYxIDY2OS45NCAxMzguODkgNjY1LjQxIDEzOC44OSIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY3Ni42NywxMzguODlsLTguMjMsMjQuMjRoNC40M2wxLjM5LTQuNGg4Ljk4bDEuNDIsNC40aDQuNDlsLTguMjgtMjQuMjRoLTQuMlpNNjc1LjQ0LDE1NWwzLjI3LTEwLjI2LDMuMzMsMTAuMjZoLTYuNloiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNjk2LjU1IDEzOC44OSA2OTIuMjUgMTM4Ljg5IDY5Mi4yNSAxNjMuMTMgNzA1LjM5IDE2My4xMyA3MDUuMzkgMTU5LjEzIDY5Ni41NSAxNTkuMTMgNjk2LjU1IDEzOC44OSIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI3MTIuODkgMTUyLjczIDcyMS42MiAxNTIuNzMgNzIxLjYyIDE0OC43MyA3MTIuODkgMTQ4LjczIDcxMi44OSAxNDIuODggNzIxLjcxIDE0Mi44OCA3MjEuNzEgMTM4Ljg5IDcwOC42IDEzOC44OSA3MDguNiAxNjMuMTMgNzIxLjg4IDE2My4xMyA3MjEuODggMTU5LjEzIDcxMi44OSAxNTkuMTMgNzEyLjg5IDE1Mi43MyIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTgwLjIyLDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTkyLjY4LDcxLjk5Yy0uNzYtOS44Mi0yLjA4LTE5LjE2LTEyLjM3LTE5LjE2LTExLjIzLDAtMTIuMjcsOS4xNi0xMi44NCwxOS44Mi0uNDcsOS42My0uNTcsMTguNS4wOSwyNy44NC42Niw5LjgyLDIuMDgsMTkuMTYsMTIuMjcsMTkuMTYsMTEuMzIsMCwxMi4zNi05LjE2LDEyLjg0LTE5LjgyLjU2LTkuNjMuNjYtMTguNSwwLTI3Ljg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1Ny4zMywxMDguNDJjMC00LjUzLjA5LTguMjEuMDktMTIuNTUtLjE5LTYuODktMi4xNy0xMC43Ni04LjQtMTAuNzZoLTcuNzRjLS42NiwwLS45NS4yOC0uOTUuNTd2MjguODhjMCwzLjAyLjA5LDMuODcuOTUsMy44N2gzLjk2Yy42NiwwLC45NS4xOS45NS41N3MtLjE5LjU3LS45NS41N2gtMjQuMTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gzLjk2Yy45NCwwLDEuMDQtLjg1LDEuMDQtMy44N3YtNTYuNjNjMC0zLjAyLS4wOS0zLjg3LTEuMDQtMy44N2gtMy45NmMtLjc1LDAtLjg1LS4xOS0uODUtLjU3LDAtLjI4LjA5LS41Ny44NS0uNTdoMjkuNDVjOS45MSwwLDIxLjIzLDMuNjgsMjEuMjMsMTYuMzMsMCwxMC05LjcyLDE0LjcyLTE4LjAzLDE1LjI5di4wOWM5LjgyLjg1LDE4LjIyLDYuMzIsMTguMTIsMTguMDN2MTEuN2MwLDIuMDguMzgsNC4zNCwyLjc0LDQuMzQsMS41MSwwLDMuMDItMS4wNCwzLjY4LTIuODMuMTktLjQ3LjI4LS45NC44NS0uODVzLjY2LjU3LjQ3LDEuMDRjLTEuMDQsMy4xMS00LjkxLDQuNjMtOC42OCw0LjYzLTguNSwwLTEzLjU5LTQuODItMTMuNTktMTIuMjdaTTE0OS40LDU0LjA2aC04LjEyYy0uNjYsMC0uOTUuMjgtLjk1LjU2djI4Ljg4YzAsLjI4LjE5LjU3Ljg1LjU3aDguMzFjNS41NywwLDguNC0zLjc3LDguNC0xNC44MnMtMy4yMS0xNS4xOS04LjQ5LTE1LjE5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxOC40OSwxMTkuNTZoLTI5LjE2Yy0uNTcsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMy45NmMuOTQsMCwxLjA0LS44NSwxLjA0LTMuODd2LTU2LjYzYzAtMy4wMi0uMDktMy44Ny0xLjA0LTMuODdoLTMuOTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gyOS4xNmMxOC42OSwwLDI5LjgyLDE1LjM4LDI5LjgyLDMzLjAzcy0xMC4xOSwzMy42LTI5LjgyLDMzLjZaTTIzMC45NCw3Mi4yOGMtLjU2LTcuMDgtMS43LTE4LjIxLTEyLjc0LTE4LjIxaC04LjY4Yy0uNjYsMC0uOTUuMjgtLjk1LjU2djYzLjI0YzAsLjI4LjE5LjU3Ljg1LjU3aDguODdjOS43MiwwLDExLjk5LTcuNzQsMTIuNzQtMTguODguNTctOC45Ny41Ny0xOC4zMS0uMDktMjcuMjhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjg5LjQ2LDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTMwMS45MSw3MS45OWMtLjc1LTkuODItMi4wOC0xOS4xNi0xMi4zNi0xOS4xNi0xMS4yMywwLTEyLjI3LDkuMTYtMTIuODQsMTkuODItLjQ3LDkuNjMtLjU3LDE4LjUuMDksMjcuODQuNjYsOS44MiwyLjA4LDE5LjE2LDEyLjI3LDE5LjE2LDExLjMyLDAsMTIuMzYtOS4xNiwxMi44My0xOS44Mi41Ny05LjYzLjY2LTE4LjUsMC0yNy44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zODkuMzEsNTQuMDZoLS4xOWMtNC42MiwwLTUuOTUsNC4yNS01Ljk1LDIxLjIzdjQ0LjQ1YzAsLjI4LS4xOS41Ny0uOTQuNTdoLTguMzFjLS41NywwLS43Ni0uMjgtLjk0LS41N2wtMzUuOTYtNjEuNjNoLS4wOXYzOC40MWMwLDE1Ljg2LDIuOTMsMjEuOSwxMC4zOCwyMS45aDEuMjNjLjc2LDAsLjk0LjE5Ljk0LjU3LDAsLjI4LS4xOS41Ny0uOTQuNTdoLTE4Ljk3Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoLjE5YzQuNjMsMCw1Ljk1LTQuMjUsNS45NS0yMS4yNHYtMzkuMjZjMC0zLjAyLS4wOS0zLjg3LS45NS0zLjg3aC00LjQ0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTkuNTRjLjM4LDAsLjY2LjE5Ljk0LjU3bDMwLjk2LDUzLjQyaC4xOXYtMzAuOTZjMC0xNS44Ni0yLjkyLTIxLjktMTAuMjktMjEuOWgtLjk0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTguNTljLjc1LDAsLjk0LjE5Ljk0LjU3cy0uMTkuNTctLjk0LjU3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ1OS40NCw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk0LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzYsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTI4LjA1LDExOS41NmgtMjUuMjljLS42NiwwLS45NC0uMTktLjk0LS41N3MuMTktLjU3Ljk0LS41N2gzLjU5YzEuNjEsMCwyLjI3LS42Ni45NS00LjQ0bC02LjIzLTE4LjY5Yy0uMDktLjM4LS4yOC0uNTctLjg1LS41N2gtMTguMDNjLS40NywwLS42Ni4wOS0uNzUuNTdsLTEuNzksNS42NmMtNC4xNSwxMi45My0uNjYsMTcuNDYsNC4wNiwxNy40NmgxLjg5Yy41NywwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N2gtMTguNTljLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMjhjMi44MywwLDYuMjMtMi42NCwxMC45NS0xNy45M2wxNC44Mi00Ny43NmMuMTktLjQ3LjM4LS41Ny44NS0uNTdoNi45OGMuNDcsMCwuNzYuMTkuODUuNTdsMjEuMTQsNjEuMjVjMS4zMiwzLjg3LDEuODksNC40NCwzLjMsNC40NGgxLjg5Yy42NiwwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N1pNNDkwLjk2LDY0LjE2aC0uMTlsLTguNjgsMjguNzljLS4wOS4zOC4wOS41Ny43NS41N2gxNi41MmMuNjYsMCwuOTQtLjM4Ljg1LS43NWwtOS4yNS0yOC42WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU5Ni4yOSw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk1LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzUsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNzIxLjIxLDk3LjIxYy0uMzgsMC0uNjYuMTgtLjY2Ljg0di45NGMwLDYuMzMtNS4xOSwyMC41OC0yMC42NywyMC41OGgtNy44NGMtLjY2LDAtLjg1LS4yOC0uODUtLjU2di0zMi4wOWMwLS4zOC4yOS0uNTguOTQtLjU4aDQuMzVjNS43NSwwLDEwLjk1LDQuNjMsMTAuOTUsMTAuMjl2LjY3YzAsLjY2LjE4Ljg1LjY2Ljg1LjM4LDAsLjU2LS4yLjU2LS44NXYtMjIuODVjMC0uNjYtLjE4LS45NC0uNTYtLjk0cy0uNjYuMi0uNjYuOTR2LjY3YzAsNS41Ni01LjE5LDEwLjE5LTEwLjk1LDEwLjE5aC00LjQ0Yy0uNjYsMC0uODUtLjE4LS44NS0uNTZ2LTI4Ljk4YzAtLjM3LjM4LS41Ni45NC0uNTZoOC40OWMxMC40OSwwLDE2LjgxLDEwLjIsMTYuODEsMTkuODJ2MS4wNWMwLC42Ni4yLjg0LjU2Ljg0LjQ3LDAsLjc2LS4xOC43Ni0uODR2LTIxLjI1YzAtLjU2LS4zOC0uNzUtLjg1LS43NWgtNDUuOTdjLS42NiwwLS44NC4xOC0uODQuNTZzLjI4LjU2Ljg0LjU2aDMuOTdjLjk0LDAsMS4wNC44NSwxLjA0LDMuODh2NTYuNjNjMCwzLjAxLS4wOSwzLjg3LTEuMDQsMy44N2gtMy45N2MtLjY2LDAtLjg0LjE4LS44NC41NnMuMjguNTguODQuNThoNDkuMDljLjU2LDAsLjg1LS4yLjg1LS42N3YtMjJjMC0uNjYtLjI5LS44NC0uNjctLjg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5MC4xNyw4My44Yy00LjY1LS4xMy05LjEzLjY3LTEzLjUxLDIuMjItOS41MSwzLjM2LTE2LjcyLDExLjQ4LTIwLjUzLDIwLjY0LTMuMTYsNy41Ny05Ljk5LDEzLjAyLTE4LjQ0LDEzLjAyLTExLjE0LDAtMTIuNTYtOS4wNy0xMy4yMS0xOS4xNi0uNjYtOS4zNS0uNDctMTcuMDktLjA5LTI2LjcxLjU2LTEyLjA5LDIuMzYtMTkuODIsMTIuNDUtMTkuODIsOS4yNSwwLDE4LjIyLDguNTksMTguMjIsMjIuOTN2MS4xNGMwLC42Ni4xOC45NC42Ni45NC4zOCwwLC42Ny0uMi42Ny0uOTR2LTIzLjMyYzAtLjc1LS4yLS45NC0uNjctLjk0cy0uNjYuMjktLjY2Ljk0di42N2MwLDIuMDctMi41NC44NC00LjksMC0yLjY1LS45NC04LjEzLTIuNDYtMTMuNDEtMi40Ni0xOS44MiwwLTI5LjY0LDE1LjU5LTI5LjY0LDM0LjkzLDAsMTcuMDgsMTAuMTEsMzIuODUsMjkuNzMsMzIuODUuMiwwLC40MSwwLC42My0uMDEsNi41NC0uMjMsMTIuMjctMy41MSwxNi4zNi04LjUxLDIuMTMtMi42LDMuMzEtNi4xNCw1LjAzLTkuMDUsMS44Ny0zLjE2LDQuMDItNi4xOCw2LjY5LTguNzIsNC4xNC0zLjk1LDkuNDUtNi42NSwxNS4wNy03Ljc3LDIuNjItLjUyLDcuODEtLjU3LDkuNTUtMi44NVoiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjczNS40NyIgY3k9IjExNS44NyIgcj0iNC44NSIvPjwvc3ZnPg==" alt="Ordonnance Royale" style="height:64px;width:auto;display:block"></a>
+    <div class="nact">
+      <a href="panier.html" class="ncart" aria-label="Panier" style="text-decoration:none"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="nbdg" id="nbdg">0</span></a>
+      <button class="nburg" onclick="document.getElementById('nm').classList.toggle('on')"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nr2"><ul class="nmenu">
+    <li><a href="a-propos.html">À Propos</a></li>
+    <li><a href="boutique.html">Boutique</a></li>
+    <li><a href="ordonnance.html">Ordonnance Perso</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul></div>
+  <div class="nr3"><form class="sform" onsubmit="goSrch(event)"><input type="search" id="sInp" class="sinp" placeholder="Rechercher un verset, un thème…" autocomplete="off"><button type="submit" class="sbtn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button></form></div>
+</nav>
+<div class="nmob" id="nm">
+  <a href="a-propos.html">À Propos</a>
+  <a href="boutique.html">Boutique</a>
+  <a href="ordonnance.html">Ordonnance Perso</a>
+  <a href="contact.html">Contact</a>
+</div>
+<div class="nsp"></div>
+
+<header class="mh">
+  <div class="w">
+    <p class="mh-lbl">Cadre Légal</p>
+    <h1 class="mh-title">Mentions légales & CGV</h1>
+    <p class="mh-sub">Toutes les informations légales, conditions de vente et politique de confidentialité d'Ordonnance Royale.</p>
+    <span class="mh-date">Dernière mise à jour : avril 2026</span>
+  </div>
+</header>
+
+<main class="ml-wrap"><div class="w">
+  <div class="ml-grid">
+
+    <!-- TABLE DES MATIÈRES -->
+    <aside class="ml-toc">
+      <div class="ml-toc-title">Sommaire</div>
+      
+      <div class="ml-toc-cat">Mentions légales</div>
+      <ul><li><a href="#sec-01">01. Informations sur l'entreprise</a></li><li><a href="#sec-02">02. Hébergeur du site</a></li><li><a href="#sec-03">03. Droits d'auteur</a></li><li><a href="#sec-04">04. Limitation de responsabilité</a></li></ul>
+      
+      <div class="ml-toc-cat">Conditions de vente</div>
+      <ul><li><a href="#sec-05">05. Conditions Générales de Vente</a></li><li><a href="#sec-06">06. Produits</a></li><li><a href="#sec-07">07. Prix</a></li><li><a href="#sec-08">08. Commande & Paiement</a></li><li><a href="#sec-09">09. Livraison</a></li><li><a href="#sec-10">10. Droit de rétractation</a></li><li><a href="#sec-11">11. Réclamations & Litiges</a></li></ul>
+      
+      <div class="ml-toc-cat">Confidentialité (RGPD)</div>
+      <ul><li><a href="#sec-12">12. Politique de confidentialité</a></li><li><a href="#sec-13">13. Quelles données collectons-nous ?</a></li><li><a href="#sec-14">14. Comment utilisons-nous vos données ?</a></li><li><a href="#sec-15">15. Droits d'accès et de suppression</a></li></ul>
+    </aside>
+
+    <!-- CONTENU -->
+    <div class="ml-main">
+
+      <!-- CHAPITRE 1 : MENTIONS LÉGALES -->
+      <section class="ml-chapter">
+        <div class="ml-chapter-head">
+          <p class="ml-chapter-num">Chapitre 1</p>
+          <h2 class="ml-chapter-title">Mentions légales</h2>
+        </div>
+        <article class="ml-section" id="sec-01">
+        <div class="ml-num">01</div>
+        <div class="ml-content">
+          <h3>Informations sur l'entreprise</h3>
+          <p>
+ <strong>Dénomination :</strong> Ordonnance Royale<br>
+ <strong>Forme juridique :</strong> Entreprise Individuelle<br>
+ <strong>Dirigeant :</strong> Débora Zoa<br>
+ <strong>SIRET :</strong> 885 288 811 00015<br>
+ <strong>Siège social :</strong> 1 rue des Chalands, 77600 Bussy-Saint-Georges<br>
+ <strong>Email :</strong> <a href="mailto:ordonnanceroyale@gmail.com">ordonnanceroyale@gmail.com</a><br>
+ <strong>Site web :</strong> <a href="https://www.ordonnanceroyale.com">www.ordonnanceroyale.com</a>
+ </p>
+
+ <p>Hébergement</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-02">
+        <div class="ml-num">02</div>
+        <div class="ml-content">
+          <h3>Hébergeur du site</h3>
+          <p>
+ <strong>Hébergeur :</strong> Hostinger International Ltd.<br>
+ <strong>Adresse :</strong> 61 Lordou Vironos Street, 6023 Larnaca, Chypre<br>
+ <strong>Site web :</strong> <a href="https://www.hostinger.fr" target="_blank">www.hostinger.fr</a>
+ </p>
+
+ <p>Propriété intellectuelle</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-03">
+        <div class="ml-num">03</div>
+        <div class="ml-content">
+          <h3>Droits d'auteur</h3>
+          <p>L'ensemble du contenu de ce site (textes, images, visuels, logos, affiches) est protégé par le droit d'auteur et appartient à Ordonnance Royale, sauf mention contraire. Toute reproduction, distribution ou utilisation sans autorisation écrite préalable est strictement interdite.</p>
+ <p>Les versets bibliques utilisés sont issus de traductions libres de droits ou utilisés dans le cadre légal autorisé.</p>
+
+ <p>Responsabilité</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-04">
+        <div class="ml-num">04</div>
+        <div class="ml-content">
+          <h3>Limitation de responsabilité</h3>
+          <p>Ordonnance Royale s'efforce de maintenir les informations de ce site à jour et exactes. Cependant, nous ne pouvons garantir l'exactitude, la complétude ou l'actualité des informations diffusées. L'utilisation des informations et contenus disponibles sur l'ensemble du site se fait sous l'entière responsabilité de l'utilisateur.</p>
+
+ <p>Préambule</p>
+        </div>
+      </article>
+      </section>
+
+      <!-- CHAPITRE 2 : CGV -->
+      <section class="ml-chapter">
+        <div class="ml-chapter-head">
+          <p class="ml-chapter-num">Chapitre 2</p>
+          <h2 class="ml-chapter-title">Conditions Générales de Vente</h2>
+        </div>
+        <article class="ml-section" id="sec-05">
+        <div class="ml-num">05</div>
+        <div class="ml-content">
+          <h3>Conditions Générales de Vente</h3>
+          <p>Les présentes Conditions Générales de Vente (CGV) régissent toutes les commandes passées sur le site <strong>ordonnanceroyale.com</strong> par tout client (ci-après "le Client"). En passant commande, le Client accepte sans réserve les présentes CGV.</p>
+ <p><strong>Vendeur :</strong> Débora Zoa — Ordonnance Royale, EI, SIRET 885 288 811 00015, 1 rue des Chalands, 77600 Bussy-Saint-Georges.</p>
+
+ <p>Article 1</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-06">
+        <div class="ml-num">06</div>
+        <div class="ml-content">
+          <h3>Produits</h3>
+          <p>Ordonnance Royale propose des affiches bibliques imprimées et des ordonnances personnalisées. Les produits sont décrits avec soin sur le site. Les visuels présentés sont aussi fidèles que possible aux produits réels.</p>
+ <p>Les ordonnances personnalisées sont des créations uniques réalisées sur mesure selon les indications du Client. Elles ne peuvent faire l'objet d'aucun remboursement une fois la fabrication engagée.</p>
+
+ <p>Article 2</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-07">
+        <div class="ml-num">07</div>
+        <div class="ml-content">
+          <h3>Prix</h3>
+          <p>Les prix sont indiqués en euros (€), toutes taxes comprises (TTC). Ordonnance Royale se réserve le droit de modifier ses prix à tout moment, étant entendu que le prix applicable à la commande est celui en vigueur au moment de la validation de la commande.</p>
+ <p>Les frais de livraison sont calculés en fonction du pays de destination et du mode de livraison choisi, et sont indiqués avant la validation de la commande.</p>
+
+ <p>Article 3</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-08">
+        <div class="ml-num">08</div>
+        <div class="ml-content">
+          <h3>Commande & Paiement</h3>
+          <p>Toute commande implique l'acceptation des présentes CGV. La commande est définitivement enregistrée après confirmation du paiement. Un email de confirmation est envoyé au Client.</p>
+ <p>Les paiements sont sécurisés et traités via des prestataires certifiés (Stripe, PayPal ou équivalent). Ordonnance Royale ne stocke aucune donnée bancaire.</p>
+
+ <p>Article 4</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-09">
+        <div class="ml-num">09</div>
+        <div class="ml-content">
+          <h3>Livraison</h3>
+          <p>Les commandes sont expédiées dans un délai de <strong>2 à 3 jours ouvrés</strong> après confirmation du paiement. Les délais de livraison varient ensuite selon la destination :</p>
+ <ul>
+ <li>France métropolitaine : 2 à 5 jours ouvrés</li>
+ <li>Europe : 5 à 10 jours ouvrés</li>
+ <li>International : 10 à 20 jours ouvrés</li>
+ </ul>
+ <p>En cas de retard de livraison, le Client peut contacter Ordonnance Royale à <a href="mailto:ordonnanceroyale@gmail.com">ordonnanceroyale@gmail.com</a>.</p>
+
+ <p>Article 5</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-10">
+        <div class="ml-num">10</div>
+        <div class="ml-content">
+          <h3>Droit de rétractation</h3>
+          <p>Conformément à l'article L221-18 du Code de la consommation, le Client dispose d'un délai de <strong>14 jours</strong> à compter de la réception de sa commande pour exercer son droit de rétractation, sans avoir à justifier de motifs.</p>
+ <p><strong>Exception :</strong> Les ordonnances personnalisées, en tant que produits confectionnés selon les spécifications du Client, sont exclues du droit de rétractation conformément à l'article L221-28 du Code de la consommation.</p>
+ <p>Pour exercer ce droit, contactez-nous à <a href="mailto:ordonnanceroyale@gmail.com">ordonnanceroyale@gmail.com</a> en précisant votre numéro de commande.</p>
+
+ <p>Article 6</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-11">
+        <div class="ml-num">11</div>
+        <div class="ml-content">
+          <h3>Réclamations & Litiges</h3>
+          <p>En cas de litige, le Client est invité à contacter Ordonnance Royale en priorité à <a href="mailto:ordonnanceroyale@gmail.com">ordonnanceroyale@gmail.com</a> pour trouver une solution amiable.</p>
+ <p>En cas d'échec, le Client peut recourir à la médiation de la consommation via la plateforme européenne de règlement en ligne des litiges : <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a>.</p>
+ <p>Les présentes CGV sont soumises au droit français.</p>
+
+ <p>Protection des données</p>
+        </div>
+      </article>
+      </section>
+
+      <!-- CHAPITRE 3 : CONFIDENTIALITÉ -->
+      <section class="ml-chapter">
+        <div class="ml-chapter-head">
+          <p class="ml-chapter-num">Chapitre 3</p>
+          <h2 class="ml-chapter-title">Politique de confidentialité (RGPD)</h2>
+        </div>
+        <article class="ml-section" id="sec-12">
+        <div class="ml-num">12</div>
+        <div class="ml-content">
+          <h3>Politique de confidentialité</h3>
+          <p>Ordonnance Royale accorde une grande importance à la protection de vos données personnelles. La présente politique décrit comment nous collectons, utilisons et protégeons vos données conformément au Règlement Général sur la Protection des Données (RGPD).</p>
+
+ <p>Données collectées</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-13">
+        <div class="ml-num">13</div>
+        <div class="ml-content">
+          <h3>Quelles données collectons-nous ?</h3>
+          <p>Nous collectons uniquement les données nécessaires au traitement de vos commandes :</p>
+ <ul>
+ <li>Nom et prénom</li>
+ <li>Adresse email</li>
+ <li>Adresse de livraison</li>
+ <li>Informations relatives à votre commande</li>
+ </ul>
+ <p>Nous n'utilisons pas de cookies de tracking ou publicitaires. Les cookies utilisés sont strictement fonctionnels (panier, préférences).</p>
+
+ <p>Utilisation des données</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-14">
+        <div class="ml-num">14</div>
+        <div class="ml-content">
+          <h3>Comment utilisons-nous vos données ?</h3>
+          <p>Vos données sont utilisées exclusivement pour :</p>
+ <ul>
+ <li>Traiter et expédier vos commandes</li>
+ <li>Vous envoyer les confirmations et suivis de commande</li>
+ <li>Répondre à vos demandes de contact</li>
+ </ul>
+ <p>Vos données ne sont jamais vendues, louées ou cédées à des tiers à des fins commerciales.</p>
+
+ <p>Vos droits</p>
+        </div>
+      </article>
+      <article class="ml-section" id="sec-15">
+        <div class="ml-num">15</div>
+        <div class="ml-content">
+          <h3>Droits d'accès et de suppression</h3>
+          <p>Conformément au RGPD, vous disposez des droits suivants sur vos données :</p>
+ <ul>
+ <li>Droit d'accès à vos données personnelles</li>
+ <li>Droit de rectification des données inexactes</li>
+ <li>Droit à l'effacement ("droit à l'oubli")</li>
+ <li>Droit à la portabilité de vos données</li>
+ <li>Droit d'opposition au traitement</li>
+ </ul>
+ <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:ordonnanceroyale@gmail.com">ordonnanceroyale@gmail.com</a></p>
+ <p>Dernière mise à jour : 19 mars 2026</p>
+        </div>
+      </article>
+      </section>
+
+      <!-- CONTACT -->
+      <div class="contact-bar">
+        <h3>Une question juridique ?</h3>
+        <p>Pour toute question concernant ces mentions légales, vos données personnelles ou nos conditions de vente, contactez-nous.</p>
+        <a href="mailto:contact@ordonnanceroyale.com" class="btn">Nous contacter</a>
+      </div>
+
+    </div>
+  </div>
+</div></main>
+
+<footer class="ft"><div class="w"><div class="ftg">
+  <div class="ftb">
+    <a href="index.html" class="ftl"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJDYWxxdWVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNzkwLjUzIDIxNS4zOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmZmY7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTYyMi4yMiwxNDYuMDZjMC00LjYyLTMuMDQtNy4xNy03LjkzLTcuMTdoLTcuNHYyNC4yNGg0LjI5di0xMC4yMWw3LjMzLDEwLjIxaDUuMjFsLTcuODYtMTAuMzdjMy45Ni0uNTYsNi4zNC0zLjE4LDYuMzQtNi43Wk02MTEuMTgsMTQ5LjUzdi02LjkxaDIuODhjMi4zOCwwLDMuNzYsMS4zMiwzLjc2LDMuNDRzLTEuMzgsMy40Ny0zLjc2LDMuNDdoLTIuODhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjM3Ljg0LDEzOC40MmMtNy4wMywwLTEyLjU1LDUuMTktMTIuNTUsMTIuNTlzNS41MiwxMi41OCwxMi41NSwxMi41OCwxMi41NS01LjE5LDEyLjU1LTEyLjU4LTUuNTItMTIuNTktMTIuNTUtMTIuNTlaTTYzNy44NCwxNTkuNDZjLTQuNTUsMC04LjA5LTMuNDMtOC4wOS04LjQ1czMuNTQtOC40OSw4LjA5LTguNDksOC4wOSwzLjQ3LDguMDksOC40OS0zLjU2LDguNDUtOC4wOSw4LjQ1WiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI2NjUuNDEgMTM4Ljg5IDY2MC40OCAxNDguOTkgNjU1LjUzIDEzOC44OSA2NTAuNjcgMTM4Ljg5IDY1OC4zMSAxNTMuNjEgNjU4LjMxIDE2My4xMyA2NjIuNiAxNjMuMTMgNjYyLjYgMTUzLjYxIDY2OS45NCAxMzguODkgNjY1LjQxIDEzOC44OSIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY3Ni42NywxMzguODlsLTguMjMsMjQuMjRoNC40M2wxLjM5LTQuNGg4Ljk4bDEuNDIsNC40aDQuNDlsLTguMjgtMjQuMjRoLTQuMlpNNjc1LjQ0LDE1NWwzLjI3LTEwLjI2LDMuMzMsMTAuMjZoLTYuNloiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNjk2LjU1IDEzOC44OSA2OTIuMjUgMTM4Ljg5IDY5Mi4yNSAxNjMuMTMgNzA1LjM5IDE2My4xMyA3MDUuMzkgMTU5LjEzIDY5Ni41NSAxNTkuMTMgNjk2LjU1IDEzOC44OSIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI3MTIuODkgMTUyLjczIDcyMS42MiAxNTIuNzMgNzIxLjYyIDE0OC43MyA3MTIuODkgMTQ4LjczIDcxMi44OSAxNDIuODggNzIxLjcxIDE0Mi44OCA3MjEuNzEgMTM4Ljg5IDcwOC42IDEzOC44OSA3MDguNiAxNjMuMTMgNzIxLjg4IDE2My4xMyA3MjEuODggMTU5LjEzIDcxMi44OSAxNTkuMTMgNzEyLjg5IDE1Mi43MyIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTgwLjIyLDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTkyLjY4LDcxLjk5Yy0uNzYtOS44Mi0yLjA4LTE5LjE2LTEyLjM3LTE5LjE2LTExLjIzLDAtMTIuMjcsOS4xNi0xMi44NCwxOS44Mi0uNDcsOS42My0uNTcsMTguNS4wOSwyNy44NC42Niw5LjgyLDIuMDgsMTkuMTYsMTIuMjcsMTkuMTYsMTEuMzIsMCwxMi4zNi05LjE2LDEyLjg0LTE5LjgyLjU2LTkuNjMuNjYtMTguNSwwLTI3Ljg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1Ny4zMywxMDguNDJjMC00LjUzLjA5LTguMjEuMDktMTIuNTUtLjE5LTYuODktMi4xNy0xMC43Ni04LjQtMTAuNzZoLTcuNzRjLS42NiwwLS45NS4yOC0uOTUuNTd2MjguODhjMCwzLjAyLjA5LDMuODcuOTUsMy44N2gzLjk2Yy42NiwwLC45NS4xOS45NS41N3MtLjE5LjU3LS45NS41N2gtMjQuMTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gzLjk2Yy45NCwwLDEuMDQtLjg1LDEuMDQtMy44N3YtNTYuNjNjMC0zLjAyLS4wOS0zLjg3LTEuMDQtMy44N2gtMy45NmMtLjc1LDAtLjg1LS4xOS0uODUtLjU3LDAtLjI4LjA5LS41Ny44NS0uNTdoMjkuNDVjOS45MSwwLDIxLjIzLDMuNjgsMjEuMjMsMTYuMzMsMCwxMC05LjcyLDE0LjcyLTE4LjAzLDE1LjI5di4wOWM5LjgyLjg1LDE4LjIyLDYuMzIsMTguMTIsMTguMDN2MTEuN2MwLDIuMDguMzgsNC4zNCwyLjc0LDQuMzQsMS41MSwwLDMuMDItMS4wNCwzLjY4LTIuODMuMTktLjQ3LjI4LS45NC44NS0uODVzLjY2LjU3LjQ3LDEuMDRjLTEuMDQsMy4xMS00LjkxLDQuNjMtOC42OCw0LjYzLTguNSwwLTEzLjU5LTQuODItMTMuNTktMTIuMjdaTTE0OS40LDU0LjA2aC04LjEyYy0uNjYsMC0uOTUuMjgtLjk1LjU2djI4Ljg4YzAsLjI4LjE5LjU3Ljg1LjU3aDguMzFjNS41NywwLDguNC0zLjc3LDguNC0xNC44MnMtMy4yMS0xNS4xOS04LjQ5LTE1LjE5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIxOC40OSwxMTkuNTZoLTI5LjE2Yy0uNTcsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMy45NmMuOTQsMCwxLjA0LS44NSwxLjA0LTMuODd2LTU2LjYzYzAtMy4wMi0uMDktMy44Ny0xLjA0LTMuODdoLTMuOTZjLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gyOS4xNmMxOC42OSwwLDI5LjgyLDE1LjM4LDI5LjgyLDMzLjAzcy0xMC4xOSwzMy42LTI5LjgyLDMzLjZaTTIzMC45NCw3Mi4yOGMtLjU2LTcuMDgtMS43LTE4LjIxLTEyLjc0LTE4LjIxaC04LjY4Yy0uNjYsMC0uOTUuMjgtLjk1LjU2djYzLjI0YzAsLjI4LjE5LjU3Ljg1LjU3aDguODdjOS43MiwwLDExLjk5LTcuNzQsMTIuNzQtMTguODguNTctOC45Ny41Ny0xOC4zMS0uMDktMjcuMjhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjg5LjQ2LDEyMC42OWMtMTkuMjUsMC0zMC4wMS0xNS41Ny0zMC4wMS0zNC4xN3M5LjcyLTM0LjczLDI5LjczLTM0LjczLDMwLjAxLDE1LjU3LDMwLjAxLDM0LjE2LTkuNzIsMzQuNzMtMjkuNzMsMzQuNzNaTTMwMS45MSw3MS45OWMtLjc1LTkuODItMi4wOC0xOS4xNi0xMi4zNi0xOS4xNi0xMS4yMywwLTEyLjI3LDkuMTYtMTIuODQsMTkuODItLjQ3LDkuNjMtLjU3LDE4LjUuMDksMjcuODQuNjYsOS44MiwyLjA4LDE5LjE2LDEyLjI3LDE5LjE2LDExLjMyLDAsMTIuMzYtOS4xNiwxMi44My0xOS44Mi41Ny05LjYzLjY2LTE4LjUsMC0yNy44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zODkuMzEsNTQuMDZoLS4xOWMtNC42MiwwLTUuOTUsNC4yNS01Ljk1LDIxLjIzdjQ0LjQ1YzAsLjI4LS4xOS41Ny0uOTQuNTdoLTguMzFjLS41NywwLS43Ni0uMjgtLjk0LS41N2wtMzUuOTYtNjEuNjNoLS4wOXYzOC40MWMwLDE1Ljg2LDIuOTMsMjEuOSwxMC4zOCwyMS45aDEuMjNjLjc2LDAsLjk0LjE5Ljk0LjU3LDAsLjI4LS4xOS41Ny0uOTQuNTdoLTE4Ljk3Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoLjE5YzQuNjMsMCw1Ljk1LTQuMjUsNS45NS0yMS4yNHYtMzkuMjZjMC0zLjAyLS4wOS0zLjg3LS45NS0zLjg3aC00LjQ0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTkuNTRjLjM4LDAsLjY2LjE5Ljk0LjU3bDMwLjk2LDUzLjQyaC4xOXYtMzAuOTZjMC0xNS44Ni0yLjkyLTIxLjktMTAuMjktMjEuOWgtLjk0Yy0uNjYsMC0uODUtLjE5LS44NS0uNTdzLjE5LS41Ny44NS0uNTdoMTguNTljLjc1LDAsLjk0LjE5Ljk0LjU3cy0uMTkuNTctLjk0LjU3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQ1OS40NCw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk0LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzYsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTI4LjA1LDExOS41NmgtMjUuMjljLS42NiwwLS45NC0uMTktLjk0LS41N3MuMTktLjU3Ljk0LS41N2gzLjU5YzEuNjEsMCwyLjI3LS42Ni45NS00LjQ0bC02LjIzLTE4LjY5Yy0uMDktLjM4LS4yOC0uNTctLjg1LS41N2gtMTguMDNjLS40NywwLS42Ni4wOS0uNzUuNTdsLTEuNzksNS42NmMtNC4xNSwxMi45My0uNjYsMTcuNDYsNC4wNiwxNy40NmgxLjg5Yy41NywwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N2gtMTguNTljLS41NywwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMjhjMi44MywwLDYuMjMtMi42NCwxMC45NS0xNy45M2wxNC44Mi00Ny43NmMuMTktLjQ3LjM4LS41Ny44NS0uNTdoNi45OGMuNDcsMCwuNzYuMTkuODUuNTdsMjEuMTQsNjEuMjVjMS4zMiwzLjg3LDEuODksNC40NCwzLjMsNC40NGgxLjg5Yy42NiwwLC44NS4xOS44NS41N3MtLjE5LjU3LS44NS41N1pNNDkwLjk2LDY0LjE2aC0uMTlsLTguNjgsMjguNzljLS4wOS4zOC4wOS41Ny43NS41N2gxNi41MmMuNjYsMCwuOTQtLjM4Ljg1LS43NWwtOS4yNS0yOC42WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU5Ni4yOSw1NC4wNmgtLjE5Yy00LjYyLDAtNS45NSw0LjI1LTUuOTUsMjEuMjN2NDQuNDVjMCwuMjgtLjE5LjU3LS45NC41N2gtOC4zMWMtLjU3LDAtLjc2LS4yOC0uOTQtLjU3bC0zNS45Ni02MS42M2gtLjA5djM4LjQxYzAsMTUuODYsMi45MywyMS45LDEwLjM4LDIxLjloMS4yM2MuNzYsMCwuOTQuMTkuOTQuNTcsMCwuMjgtLjE5LjU3LS45NC41N2gtMTguOTdjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2guMTljNC42MywwLDUuOTUtNC4yNSw1Ljk1LTIxLjI0di0zOS4yNmMwLTMuMDItLjA5LTMuODctLjk1LTMuODdoLTQuNDRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOS41NGMuMzgsMCwuNjYuMTkuOTQuNTdsMzAuOTYsNTMuNDJoLjE5di0zMC45NmMwLTE1Ljg2LTIuOTItMjEuOS0xMC4yOS0yMS45aC0uOTRjLS42NiwwLS44NS0uMTktLjg1LS41N3MuMTktLjU3Ljg1LS41N2gxOC41OWMuNzUsMCwuOTQuMTkuOTQuNTdzLS4xOS41Ny0uOTQuNTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNzIxLjIxLDk3LjIxYy0uMzgsMC0uNjYuMTgtLjY2Ljg0di45NGMwLDYuMzMtNS4xOSwyMC41OC0yMC42NywyMC41OGgtNy44NGMtLjY2LDAtLjg1LS4yOC0uODUtLjU2di0zMi4wOWMwLS4zOC4yOS0uNTguOTQtLjU4aDQuMzVjNS43NSwwLDEwLjk1LDQuNjMsMTAuOTUsMTAuMjl2LjY3YzAsLjY2LjE4Ljg1LjY2Ljg1LjM4LDAsLjU2LS4yLjU2LS44NXYtMjIuODVjMC0uNjYtLjE4LS45NC0uNTYtLjk0cy0uNjYuMi0uNjYuOTR2LjY3YzAsNS41Ni01LjE5LDEwLjE5LTEwLjk1LDEwLjE5aC00LjQ0Yy0uNjYsMC0uODUtLjE4LS44NS0uNTZ2LTI4Ljk4YzAtLjM3LjM4LS41Ni45NC0uNTZoOC40OWMxMC40OSwwLDE2LjgxLDEwLjIsMTYuODEsMTkuODJ2MS4wNWMwLC42Ni4yLjg0LjU2Ljg0LjQ3LDAsLjc2LS4xOC43Ni0uODR2LTIxLjI1YzAtLjU2LS4zOC0uNzUtLjg1LS43NWgtNDUuOTdjLS42NiwwLS44NC4xOC0uODQuNTZzLjI4LjU2Ljg0LjU2aDMuOTdjLjk0LDAsMS4wNC44NSwxLjA0LDMuODh2NTYuNjNjMCwzLjAxLS4wOSwzLjg3LTEuMDQsMy44N2gtMy45N2MtLjY2LDAtLjg0LjE4LS44NC41NnMuMjguNTguODQuNThoNDkuMDljLjU2LDAsLjg1LS4yLjg1LS42N3YtMjJjMC0uNjYtLjI5LS44NC0uNjctLjg0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5MC4xNyw4My44Yy00LjY1LS4xMy05LjEzLjY3LTEzLjUxLDIuMjItOS41MSwzLjM2LTE2LjcyLDExLjQ4LTIwLjUzLDIwLjY0LTMuMTYsNy41Ny05Ljk5LDEzLjAyLTE4LjQ0LDEzLjAyLTExLjE0LDAtMTIuNTYtOS4wNy0xMy4yMS0xOS4xNi0uNjYtOS4zNS0uNDctMTcuMDktLjA5LTI2LjcxLjU2LTEyLjA5LDIuMzYtMTkuODIsMTIuNDUtMTkuODIsOS4yNSwwLDE4LjIyLDguNTksMTguMjIsMjIuOTN2MS4xNGMwLC42Ni4xOC45NC42Ni45NC4zOCwwLC42Ny0uMi42Ny0uOTR2LTIzLjMyYzAtLjc1LS4yLS45NC0uNjctLjk0cy0uNjYuMjktLjY2Ljk0di42N2MwLDIuMDctMi41NC44NC00LjksMC0yLjY1LS45NC04LjEzLTIuNDYtMTMuNDEtMi40Ni0xOS44MiwwLTI5LjY0LDE1LjU5LTI5LjY0LDM0LjkzLDAsMTcuMDgsMTAuMTEsMzIuODUsMjkuNzMsMzIuODUuMiwwLC40MSwwLC42My0uMDEsNi41NC0uMjMsMTIuMjctMy41MSwxNi4zNi04LjUxLDIuMTMtMi42LDMuMzEtNi4xNCw1LjAzLTkuMDUsMS44Ny0zLjE2LDQuMDItNi4xOCw2LjY5LTguNzIsNC4xNC0zLjk1LDkuNDUtNi42NSwxNS4wNy03Ljc3LDIuNjItLjUyLDcuODEtLjU3LDkuNTUtMi44NVoiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjczNS40NyIgY3k9IjExNS44NyIgcj0iNC44NSIvPjwvc3ZnPg==" alt="Ordonnance Royale" style="height:26px;width:auto"></a>
+    <p>Changer et tenir ferme par la Parole au quotidien.</p>
+    <div class="fts"><a href="https://www.instagram.com/ordonnanceroyale" class="ftsi" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://www.tiktok.com/@ordonnanceroyale" class="ftsi" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z"/></svg></a></div>
+  </div>
+  <nav class="ftc"><h4>Boutique</h4><ul><li><a href="boutique.html">Toutes les affiches</a></li><li><a href="ordonnance.html">Ordonnance Perso</a></li></ul></nav>
+  <nav class="ftc"><h4>Informations</h4><ul><li><a href="a-propos.html">À Propos</a></li><li><a href="livraisons.html">Livraison</a></li><li><a href="contact.html">Contact</a></li><li><a href="mentions-legales.html">Mentions légales</a></li></ul></nav>
+  <nav class="ftc"><h4>Contact</h4><ul><li><a href="mailto:contact@ordonnanceroyale.com">contact@ordonnanceroyale.com</a></li><li><a href="https://www.instagram.com/ordonnanceroyale" target="_blank">@ordonnanceroyale</a></li></ul></nav>
+</div><div class="ft-pay" style="border-top:1px solid rgba(245,240,232,.07);padding:20px 0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap"><span style="font-family:var(--sa);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,240,232,.4);font-weight:600;margin-right:8px">Paiements sécurisés</span><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#1a1f71"/><text x="24" y="21" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="11" font-weight="900" font-style="italic" fill="#fff" letter-spacing="1">VISA</text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.5"/><circle cx="20" cy="16" r="7" fill="#eb001b"/><circle cx="28" cy="16" r="7" fill="#f79e1b" fill-opacity="0.9"/><path d="M24 11c1.4 1.3 2.3 3 2.3 5s-.9 3.7-2.3 5c-1.4-1.3-2.3-3-2.3-5s.9-3.7 2.3-5z" fill="#ff5f00"/></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#006fcf"/><text x="24" y="14" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" font-weight="700" fill="#fff" letter-spacing="0.3">AMERICAN</text><text x="24" y="22" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" font-weight="700" fill="#fff" letter-spacing="0.3">EXPRESS</text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#e0e0e0" stroke-width="0.5"/><text x="24" y="21" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="900" font-style="italic" letter-spacing="-0.5"><tspan fill="#003087">Pay</tspan><tspan fill="#009cde">Pal</tspan></text></svg><svg viewBox="0 0 48 32" width="48" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#000"/><g transform="translate(11,8)"><path d="M5.5 4.2c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7.1 1.3-.3 1.7-.8zm.6.9c-1-.1-1.8.5-2.2.5-.5 0-1.2-.5-2-.5-1 0-2 .6-2.5 1.5-1.1 1.8-.3 4.5.7 6 .5.7 1.1 1.5 1.9 1.4.7 0 1-.4 1.9-.4s1.2.4 1.9.4c.8 0 1.3-.7 1.8-1.4.6-.8.8-1.6.8-1.6 0 0-1.5-.6-1.5-2.3 0-1.4 1.2-2.1 1.2-2.1-.7-1-1.7-1.1-2-1.1z" fill="#fff"/></g><text x="32" y="21" text-anchor="middle" font-family="-apple-system,Helvetica Neue,Arial,sans-serif" font-size="10" font-weight="500" fill="#fff">Pay</text></svg></div>
+  <div class="ftb2"><p>© 2026 Ordonnance Royale. Tous droits réservés.</p><p>Fait avec ✦ et Foi</p></div></div></footer>
+
+<script>
+function goSrch(e){e.preventDefault();var q=document.getElementById('sInp').value.trim();if(q)window.location.href='boutique.html?search='+encodeURIComponent(q);}
+window.addEventListener('DOMContentLoaded',function(){var p=JSON.parse(localStorage.getItem('or_cart')||'[]');var n=p.reduce(function(s,i){return s+i.qte;},0);var e=document.getElementById('nbdg');if(e){e.textContent=n;e.classList.toggle('on',n>0);}});
+</script>
+</body>
+</html>
